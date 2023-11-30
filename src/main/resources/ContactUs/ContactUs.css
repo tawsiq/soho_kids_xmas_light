@@ -165,11 +165,39 @@ footer {
     height: auto;
 }
 
-#copyrigth {
+#copyright {
     display: flex;
     align-items: center;
 }
 
-#copyrigth p {
+#copyright p {
     font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    #contact-form,
+    #contact-details {
+        width: 100%;
+        max-width: none;
+    }
 }
