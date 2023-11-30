@@ -1,3 +1,5 @@
+/* Your existing CSS */
+
 body {
     background-color: white;
     font-family: Arial, sans-serif;
@@ -56,37 +58,41 @@ body {
     overflow: hidden;
 }
 
-.submission img,
-.final img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
+.image-container {
+    display: flex; /* Display images in a row */
+    justify-content: center; /* Center the images */
+    margin-bottom: 10px; /* Add some space at the bottom */
+}
+
+.big-image {
+    height: 400px; /* Fixed height for images */
+    width: auto; /* Set width to auto for responsive sizing */
     border-radius: 8px; /* Round corners for images */
+    margin-right: 10px; /* Provide some space between images */
 }
 
 .interactions {
     margin-top: 10px;
-    text-align: center;
 }
 
 .like-btn,
-.comment-btn {
-    padding: 5px 10px;
-    margin-right: 10px;
-    background-color: lightpink;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px; /* Round corners for buttons */
-}
-
 .like-counter {
-    display: block;
-    margin-top: 5px;
+    margin-right: 10px;
 }
 
 .comments-section {
     margin-top: 10px;
-    text-align: center;
+}
+
+.comment-input {
+    width: 70%; /* Adjust input width */
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.comments-list {
+    margin-top: 10px;
 }
 
 .comment {
@@ -94,36 +100,3 @@ body {
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
 }
-
-.comment-input {
-    width: calc(100% - 22px); /* Adjust input width for comments */
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-.final-product {
-    display: block;
-    margin-top: 10px;
-}
-
-.image-pair {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-}
-
-.image-container img {
-    margin: 0 5px;
-}
-
-.image-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* ... Additional CSS styling ... */

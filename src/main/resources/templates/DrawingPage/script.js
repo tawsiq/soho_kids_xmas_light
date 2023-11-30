@@ -4,43 +4,40 @@ document.addEventListener("DOMContentLoaded", function() {
     expandBtns.forEach(btn => {
         btn.addEventListener("click", function() {
             const yearContent = this.parentElement.nextElementSibling;
-            yearContent.style.display = yearContent.style.display === "none" ? "block" : "none";
+            if (yearContent.style.display === "none" || yearContent.style.display === "") {
+                yearContent.style.display = "block";
+            } else {
+                yearContent.style.display = "none";
+            }
         });
     });
 
     const likeBtns = document.querySelectorAll(".like-btn");
-    const commentBtns = document.querySelectorAll(".comment-btn");
+    const likeCounters = document.querySelectorAll(".like-counter");
+    const postCommentBtns = document.querySelectorAll(".post-comment-btn");
 
-    likeBtns.forEach(btn => {
+    likeBtns.forEach((btn, index) => {
         btn.addEventListener("click", function() {
-            const likeCounter = this.nextElementSibling;
-            let currentLikes = parseInt(likeCounter.innerText);
+            let currentLikes = parseInt(likeCounters[index].innerText);
             currentLikes++;
-            likeCounter.innerText = `${currentLikes} ${currentLikes === 1 ? 'Like' : 'Likes'}`;
+            likeCounters[index].innerText = `${currentLikes} ${currentLikes === 1 ? 'Like' : 'Likes'}`;
         });
     });
 
-    commentBtns.forEach(btn => {
+    postCommentBtns.forEach((btn) => {
         btn.addEventListener("click", function() {
-            const commentsSection = this.parentElement.querySelector('.comments-section');
-            const commentInput = document.createElement('input');
-            commentInput.setAttribute('type', 'text');
-            commentInput.setAttribute('placeholder', 'Write a comment...');
-            commentInput.classList.add('comment-input');
-            commentsSection.appendChild(commentInput);
+            const commentSection = this.parentElement;
+            const commentInput = commentSection.querySelector('.comment-input');
+            const commentsList = commentSection.querySelector('.comments-list');
 
-            commentInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    const commentText = this.value.trim();
-                    if (commentText !== '') {
-                        const newComment = document.createElement('div');
-                        newComment.classList.add('comment');
-                        newComment.innerText = commentText;
-                        commentsSection.appendChild(newComment);
-                        this.value = '';
-                    }
-                }
-            });
+            const commentText = commentInput.value.trim();
+            if (commentText !== '') {
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerText = commentText;
+                commentsList.appendChild(newComment);
+                commentInput.value = '';
+            }
         });
     });
 });
