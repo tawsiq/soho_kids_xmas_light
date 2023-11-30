@@ -66,6 +66,7 @@ body {
 
 .interactions {
     margin-top: 10px;
+    text-align: center;
 }
 
 .like-btn,
@@ -78,8 +79,14 @@ body {
     border-radius: 5px; /* Round corners for buttons */
 }
 
+.like-counter {
+    display: block;
+    margin-top: 5px;
+}
+
 .comments-section {
     margin-top: 10px;
+    text-align: center;
 }
 
 .comment {
@@ -98,6 +105,25 @@ body {
 .final-product {
     display: block;
     margin-top: 10px;
+}
+
+.image-pair {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    margin: 0 5px;
+}
+
+.image-label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 /* ... Additional CSS styling ... */
