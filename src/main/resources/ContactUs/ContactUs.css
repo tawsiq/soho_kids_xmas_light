@@ -150,3 +150,26 @@ footer {
     color: white;
     padding: 10px;
 }
+
+#social-media {
+    display: flex;
+}
+
+#social-media a {
+    display: block;
+    margin: 0 5px;
+}
+
+#social-media a img {
+    width: 30px;
+    height: auto;
+}
+
+#copyrigth {
+    display: flex;
+    align-items: center;
+}
+
+#copyrigth p {
+    font-size: 14px;
+}
