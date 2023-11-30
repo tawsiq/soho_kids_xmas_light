@@ -1,0 +1,103 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.year-section {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures child elements respect the rounded corners */
+}
+
+.year-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: lightblue;
+    border-bottom: 1px solid #bbb;
+    border-radius: 8px 8px 0 0;
+}
+
+.expand-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none; /* Remove focus outline */
+}
+
+.year-content {
+    display: none;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+    background-color: #f5f5f5;
+}
+
+.submission,
+.final {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.submission img,
+.final img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Round corners for images */
+}
+
+.interactions {
+    margin-top: 10px;
+}
+
+.like-btn,
+.comment-btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: lightpink;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Round corners for buttons */
+}
+
+.comments-section {
+    margin-top: 10px;
+}
+
+.comment {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.comment-input {
+    width: calc(100% - 22px); /* Adjust input width for comments */
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.final-product {
+    display: block;
+    margin-top: 10px;
+}
+
+/* ... Additional CSS styling ... */
