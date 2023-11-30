@@ -54,3 +54,99 @@ main {
     justify-content: space-evenly;
     padding: 20px;
 }
+
+#contact-form {
+    width: 60%;
+    max-width: 800px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 25px;
+}
+
+#contact-form h1 {
+    text-align: center;
+    color: #EC4D1D;
+}
+
+#contact-form p {
+    text-align: center;
+    color: #000000;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #EC4D1D;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #EC4D1D;
+}
+
+#submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #EC4D1D;
+    color: white;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #000000;
+}
+
+#contact-details {
+    width: 30%;
+    max-width: 400px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+#contact-details h2 {
+    text-align: center;
+    color: #EC4D1D;
+}
+
+#contact-details p {
+    text-align: center;
+    color: #000000;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column; /* Change this to column */
+    align-items: center; /* Change this to center */
+    margin: 10px;
+    justify-content: center;
+}
+
+.icon {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px; /* Add this line to create space between the image and the text */
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EC4D1D;
+    color: white;
+    padding: 10px;
+}
