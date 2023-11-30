@@ -18,3 +18,36 @@
     border: none;
     cursor: pointer;
 }
+
+.carTab{
+    width: 400px;
+    background-color:#353432;
+    color:#eee;
+    position: fixed;
+    inset: 0 0 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+}
+
+.carTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.carTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.carTab .btn button{
+    background-color: darkred;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.carTab .btn .close{
+    background-color: #eee;
+}
