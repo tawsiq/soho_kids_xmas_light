@@ -58,9 +58,16 @@
 
 .carTab .listCart .item{
     display: grid;
-    grid-template-columns: 70px 150px 50px;
+    grid-template-columns: 70px 150px 50px 50px;
     gap: 10px;
     text-align: center;
+    align-items: center;
+}
+
+.listCart .quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
 }
 
