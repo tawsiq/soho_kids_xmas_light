@@ -2,52 +2,51 @@
     /* Css reset for more consistency across multiple platforms */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-weight: normal;
+    font-family: sans-serif;
 }
 body{
     background: #14152A;
     color: #EAEBED;
-    font-family: "Calibri Light", serif;
-}
-/** Fragment: Underlined Header **/
-.section-header{
-    /* Contains content: h3, shaped-underline-fragment  */
-    width: fit-content;
-    width: -moz-fit-content;
-    margin: auto;
     font-size: 1rem;
 }
-.section-header h3{
-    width: fit-content;
-    width: -moz-fit-content;
-    padding: 3%; /* Relative to the width of the containing block - section-header */
-    margin: auto;
+
+header{
+    /*Instead of declaring multiple display:flexes, you can declare it once here, then use align attributes to displace things vertically. */
 }
-/* For circle underline fragment */
-.section-header-underline #left-line, #circle, #right-line {
-    float: left;
+h3{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0.3em;
+
 }
-#left-line {
-    /* em: relative to h3 fontsize */
+/* Container for underline elements */
+.header-underline {
+    /* Ordinary Flex - add apple support if necessary */
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+.left-line {
     border: 0.05em solid #754287;
-    width: 10em;
-    position: relative;
-    right: 0.5em;
-    top: 0.35em;
+    height: 0;
+    margin: 0.35em 0 0 20%;
+    flex: 5;
 }
-#circle {
-    /* em: relative to h3 fontsize */
-    position: center;
-    width: 1em;
-    height: 1em;
+.circle {
+    box-sizing: border-box;
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
     border: solid gold 0.13em;
-    border-radius: 0.5em;
+
 }
-#right-line {
-    /* em: relative to h3 fontsize */
+.right-line {
     border: 0.05em solid #754287;
-    width: 10em;
-    position: relative;
-    left: 0.5em;
-    top: 0.35em;
+    height: 0;
+    margin: 0.35em 20% 0 0;
+    flex: 5;
 }
