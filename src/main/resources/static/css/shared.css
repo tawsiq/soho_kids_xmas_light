@@ -1,0 +1,53 @@
+* {
+    /* Css reset for more consistency across multiple platforms */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #14152A;
+    color: #EAEBED;
+    font-family: "Calibri Light", serif;
+}
+/** Fragment: Underlined Header **/
+.section-header{
+    /* Contains content: h3, shaped-underline-fragment  */
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: auto;
+    font-size: 1rem;
+}
+.section-header h3{
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 3%; /* Relative to the width of the containing block - section-header */
+    margin: auto;
+}
+/* For circle underline fragment */
+.section-header-underline #left-line, #circle, #right-line {
+    float: left;
+}
+#left-line {
+    /* em: relative to h3 fontsize */
+    border: 0.05em solid #754287;
+    width: 10em;
+    position: relative;
+    right: 0.5em;
+    top: 0.35em;
+}
+#circle {
+    /* em: relative to h3 fontsize */
+    position: center;
+    width: 1em;
+    height: 1em;
+    border: solid gold 0.13em;
+    border-radius: 0.5em;
+}
+#right-line {
+    /* em: relative to h3 fontsize */
+    border: 0.05em solid #754287;
+    width: 10em;
+    position: relative;
+    left: 0.5em;
+    top: 0.35em;
+}
