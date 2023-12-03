@@ -12,21 +12,23 @@ body{
 }
 
 header{
-    /*Instead of declaring multiple display:flexes, you can declare it once here, then use align attributes to displace things vertically. */
-}
-h3{
-    text-align: center;
     display: flex;
-    justify-content: center;
-    flex: 1;
+    flex-direction: column;
+    /*
+    - Header is a container for h3 & .header-underline.
+    - Column used to align them on top of one another.
+    */
+}
+header h3{
+    align-self: center;
+    text-align: center;
     box-sizing: border-box;
     padding: 0.3em;
-
 }
-/* Container for underline elements */
 .header-underline {
-    /* Ordinary Flex - add apple support if necessary */
+    /* Container for the left/right line + circle elements. */
     display: flex;
+    /* flex-direction: row; is default. */
     justify-content: center;
     gap: 0.5em;
 }

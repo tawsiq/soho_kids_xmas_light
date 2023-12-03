@@ -27,7 +27,11 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-
+    <div class = "header-underline" th:fragment="underline-circle">
+        <div class = "left-line"></div>
+        <div class = "circle"></div>
+        <div class = right-line></div>
+    </div>
 </header>
 <main>
 
