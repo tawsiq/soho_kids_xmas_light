@@ -36,7 +36,7 @@ header h3{
     border: 0.05em solid #754287;
     height: 0;
     margin: 0.35em 0 0 20%;
-    flex: 5;
+    flex: 3;
 }
 .circle {
     box-sizing: border-box;
@@ -50,5 +50,30 @@ header h3{
     border: 0.05em solid #754287;
     height: 0;
     margin: 0.35em 20% 0 0;
-    flex: 5;
+    flex: 3;
+}
+/*
+- Optimise content for screens of width 600px or less
+- Put all Css you'd like to override for these screens here.
+*/
+@media (max-width: 600px) {
+    body{
+        font-size: 1.2rem;
+    }
+
+    header h3{
+        padding: 0.2em;
+    }
+
+    .header-underline {
+        gap: 0.3em; /* Fixed gap size */
+    }
+
+    .circle {
+        width: 0.6em;
+        height: 0.6em;
+    }
+    .right-line, .left-line{
+        flex: 7;
+    }
 }
