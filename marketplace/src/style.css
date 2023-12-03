@@ -85,3 +85,8 @@
     background-color: transparent;
     color: #eee;
 }
+
+.listCart .item:nth-child(even) {
+    background-color: transparent;
+    color: #eee1;
+}
