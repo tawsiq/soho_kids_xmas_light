@@ -56,7 +56,7 @@ header h3{
 - Optimise content for screens of width 600px or less
 - Put all Css you'd like to override for these screens here.
 */
-@media (max-width: 600px) {
+@media (max-width: 450px) {
     body{
         font-size: 1.2rem;
     }
