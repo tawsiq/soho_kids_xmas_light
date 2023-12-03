@@ -36,7 +36,7 @@ header h3{
     border: 0.05em solid #754287;
     height: 0;
     margin: 0.35em 0 0 20%;
-    flex: 3;
+    flex: 1;
 }
 .circle {
     box-sizing: border-box;
@@ -50,7 +50,7 @@ header h3{
     border: 0.05em solid #754287;
     height: 0;
     margin: 0.35em 20% 0 0;
-    flex: 3;
+    flex: 1;
 }
 /*
 - Optimise content for screens of width 600px or less
@@ -60,20 +60,23 @@ header h3{
     body{
         font-size: 1.2rem;
     }
-
     header h3{
         padding: 0.2em;
     }
-
     .header-underline {
         gap: 0.3em; /* Fixed gap size */
     }
-
     .circle {
         width: 0.6em;
         height: 0.6em;
     }
-    .right-line, .left-line{
-        flex: 7;
+    .right-line{
+        flex: 1;
+        margin: 0.35em 10% 0 0
+    }
+
+    .left-line{
+        flex: 1;
+        margin: 0.35em 0 0 10%;
     }
 }
