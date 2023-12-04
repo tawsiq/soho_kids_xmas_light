@@ -1,0 +1,32 @@
+.winner-headline-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.winner-headline-flex-container .left-hollow-triangle{
+    margin: 0.7em 0.3em 0 0.7em;
+}
+.winner-headline-flex-container .right-hollow-triangle{
+    margin: 0.7em 0.7em 0 0.3em;
+}
+.winner-headline-flex-container .right-line{
+    margin: 1.3em 7em 0 0;
+    flex: 1;
+}
+.winner-headline-flex-container .left-line{
+    margin: 1.3em 0 0 7em;
+    flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+

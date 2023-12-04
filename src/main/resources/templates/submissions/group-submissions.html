@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile phones / tablets -->
     <title>Group Submissions</title>
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
-    <link rel = "stylesheet" th:href="@{/css/submissions-style/year-groups-list.css}">
+    <link rel = "stylesheet" th:href="@{/css/submissions-style/group-submissions.css}">
+
+<!--    <link rel="stylesheet" href="../../static/css/shared.css">-->
+    <link rel="stylesheet" href="../../static/css/submissions-style/group-submissions.css">
+
+
 </head>
 <body>
 <!-- Headers will share CSS files. -->
@@ -13,16 +18,24 @@
     <h2>[Dynamic Year & Year Group]</h2>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
-    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header><br>
+
+<main></main>
+
+<header class="winner-headline-flex-container">
+    <div class="left-line"></div>
+    <img class="left-hollow-triangle" th:src="@{/css/submissions-style/images/hollow-triangle-left.png}" height="20" width="20" alt="left-hollow-triangle"/>
+    <h2>Winning Submissions</h2>
+    <img class="right-hollow-triangle" th:src="@{/css/submissions-style/images/hollow-triangle-right.png}" height="20" width="20" alt="right-hollow-triangle"/>
+    <div class="right-line"></div>
+
 </header><br>
 
 <main></main>
 
 <header>
     <h2>All Submissions</h2>
-    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
-    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header><br>
 
 <main></main>
