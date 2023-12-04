@@ -2,6 +2,7 @@
     /* Css reset for more consistency across multiple platforms */
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-weight: normal;
     font-family: sans-serif;
 }
@@ -10,7 +11,7 @@ body{
     color: #EAEBED;
     font-size: 1rem;
 }
-
+/********* HEADER UNDERLINES *********/
 header{
     display: flex;
     flex-direction: column;
@@ -19,7 +20,7 @@ header{
     - Column used to align them on top of one another.
     */
 }
-header h3{
+header h2, h3, h4{
     align-self: center;
     text-align: center;
     box-sizing: border-box;
@@ -35,7 +36,7 @@ header h3{
 .left-line {
     border: 0.05em solid #754287;
     height: 0;
-    margin: 0.35em 0 0 20%;
+    margin: 0.35em 0 0 20%; /* change percentage to change how much screen-space the line takes up */
     flex: 1;
 }
 .circle {
@@ -52,6 +53,8 @@ header h3{
     margin: 0.35em 20% 0 0;
     flex: 1;
 }
+/***************************************/
+
 /*
 - Optimise content for screens of width 600px or less
 - Put all Css you'd like to override for these screens here.
@@ -60,7 +63,7 @@ header h3{
     body{
         font-size: 1.2rem;
     }
-    header h3{
+    header h2, h3, h4{
         padding: 0.2em;
     }
     .header-underline {
@@ -74,7 +77,6 @@ header h3{
         flex: 1;
         margin: 0.35em 10% 0 0
     }
-
     .left-line{
         flex: 1;
         margin: 0.35em 0 0 10%;
