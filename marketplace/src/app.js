@@ -1,104 +1,103 @@
-let iconCart = document.querySelector('.icon-cart');
-let closeCart =document.querySelector('.close');
-let body = document.querySelector('body');
 let listProductHTML = document.querySelector('.listProduct');
 let listCartHTML = document.querySelector('.listCart');
-let listCartSpan = document.querySelector('.icon-cart span');
+let iconCart = document.querySelector('.icon-cart');
+let iconCartSpan = document.querySelector('.icon-cart span');
+let body = document.querySelector('body');
+let closeCart = document.querySelector('.close');
+let products = [];
+let cart = [];
 
-let listProducts = [];
-let carts = [];
+
 iconCart.addEventListener('click', () => {
-    body.classList.toggle('showCart')
+    body.classList.toggle('showCart');
 })
 closeCart.addEventListener('click', () => {
-    body.classList.toggle('showCart')
+    body.classList.toggle('showCart');
 })
+
 
 
 const addDataToHTML = () => {
-    listProductHTML.innerHTML = '';
-    if(listProducts.length > 0){
-        listProducts.forEach(product => {
+    // remove datas default from HTML
+
+    // add new datas
+    if(products.length > 0) // if has data
+    {
+        products.forEach(product => {
             let newProduct = document.createElement('div');
-            newProduct.classList.add('item');
             newProduct.dataset.id = product.id;
-            newProduct.innerHTML = `
-                <img src="http://localhost:63342/untitled/marketplace/src/${product.image}" alt="t-shirt design 1">
+            newProduct.classList.add('item');
+            newProduct.innerHTML =
+                `<img src="${product.image}" alt="">
                 <h2>${product.name}</h2>
                 <div class="price">£${product.price}</div>
-                <button class="addCart">
-                    Add To Cart
-                </button>`;
-            listProductHTML.appendChild(newProduct); // Append newProduct to listProductHTML
-        })
-    }
-}
-listProductHTML.addEventListener('click',(event) => {
-    let positionClick = event.target;
-    if(positionClick.classList.contains('addCart')){
-        let product_id = positionClick.parentElement.dataset.id;
-        addToCart(product_id);
-    }
-})
-
-const addToCart = (product_id) => {
-    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
-    if (carts.length <= 0) {
-        carts = [{
-            product_id: product_id;
-            quantity: 1;
-        }]
-    } else if(positionThisProductInCart < 0){
-        carts.push({
-            product_id: product_id,
-            quantity: 1
+                <button class="addCart">Add To Cart</button>`;
+            listProductHTML.appendChild(newProduct);
         });
-        
-    }else{
-        carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
     }
-    addCartToHTML();
 }
-const addCartToHTML = () => {
-    listCartHTML.innerHTML = '';
-    let totalQuantity = 0;
-    if(carts.length > 0){
-        carts.forEach(cart => {
-            totalQuantity = totalQuantity + cart.quantity
-            let newCart = document.createElement('div');
-            newCart.classList.add('item');
-             let positionProduct = listProducts.findIndex((value) => value.id == cart.product_id);
-             let info = listProducts[positionProduct];
-            newCart.innerHTML = `
-                        <div class="item">
-                <div class="image">
-                    <img src="${info.image}" alt="">
-                </div>
-                    <div class="name">
-                        ${info.name}
-                    </div>
-                    <div class="totalPrice">
-                        £${info.price * cart.quantity}
-                    </div>
-                    <div class="quantity">
-                        <span class="minus"><</span>
-                        <span>${cart.quantity}</span>
-                        <span class="plus">></span>
-                    </div>
-                `;
-            listCartHTML.appendChild(newCart)
+    listProductHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if(positionClick.classList.contains('addCart')){
+            let id_product = positionClick.parentElement.dataset.id;
+            addToCart(id_product);
+        }
+    })
 
-        })
-    }
-    iconCartSpan.innerText = totalQuantity;
+    const addToCart = (product_id) => {
+        let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+        if(cart.length <= 0){
+            cart = [{
+                product_id: product_id,
+                quantity: 1
+            }];
+        }else if(positionThisProductInCart < 0){
+            cart.push({
+                product_id: product_id,
+                quantity: 1
+            });
+        }else{
+            cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
+        }
+        addCartToHTML();
 }
+    const addCartToHTML = () => {
+        listCartHTML.innerHTML = '';
+        let totalQuantity = 0;
+        if(cart.length > 0){
+            cart.forEach(item => {
+                totalQuantity = totalQuantity +  item.quantity;
+                let newItem = document.createElement('div');
+                newItem.classList.add('item');
+                newItem.dataset.id = item.product_id;
+
+                let positionProduct = products.findIndex((value) => value.id == item.product_id);
+                let info = products[positionProduct];
+                listCartHTML.appendChild(newItem);
+                newItem.innerHTML = `
+            <div class="image">
+                    <img src="${info.image}">
+                </div>
+                <div class="name">
+                ${info.name}
+                </div>
+                <div class="totalPrice">£${info.price * item.quantity}</div>
+                <div class="quantity">
+                    <span class="minus"><</span>
+                    <span>${item.quantity}</span>
+                    <span class="plus">></span>
+                </div>
+            `;
+            })
+        }
+        iconCartSpan.innerText = totalQuantity;
+    }
 const initApp = () => {
     //get data from json
     fetch('products.json')
         .then(response => response.json())
         .then(data => {
-            listProducts = data;
-            console.log(listProducts);
+            products = data;
             addDataToHTML();
         })
 }

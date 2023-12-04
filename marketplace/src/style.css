@@ -53,7 +53,7 @@ header .icon-cart span{
     cursor: pointer;
 }
 
-.carTab{
+.cartTab{
     width: 400px;
     background-color:#353432;
     color:#eee;
@@ -64,24 +64,24 @@ header .icon-cart span{
     transition: transform .5s;
 }
 
-body.showCart .carTab{
+body.showCart .cartTab{
     inset: 0 0 0 auto;
 }
 
 body.showCart .container{
     transform: translateX(-250px);
 }
-.carTab h1{
+.cartTab h1{
     padding: 20px;
     margin: 0;
     font-weight: 300;
 }
 
-.carTab .btn{
+.cartTab .btn{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-.carTab .btn button{
+.cartTab .btn button{
     background-color: darkred;
     border: none;
     font-family: Poppins;
@@ -90,15 +90,15 @@ body.showCart .container{
 
 }
 
-.carTab .btn .close{
+.cartTab .btn .close{
     background-color: #eee;
 }
 
-.carTab .listCart .item img{
+.cartTab .listCart .item img{
     width: 100%;
 }
 
-.carTab .listCart .item{
+.cartTab .listCart .item{
     display: grid;
     grid-template-columns: 70px 150px 50px 50px;
     gap: 10px;
