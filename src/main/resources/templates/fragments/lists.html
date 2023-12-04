@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org" lang="en">
+<!-- Sets up element flow from left to right. Insert fragment below a h3 element-->
+<article class="list-container-year-groups" th:fragment="year-group-list">
+  <ul class="col0">
+    <li> Reception </li>
+  </ul>
+  <div class="list-container-years1-6">
+    <ul class="col1">
+      <li> Year 1 </li>
+      <li> Year 2 </li>
+    </ul>
+    <ul class="col2">
+      <li> Year 3 </li>
+      <li> Year 4 </li>
+    </ul>
+    <ul class="col3">
+      <li> Year 5 </li>
+      <li> Year 6 </li>
+    </ul>
+  </div>
+</article>
+<!--
+- Need 3 separate fragments here to include separate links to pages per year.
+- This isn't dry code, but it works for now. Need to get functionality sorted + a basic design. Improve later.
+-->
+</html>
