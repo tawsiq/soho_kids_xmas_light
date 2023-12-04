@@ -30,15 +30,7 @@
 </header>
 <!-- OBJECTIVE: Complete submission template layouts. Thymeleaf comes later whilst server routing & databases are being sorted out -->
 <main>
-    <ul class = "list-container">
-        <li> Reception </li>
-        <li> Year 1 </li>
-        <li> Year 2 </li>
-        <li> Year 3 </li>
-        <li> Year 4 </li>
-        <li> Year 5 </li>
-        <li> Year 6 </li>
-    </ul>
+
 </main>
 
 <header>
@@ -48,7 +40,9 @@
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header>
 
-<main></main>
+<main>
+    <article th:replace="fragments/lists :: year-group-list"></article>
+</main>
 
 <header>
     <h3>2022 - Theme Here </h3>
@@ -57,7 +51,9 @@
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header>
 
-<main></main>
+<main>
+    <article th:replace="fragments/lists :: year-group-list"></article>
+</main>
 
 <header>
     <h3>2021 - Theme Here </h3>
@@ -66,7 +62,9 @@
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header>
 
-<main></main>
+<main>
+    <article th:replace="fragments/lists :: year-group-list"></article>
+</main>
 
 </body>
 </html>

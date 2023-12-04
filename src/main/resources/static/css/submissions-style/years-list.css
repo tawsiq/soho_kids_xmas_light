@@ -1,0 +1,27 @@
+/********* BULLETED LIST CONTENT *********/
+.list-container-year-groups{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    padding: 0.3em;
+}
+.list-container-year-groups .col0{
+    text-align: center;
+    padding: 0.3em;
+}
+.list-container-year-groups ul{
+    list-style-type: none;
+}
+.list-container-years1-6{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.list-container-years1-6 ul{
+    padding: 0.3em 0.6em 0.6em 0.6em;
+}
+.list-container-years1-6 ul li{
+    padding: 0.3em;
+}
+
+/***************************************/

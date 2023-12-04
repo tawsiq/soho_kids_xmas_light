@@ -11,7 +11,7 @@ body{
     color: #EAEBED;
     font-size: 1rem;
 }
-/*** HEADER UNDERLINES ***/
+/********* HEADER UNDERLINES *********/
 header{
     display: flex;
     flex-direction: column;
@@ -54,7 +54,6 @@ header h2, h3, h4{
     flex: 1;
 }
 /***************************************/
-
 
 /*
 - Optimise content for screens of width 600px or less
