@@ -13,21 +13,23 @@ closeCart.addEventListener('click', () => {
 
 
 const addDataToHTML = () => {
-    listPrroductHTML.innerHTML = '';
+    listProductHTML.innerHTML = '';
     if(listProducts.length > 0){
         listProducts.forEach(product => {
             let newProduct = document.createElement('div');
             newProduct.classList.add('item');
-            newProduct.innerHTML = '' +
-                ` <img src="http://localhost:63342/untitled/marketplace/src/${product.image}" alt =" t-shirt design 1">\n' +
-                        <h2>${product.name}</h2>\n' +
-                        <div class="price">£${product.price}</div>\n' +
-                        <button class="addCart">\n' +
-                            Add To Cart\n' +
-                       </button>`;
+            newProduct.innerHTML = `
+                <img src="http://localhost:63342/untitled/marketplace/src/${product.image}" alt="t-shirt design 1">
+                <h2>${product.name}</h2>
+                <div class="price">£${product.price}</div>
+                <button class="addCart">
+                    Add To Cart
+                </button>`;
+            listProductHTML.appendChild(newProduct);
         })
     }
 }
+
 const initApp = () => {
     //get data from json
     fetch('products.json')
