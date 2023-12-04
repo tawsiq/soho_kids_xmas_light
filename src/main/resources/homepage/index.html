@@ -2,46 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../static/css/shared.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <title>Soho Kid's Project</title>
 </head>
 <body>
 
-// NavBar
+<!-- NavBar -->
 
-    <nav>
-        <ul>
+<nav>
+
+    <ul>
+        <li>
+            <span class="logo-container">
+        <img src="../static/homepage content/AFK_Logo_small.png" height="73" width="262" alt="Logo" class="logo"/>
+            </span>
+        </li>
+
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#drawings">Drawings</a></li>
             <li><a href="#marketplace">Marketplace</a></li>
             <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+    </ul>
+</nav>
 
 
-// Content
+<!-- Title -->
+
+<div class="title-container">
+    <h1 class="main-title">Soho Kids XMAS Lights Project</h1>
+</div>
+
+<header>
+    <h3>Welcome to Soho Kids XMAS Lights</h3>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+    <div class = "header-underline" th:fragment="underline-circle">
+        <div class = "left-line"></div>
+        <div class = "circle"></div>
+        <div class = right-line></div>
+    </div>
+</header>
+
+<!-- Slideshow -->
+
+<div class="slideshow-container">
+
+</div>
+
+<!-- Content -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<header>
+    <h3>Have a look around!</h3>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+    <div class = "header-underline" th:fragment="underline-circle">
+        <div class = "left-line"></div>
+        <div class = "circle"></div>
+        <div class = right-line></div>
+    </div>
+</header>
+
 
     <section id="home">
-        // Home content goes here
+        <!-- Home content here -->
     </section>
 
     <section id="about">
-    // About Us content goes here
+        <!-- About Us content here -->
     </section>
 
     <section id="drawings">
-    // Drawings content goes here
+        <!-- Drawings -->
     </section>
 
     <section id="marketplace">
-    // Marketplace content goes here
+        <!-- Marketplace -->
     </section>
 
     <section id="contact">
-    // Contact Us content goes here
+        <!-- Contact Us content here -->
     </section>
+
+
+<header>
+    <h3>Our Locations</h3>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+    <div class = "header-underline" th:fragment="underline-circle">
+        <div class = "left-line"></div>
+        <div class = "circle"></div>
+        <div class = right-line></div>
+    </div>
+</header>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 </body>
 </html>
