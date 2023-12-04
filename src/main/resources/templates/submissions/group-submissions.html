@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th = "https://www.thymeleaf.org" lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Submissions list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile phones / tablets -->
+    <title>Group Submissions</title>
+    <link rel = "stylesheet" th:href="@{/css/shared.css}">
+    <link rel = "stylesheet" th:href="@{/css/submissions-style/year-groups-list.css}">
 </head>
 <body>
+<!-- Headers will share CSS files. -->
+<header>
+    <h2>[Dynamic Year & Year Group]</h2>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header><br>
+
+<main></main>
+
+<header>
+    <h2>All Submissions</h2>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header><br>
+
+<main></main>
 
 </body>
 </html>
