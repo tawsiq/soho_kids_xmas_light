@@ -60,6 +60,11 @@ const addDataToHTML = () => {
             cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
         }
         addCartToHTML();
+        addCartToMemory();
+}
+
+const addCartToMemory = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
     const addCartToHTML = () => {
         listCartHTML.innerHTML = '';
@@ -99,6 +104,13 @@ const initApp = () => {
         .then(data => {
             products = data;
             addDataToHTML();
+
+            if(localStorage.getItem('cart')){
+                cart = JSON.parse(localStorage.getItem('cart'));
+                addCartToHTML();
+            }
         })
+
+
 }
 initApp();
