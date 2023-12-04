@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile phones / tablets -->
+    <title>List Of Year Groups</title>
+    <!--
+    - First two links are used for style debugging without needing to rerun the application (Open this template through intelliJ)
+    - When you want to open the template through intelliJ whilst seeing fragments, just temporarily copy and paste their code into the relevant position.
+    - Thymeleaf fragments will ignore the first two links - they only see th:href.
+    -->
+    <link rel = "stylesheet" href="../../static/css/shared.css">
+    <link rel = "stylesheet" href="../../static/css/submissions-style/years-list.css">
+    <!--
+    - Specific overwrites some shared properties, so that comes afterwards.
+    - Default directory for stylesheets & JS is resources/static/, so we start referencing with that in mind.
+    - shared.css?v=1 is a trick used to stop browsers loading the stylesheet from cache - it acts as a css version number.
+    -- Note to self: increment this when css changes do not appear on browser page refresh
+    -->
+    <link rel = "stylesheet" th:href="@{/css/shared.css}">
+    <link rel = "stylesheet" th:href="@{/css/submissions-style/years-list.css}">
+</head>
+<body>
+<!-- Headers will share CSS files. -->
+<header>
+    <h2>Participating Year Groups</h2>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header>
+<!-- OBJECTIVE: Complete submission template layouts. Thymeleaf comes later whilst server routing & databases are being sorted out -->
+<main>
+    <ul class = "list-container">
+        <li> Reception </li>
+        <li> Year 1 </li>
+        <li> Year 2 </li>
+        <li> Year 3 </li>
+        <li> Year 4 </li>
+        <li> Year 5 </li>
+        <li> Year 6 </li>
+    </ul>
+</main>
+
+<header>
+    <h3>2023 - Theme Here </h3>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header>
+
+<main></main>
+
+<header>
+    <h3>2022 - Theme Here </h3>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header>
+
+<main></main>
+
+<header>
+    <h3>2021 - Theme Here </h3>
+    <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+</header>
+
+<main></main>
+
+</body>
+</html>
