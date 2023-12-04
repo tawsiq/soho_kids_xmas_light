@@ -65,12 +65,12 @@ main {
 
 #contact-form h1 {
     text-align: center;
-    color: #EC4D1D;
+    color: white;
 }
 
 #contact-form p {
     text-align: center;
-    color: #000000;
+    color: white;
 }
 
 .form-group {
@@ -120,12 +120,12 @@ main {
 
 #contact-details h2 {
     text-align: center;
-    color: #EC4D1D;
+    color: white;
 }
 
 #contact-details p {
     text-align: center;
-    color: #000000;
+    color: white;
 }
 
 .detail {
@@ -201,3 +201,7 @@ footer {
         max-width: none;
     }
 }
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
