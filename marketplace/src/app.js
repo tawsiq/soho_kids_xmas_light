@@ -1,7 +1,7 @@
 let iconCart = document.querySelector('.icon-cart');
 let closeCart =document.querySelector('.close')
 let body = document.querySelector('body')
-let listPrroductHTML = document.querySelector('.listProduct');
+let listProductHTML = document.querySelector('.listProduct');
 
 let listProducts = [];
 iconCart.addEventListener('click', () => {
@@ -25,10 +25,11 @@ const addDataToHTML = () => {
                 <button class="addCart">
                     Add To Cart
                 </button>`;
-            listProductHTML.appendChild(newProduct);
+            listProductHTML.appendChild(newProduct); // Append newProduct to listProductHTML
         })
     }
 }
+
 
 const initApp = () => {
     //get data from json
