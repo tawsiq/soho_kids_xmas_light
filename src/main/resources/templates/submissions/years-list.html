@@ -9,8 +9,8 @@
     - When you want to open the template through intelliJ whilst seeing fragments, just temporarily copy and paste their code into the relevant position.
     - Thymeleaf fragments will ignore the first two links - they only see th:href.
     -->
-    <link rel = "stylesheet" href="../../static/css/shared.css">
-    <link rel = "stylesheet" href="../../static/css/submissions-style/years-list.css">
+<!--    <link rel = "stylesheet" href="../../static/css/shared.css">-->
+<!--    <link rel = "stylesheet" href="../../static/css/submissions-style/years-list.css">-->
     <!--
     - Specific overwrites some shared properties, so that comes afterwards.
     - Default directory for stylesheets & JS is resources/static/, so we start referencing with that in mind.
@@ -27,10 +27,10 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-</header>
+</header><br>
 <!-- OBJECTIVE: Complete submission template layouts. Thymeleaf comes later whilst server routing & databases are being sorted out -->
 <main>
-
+    <br><p style="text-align: center; color: dimgray">Banner could go here</p> <br>
 </main>
 
 <header>
@@ -38,7 +38,7 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-</header>
+</header><br>
 
 <main>
     <article th:replace="fragments/lists :: year-group-list"></article>
@@ -49,7 +49,7 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-</header>
+</header><br>
 
 <main>
     <article th:replace="fragments/lists :: year-group-list"></article>
@@ -60,7 +60,7 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-</header>
+</header><br>
 
 <main>
     <article th:replace="fragments/lists :: year-group-list"></article>
