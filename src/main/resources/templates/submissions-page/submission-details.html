@@ -7,7 +7,7 @@
 
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/submission-details.css}">
-    <script th:src="@{/js/submissions-page.js}" async></script>
+    <script th:src="@{/js/auto-expand-input.js}" async></script>
 
 </head>
 <body>
@@ -27,14 +27,10 @@
     <br>
     <form class="form-div-flex-container" th:action = "@{URl/here}" method = "post">
 
-        <div class="comment-box-wrapper">
-            <label class="form-label" for="comment"></label>
-            <textarea class="auto-expand" id="comment" name="comment" placeholder="Write a comment about this submission"></textarea><br>
-        </div>
+        <label class="form-label" for="comment"></label>
+        <textarea class="auto-expanding-input" id="comment" name="comment" placeholder="Write a comment about this submission"></textarea>
 
-        <div class="submit">
-            <button class="btn btn-primary">Submit</button>
-        </div>
+        <button class="button">Post Comment</button>
 
     </form><br>
 </main>

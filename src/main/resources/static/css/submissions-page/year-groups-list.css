@@ -5,44 +5,36 @@
     box-sizing: border-box;
 
 }
-.list-container-year-groups .col0 li{
-    transition: border-color 0.3s ease;
-
+.col0 .button{
     margin: auto;
-    padding: 0.35em;
     width: fit-content;
     width: -moz-fit-content;
 
-    background: hsl(237, 35%, 10%);
-    border: 2px solid hsl(237, 35%, 15%);
-    border-radius: 0.28em;
 }
-.list-container-year-groups ul{
-    list-style-type: none;
-}
-.list-container-years1-6{
-    display: flex;
-    /* flex-direction: row; */
-    justify-content: center;
-}
-.list-container-years1-6 ul{
-    padding: 0.3em 0.6em 0.6em 0.6em;
-}
-.list-container-years1-6 ul li{
-    transition: border-color 0.3s ease;
+/*.list-container-year-groups ul{*/
 
-    padding: 0.35em;
-    background: hsl(237, 35%, 10%);
-    border: 2px solid hsl(237, 35%, 15%);
-    border-radius: 0.28em;
-}
-/* Button hover style */
-.list-container-year-groups li:hover, li:focus{
-
-    background: hsl(237, 35%, 5%);
-    color: hsl(283, 100%, 90%);
-    border: 2px solid #c42eff;
-    border-radius: 0.28em;
-    cursor: pointer;
-}
+/*}*/
+/*.list-container-years1-6{*/
+/*    display: flex;*/
+/*    !* flex-direction: row; *!*/
+/*    justify-content: center;*/
+/*}*/
+/*.list-container-years1-6 ul{*/
+/*    padding: 0.3em 0.6em 0.6em 0.6em;*/
+/*}*/
 /***************************************/
+.year-group-list{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+.list-container-year-groups{
+    margin: 0 10em 2em 10em;
+}
+@media (max-width: 600px){
+    .list-container-year-groups {
+        margin: 0 1em 2em 1em;
+    }
+}
