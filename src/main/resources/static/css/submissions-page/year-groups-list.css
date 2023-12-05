@@ -3,8 +3,11 @@
     font-size: 1rem;
     padding: 0.3em;
     box-sizing: border-box;
+
 }
 .list-container-year-groups .col0 li{
+    transition: border-color 0.3s ease;
+
     margin: auto;
     padding: 0.35em;
     width: fit-content;
@@ -26,6 +29,8 @@
     padding: 0.3em 0.6em 0.6em 0.6em;
 }
 .list-container-years1-6 ul li{
+    transition: border-color 0.3s ease;
+
     padding: 0.35em;
     background: hsl(237, 35%, 10%);
     border: 2px solid hsl(237, 35%, 15%);
@@ -33,9 +38,10 @@
 }
 /* Button hover style */
 .list-container-year-groups li:hover, li:focus{
+
     background: hsl(237, 35%, 5%);
-    color: hsl(284, 25%, 90%);
-    border: 2px solid #481e57;
+    color: hsl(283, 100%, 90%);
+    border: 2px solid #c42eff;
     border-radius: 0.28em;
     cursor: pointer;
 }

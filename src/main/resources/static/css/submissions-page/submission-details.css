@@ -12,17 +12,19 @@
     margin: 1em;
 }
 .form-div-flex-container .auto-expand{
+    transition: border-color 0.7s ease;
+
     border-top: 2px solid transparent;
     border-right: 2px solid transparent;
     border-bottom: 2px solid #754287;
     border-left: 2px solid transparent;
     background: #14152A;
-    height: 1.5em;
+    color: #EAEBED;
 
+    height: 1.5em;
     width: 40em; /* matches the image width above */
     min-height: 1.5em; /* Set minimum height to prevent textarea from collapsing completely */
     overflow-y: hidden;
-    transition: border-color 0.3s ease;
     resize: none; /* resizing handled by js*/
 
 }
@@ -30,7 +32,7 @@
     text-align: center;
     color: #919191;
 }
-.form-div-flex-container .auto-expand:focus{
+.form-div-flex-container .auto-expand:focus, .auto-expand:hover{
     outline: none;
     border-top: 2px solid transparent; !important;
     border-right: 2px solid transparent; !important;
