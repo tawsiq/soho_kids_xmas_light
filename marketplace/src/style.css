@@ -41,7 +41,13 @@ header .icon-cart span{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    position: relative;
 }
+
+body.showCart .container {
+    transform: translateX(-250px);
+}
+
 
 .listProduct .item button{
     background-color: #353432;
@@ -62,6 +68,7 @@ header .icon-cart span{
     display: grid;
     grid-template-rows: 70px 1fr 70px;
     transition: transform .5s;
+    z-index: 1000;
 
 }
 
@@ -70,9 +77,6 @@ body.showCart .cartTab{
 }
 
 
-body.showCart .container{
-    transform: translateX(-250px);
-}
 .cartTab h1{
     padding: 20px;
     margin: 0;
