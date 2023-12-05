@@ -10,15 +10,15 @@ public class SubmissionsController {
 
     @GetMapping("home/year-groups")
     public ModelAndView showYearGroups() {
-        return new ModelAndView("submissions/year-groups-list");
+        return new ModelAndView("submissions-page/year-groups-list");
     }
     @GetMapping("home/year-groups/group-submissions")
     public ModelAndView showYearGroupSubmissions() {
-        return new ModelAndView("submissions/group-submissions");
+        return new ModelAndView("submissions-page/group-submissions");
     }
     @GetMapping("home/year-groups/group-submissions/submission-details")
     public ModelAndView showSubmissionDetails() {
-        return new ModelAndView("submissions/submission-details");
+        return new ModelAndView("submissions-page/submission-details");
     }
 
 }
