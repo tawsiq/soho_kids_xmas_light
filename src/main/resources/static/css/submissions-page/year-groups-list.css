@@ -1,4 +1,4 @@
-/********* BULLETED LIST CONTENT *********/
+
 .list-container-year-groups{
     font-size: 1rem;
     padding: 0.3em;
@@ -11,18 +11,6 @@
     width: -moz-fit-content;
 
 }
-/*.list-container-year-groups ul{*/
-
-/*}*/
-/*.list-container-years1-6{*/
-/*    display: flex;*/
-/*    !* flex-direction: row; *!*/
-/*    justify-content: center;*/
-/*}*/
-/*.list-container-years1-6 ul{*/
-/*    padding: 0.3em 0.6em 0.6em 0.6em;*/
-/*}*/
-/***************************************/
 .year-group-list{
     list-style-type: none;
     display: flex;
@@ -31,10 +19,10 @@
     gap: 2em;
 }
 .list-container-year-groups{
-    margin: 0 10em 2em 10em;
+    margin: 0.5em 10em 1em 10em;
 }
 @media (max-width: 600px){
     .list-container-year-groups {
-        margin: 0 1em 2em 1em;
+        margin: 0.5em 1em 1em 1em;
     }
 }
