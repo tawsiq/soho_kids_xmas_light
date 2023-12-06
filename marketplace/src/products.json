@@ -8,16 +8,16 @@
 
   {
     "id": 2,
-    "name": "Christmas Wrapper",
+    "name": "XMAS T-Shirt 002",
     "price": 30,
-    "image": "91F6dikJJOL.jpg"
+    "image": "Antonio_mockup_black-removebg-preview.png"
   },
 
   {
     "id": 3,
-    "name": "XMAS T-Shirt 002",
+    "name": "XMAS T-Shirt 003",
     "price": 30,
-    "image": "Antonio mockup 2.jpg"
+    "image": "Antonio_mockup_2-removebg-preview.png"
   },
 
   {
@@ -32,54 +32,5 @@
     "name": "Wrapping Paper 2022",
     "price": 30,
     "image": "wrapping paper design 2022.jpg"
-  },
-
-  {
-    "id": 6,
-    "name": "XMAS TEE 006",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
-  },
-
-  {
-    "id": 7,
-    "name": "XMAS TEE 007",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
-  },
-
-  {
-    "id": 8,
-    "name": "XMAS TEE 008",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
-  },
-
-  {
-    "id": 9,
-    "name": "XMAS TEE 009",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
-  },
-
-  {
-    "id": 10,
-    "name": "XMAS TEE 010",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
-  },
-
-  {
-    "id": 11,
-    "name": "XMAS TEE 011",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
-  },
-
-  {
-    "id": 12,
-    "name": "XMAS TEE 012",
-    "price": 30,
-    "image": "IMG_6304-removebg-preview.png"
   }
 ]
