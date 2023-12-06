@@ -1,20 +1,17 @@
-CREATE TABLE IF NOT EXISTS Participants (
+# DROP TABLE IF EXISTS Submissions;
+# DROP TABLE IF EXISTS Ratings;
 
-    id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL ,
-    name VARCHAR(128) NOT NULL ,
-    year_group VARCHAR(128) NOT NULL
-
-) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Submissions (
 
-    id BIGINT NOT NULL,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    filename VARCHAR(128) NOT NULL,
+    filepath VARCHAR(255) NOT NULL,
+    mime_type ENUM('image/jpeg', 'image/png') NOT NULL,
     submission_year YEAR NOT NULL,
-    drawing LONGBLOB NOT NULL,
-    finished_light LONGBLOB NULL, -- Allows null inputs. Be careful with data retrieval.
-
-    FOREIGN KEY (id) REFERENCES Participants(id),
-    PRIMARY KEY (id, submission_year)
+    year_group VARCHAR(50) NOT NULL,
+    `name` VARCHAR(128),
+    winner BOOLEAN
 
 ) ENGINE=InnoDB;
 
@@ -25,6 +22,6 @@ CREATE TABLE IF NOT EXISTS Ratings (
    comment VARCHAR(128) NULL, -- Should be allowed to be NULL because the user may just want to submit a like.
    liked BOOLEAN, -- The like button will act as a check box, so null values cannot be entered, even though they're allowed.
 
-   FOREIGN KEY (id) REFERENCES Participants(id)
+   FOREIGN KEY (id) REFERENCES Submissions(id)
 
 ) ENGINE=InnoDB;
