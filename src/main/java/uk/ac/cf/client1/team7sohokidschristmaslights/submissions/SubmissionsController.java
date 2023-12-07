@@ -9,7 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class SubmissionsController {
 
     @GetMapping("home/submissions")
-    public ModelAndView submissionYearList() {
-        return new ModelAndView("submissions/years-list");
+    public ModelAndView showYearGroupSubmissions() {
+        return new ModelAndView("submissions-page/submissions");
     }
+    @GetMapping("home/submissions/submission-details")
+    public ModelAndView showSubmissionDetails() {
+        return new ModelAndView("submissions-page/submission-details");
+    }
+
 }
