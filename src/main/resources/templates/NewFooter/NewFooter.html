@@ -113,6 +113,25 @@
     <p class="legal">© SOHO 2023 All rights reserved</p>
   </section>
 </footer>
+
+// START OF JAVASCRIPT CONTENT FOR HOVER ANIMATION
+<script>
+  const links = document.querySelectorAll('.links a');
+
+  links.forEach(link => {
+    link.addEventListener('mouseover', () => {
+      link.style.color = 'purple'; // Change text color on hover
+      link.style.textDecoration = 'underline'; // Add underline
+      link.style.transition = 'color 0.3s ease, text-decoration 0.3s ease'; // Transition effect
+    });
+
+    link.addEventListener('mouseout', () => {
+      link.style.color = 'white'; // Change text color back
+      link.style.textDecoration = 'none'; // Remove underline
+    });
+  });
+</script>
+
 </body>
 </html>
 

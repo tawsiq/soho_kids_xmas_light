@@ -1,5 +1,6 @@
 /* ALL CSS STYLING MADE & ADAPTED TO HAVE PARITY WITH REST OF THE SITE*/
 
+/*START OF CSS STYLING FOR MAIN ANIMATION PAGE, AND TEXT FOR NAV LINKS*/
 body {
     margin: 0;
     background: linear-gradient(darkslateblue, black);
@@ -87,4 +88,16 @@ section {
     .links {
         gap: 20px;
     }
+}
+
+/*START OF CSS FOR ADDING HOVER ANIMATION FOR TEXT*/
+
+.links a {
+    color: white;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.links a:hover {
+    color: purple;
+    text-decoration: underline;
 }
