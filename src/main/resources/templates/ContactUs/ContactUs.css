@@ -264,7 +264,7 @@ header h2, h3, h4{
     header h2, h3, h4{
         padding: 0.2em;
     }
-    .header-underline {
+    .header-underline 
         gap: 0.3em; /* Fixed gap size */
     }
     .circle {
