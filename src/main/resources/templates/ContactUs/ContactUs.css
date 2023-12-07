@@ -142,15 +142,6 @@ main {
     margin-bottom: 10px; /* Add this line to create space between the image and the text */
 }
 
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #EC4D1D;
-    color: white;
-    padding: 10px;
-}
-
 #social-media {
     display: flex;
 }
@@ -205,3 +196,116 @@ footer {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+/* ALL CSS STYLING MADE & ADAPTED TO HAVE PARITY WITH REST OF THE SITE*/
+
+/*START OF CSS STYLING FOR MAIN ANIMATION PAGE, AND TEXT FOR NAV LINKS*/
+body {
+    margin: 0;
+    background: linear-gradient(darkslateblue, black);
+    font-family: "Euclid Circular A", "Poppins";
+    color: white;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.socials {
+    gap: 20px;
+}
+
+.socials a {
+    font-size: 24px;
+}
+
+.links {
+    gap: 10px;
+}
+
+.legal {
+    font-size: 12px;
+    margin: 0;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(3) scaleX(2.25);
+    transform-origin: bottom;
+    box-sizing: border-box;
+    display: block;
+    pointer-events: none;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 12px;
+    display: flex;
+    width: 100%;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+    padding-bottom: 80px;
+    padding-left: 60px;
+    width: 100%;
+}
+
+@media (width > 420px) {
+    section {
+        align-items: center;
+        padding-left: 0;
+        gap: 20px;
+    }
+
+    .links {
+        gap: 20px;
+    }
+}
+
+/*START OF CSS FOR ADDING HOVER ANIMATION FOR TEXT*/
+
+.links a {
+    color: white;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.links a:hover {
+    color: lawngreen;
+    text-decoration: underline;
+}
+
+/* ADDITIONAL CSS FOR SOCIAL MEDIA ICONS */
+.socials a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: lawngreen; /* Change this color for the social media icons */
+    /* Define any specific hover styles for social icons here */
+}
