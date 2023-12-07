@@ -98,6 +98,17 @@ section {
 }
 
 .links a:hover {
-    color: purple;
+    color: lawngreen;
     text-decoration: underline;
+}
+
+/* ADDITIONAL CSS FOR SOCIAL MEDIA ICONS */
+.socials a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: lawngreen; /* Change this color for the social media icons */
+    /* Define any specific hover styles for social icons here */
 }
