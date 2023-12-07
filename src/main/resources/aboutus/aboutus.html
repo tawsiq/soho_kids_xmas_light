@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="shared.css">
     <title>About Us!</title>
 </head>
 
@@ -20,7 +20,7 @@
         </nav>
     </header>
     <main>
-        <section id="contact-form">
+        <section>
             <h1>About Us</h1>
             <p>This year the children from Soho Parish School brought the most magical Christmas lights to Soho. <br>
 
@@ -34,10 +34,26 @@
                 <br>
                 Soho Parish School held a competition to choose the Christmas designs, the judging panel included The Royal Institute of British Architects – RIBA, The National Gallery, Shaftesbury, St Anne’s Church, architect and RIBA Architecture Ambassador Antonio Capelao, Storm Flowers London and Soho Ward Councillors alongside ex-pupils from the school.</p>
                 <br>
-            </div>
-            </form>
         </section>
-        <section id="contact-details">
+
+        <h2>Sponsor Sign-Up Form</h2>
+        <form action="/sponsor/signup" method="post">
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required aria-required="true">
+
+            <label for="contactPerson">Contact Person:</label>
+            <input type="text" id="contactPerson" name="contactPerson" required aria-required="true">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required aria-required="true">
+
+            <label for="additionalInfo">Additional Information (optional):</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <section>
             <h2>Our Details</h2>
             <p>You can also reach out by email, or visit our monthly SOHO gatherings!</p>
             <div class="detail">
