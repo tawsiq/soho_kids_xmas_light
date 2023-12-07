@@ -2,9 +2,9 @@
 
 body {
     margin: 0;
-    background: linear-gradient(#0d0d0d, #212121);
+    background: linear-gradient(darkslateblue, black);
     font-family: "Euclid Circular A", "Poppins";
-    color: #d6dfed;
+    color: white;
 }
 
 html,
