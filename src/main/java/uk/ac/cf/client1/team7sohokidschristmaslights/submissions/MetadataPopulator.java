@@ -10,28 +10,32 @@ import java.sql.PreparedStatement;
 public class MetadataPopulator {
 
     public static void populateDatabase() {
-        String directoryPath = "path/to/your/directory";
+        String directoryPath = "path/to/image_storage_directory"; // Replace this with your directory path
         String jdbcURL = "jdbc:your_database_connection_details";
 
         try (Connection connection = DriverManager.getConnection(jdbcURL)) {
-            File directory = new File(directoryPath);
-            File[] submissionYears = directory.listFiles();
+            File mainDirectory = new File(directoryPath);
+            File[] years = mainDirectory.listFiles();
 
-            if (submissionYears != null) {
-                for (File submissionYear : submissionYears) {
-                    File[] yearGroups = submissionYear.listFiles();
+            if (years != null) {
+                for (File year : years) {
+                    if (year.isDirectory()) {
+                        File[] yearGroups = year.listFiles();
 
-                    if (yearGroups != null) {
-                        for (File yearGroup : yearGroups) {
-                            File[] drawingsAndLights = yearGroup.listFiles();
+                        if (yearGroups != null) {
+                            for (File yearGroup : yearGroups) {
+                                if (yearGroup.isDirectory()) {
+                                    File[] drawingsAndLights = yearGroup.listFiles();
 
-                            if (drawingsAndLights != null) {
-                                for (File file : drawingsAndLights) {
-                                    if (file.getName().endsWith(".png") || file.getName().endsWith(".jpeg")) {
-                                        if (file.getName().contains("drawing")) {
-                                            insertDrawingIntoDatabase(connection, file.getName(), file.getAbsolutePath(), submissionYear.getName(), yearGroup.getName());
-                                        } else if (file.getName().contains("light")) {
-                                            insertLightIntoDatabase(connection, file.getName());
+                                    if (drawingsAndLights != null) {
+                                        for (File file : drawingsAndLights) {
+                                            if (file.isFile() && (file.getName().endsWith(".png") || file.getName().endsWith(".jpeg"))) {
+                                                if (file.getName().contains("drawing")) {
+                                                    insertDrawingIntoDatabase(connection, file.getName(), file.getAbsolutePath(), year.getName(), yearGroup.getName());
+                                                } else if (file.getName().contains("light")) {
+                                                    insertLightIntoDatabase(connection, file.getName());
+                                                }
+                                            }
                                         }
                                     }
                                 }
