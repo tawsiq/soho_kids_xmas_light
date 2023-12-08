@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile phones / tablets -->
     <title>Group Submissions</title>
+
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/year-groups-list.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
@@ -34,13 +35,15 @@
 
 <main>
     <article class="winner-submissions-flex-container">
-
-        <div class="button" th:each="image : ${imageItemList[1]}">
+        <div th:each="image : ${imageItemList[1]}">
             <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
-            <img class="light" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
-            <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+            <a th:href="@{/home/submissions/{id} (id=${image.getId()})}">
+                <div class="button full-border">
+                    <img class="light" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+                    <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+                </div>
+            </a>
         </div>
-
     </article><br><br>
 </main>
 
@@ -52,8 +55,10 @@
 <main>
     <article class="submissions-flex-container">
 
-        <div class="button" th:each="image : ${imageItemList[0]}">
-            <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+        <div th:each="drawing : ${imageItemList[0]}">
+            <a class="button full-border" th:href="@{/home/submissions/{id} (id=${drawing.getId()})}">
+                <img class="drawing" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
+            </a>
         </div>
 
     </article><br><br>

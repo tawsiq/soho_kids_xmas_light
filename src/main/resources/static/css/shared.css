@@ -56,6 +56,10 @@ header h2, h3, h4{
 /***************************************/
 /*********** LIGHT UP BUTTONS *************/
 .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     transition: border-color 0.3s ease;
     color: #EAEBED;
     padding: 0.5em;
@@ -81,6 +85,11 @@ header h2, h3, h4{
     border-right: 2px solid transparent;
     border-bottom: 2px solid #c42eff;
     border-left: 2px solid transparent;
+}
+
+
+.full-border:hover, .full-border:focus{
+    border: 2px solid #c42eff;
 }
 
 /**********************************/
