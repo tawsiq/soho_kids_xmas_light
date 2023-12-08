@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ImageService {
-    List<ImageClass> getImageItemList();
-    ImageClass getImage(Long id);
+    List<List<ImageClass>> getImageItemList();
+    ImageClass getImage(Long id, Boolean light);
     byte[] getImageData(ImageClass imageClass) throws IOException;
 }

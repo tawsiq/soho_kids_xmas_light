@@ -17,11 +17,11 @@ public class ImageService_imp implements ImageService{
         this.imageRepository = anImageRepository;
     }
     // Implement the ImageService Methods using the repository.
-    public List<ImageClass> getImageItemList() {
+    public List<List<ImageClass>> getImageItemList() {
         return imageRepository.getImageItemList();
     }
-    public ImageClass getImage(Long id) {
-        return imageRepository.getImage(id);
+    public ImageClass getImage(Long id, Boolean light) {
+        return imageRepository.getImage(id, light);
     }
     // Retrieves image data based on the absolute file path stored in ImageClass
     public byte[] getImageData(ImageClass image) throws IOException {

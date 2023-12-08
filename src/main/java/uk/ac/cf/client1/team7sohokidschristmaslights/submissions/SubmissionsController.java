@@ -31,16 +31,17 @@ public class SubmissionsController {
     public ModelAndView getImageMenu() {
         ModelAndView modelAndView = new ModelAndView("submissions-page/submissions");
 
-        List<ImageClass> imageItemList = imageService.getImageItemList();
+        List<List<ImageClass>> imageItemList = imageService.getImageItemList();
         modelAndView.addObject("imageItemList", imageItemList);
         return modelAndView;
     }
 
     // Controller endpoint to serve image data based on image metadata
-    @GetMapping("/getImage/{id}")
-    public ResponseEntity<byte[]> getImageData(@PathVariable Long id) throws IOException {
+    @GetMapping("/getImage/{id}/{light}")
+    public ResponseEntity<byte[]> getImageDataForTemplate(@PathVariable Long id,
+                                                          @PathVariable Boolean light) throws IOException {
         // Retrieve ImageClass based on the provided ID (from database)
-        ImageClass image = imageService.getImage(id);
+        ImageClass image = imageService.getImage(id, light);
         // Get image data bytes from the service method
         byte[] imageData = imageService.getImageData(image);
         // Set appropriate headers and return the image data

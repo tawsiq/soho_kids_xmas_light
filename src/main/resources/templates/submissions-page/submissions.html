@@ -34,7 +34,11 @@
 
 <main>
     <article class="winner-submissions-flex-container">
-        <div></div>
+
+        <div class="button" th:each="image : ${imageItemList[1]}"> <!--TODO: Fix image retrieval - Light images retrieved but not displayed.-->
+            <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
+            <img th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+        </div>
     </article><br><br>
 </main>
 
@@ -46,8 +50,8 @@
 <main>
     <article class="submissions-flex-container">
 
-        <div th:each="image : ${imageItemList}"> <!--TODO: Fix image retrieval-->
-            <span><img th:src="@{'/getImage/' +  ${image.getId()}}" th:alt="${image.getFileName()}"></span>
+        <div class="button" th:each="image : ${imageItemList[0]}">
+            <img th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
         </div>
     </article><br><br>
 </main>

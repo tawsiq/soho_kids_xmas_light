@@ -34,7 +34,7 @@
 }
 .submissions-flex-container div{
     border: 2px solid #481e57;
-    height: 11em;
+    height: 12em;
     width: 18.34em;
     margin: 0.5em;
     /*margin: 0 1em 0 1em;*/
@@ -42,9 +42,9 @@
 
 .submissions-flex-container img, .winner-submissions-flex-container img{
     /* % of the container of the element "img", which in this case is "div" */
-    max-width: 95%;
-    max-height: 95%;
-    margin: 5px;
+    max-width: 99%;
+    max-height: 99%;
+    /*margin: 5px;*/
     align-self: center;
 }
 

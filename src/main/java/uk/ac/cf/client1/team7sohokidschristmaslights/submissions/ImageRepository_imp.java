@@ -15,7 +15,7 @@ public class ImageRepository_imp implements ImageRepository{
     // Constructor
     public ImageRepository_imp(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
-        setImageItemMapper(); // Method defined below.
+        setImageItemMapper();
     }
 
     private void setImageItemMapper() {
@@ -30,13 +30,55 @@ public class ImageRepository_imp implements ImageRepository{
         );
     }
 
-    public List<ImageClass> getImageItemList() {
-        String sql = "SELECT * FROM Drawings";
-        return jdbc.query(sql, imageItemMapper);
+    // Returns a list of lists. The first list, at element 0 of the return, will contain drawings. The second at element 1 will contain the lights.
+    // Since these only contain the metadata, this shouldn't impact performance so much. The byte data is read separately when needed.
+    public List<List<ImageClass>> getImageItemList() {
+        // TODO: remove boolean parameter & if statement. Return a list of lists (from bot tables) and select which you'd like in the controller call.
+
+        String sql_drawings = "SELECT * FROM Drawings";
+        String sql_lights = """
+                SELECT\s
+                    l.drawing_id AS id,
+                    l.filename,
+                    l.filepath,
+                    l.mime_type,
+                    d.submission_year,
+                    d.year_group,
+                    d.name
+                FROM\s
+                    Lights l
+                INNER JOIN\s
+                    Drawings d ON l.drawing_id = d.id;""";
+
+        return List.of(
+                jdbc.query(sql_drawings, imageItemMapper),
+                jdbc.query(sql_lights, imageItemMapper)
+        );
     }
-    public ImageClass getImage(Long id){
-        // ? replaced with id in return statement. Only one object is returned. Exception otherwise.
-        String sql = "SELECT * FROM Drawings WHERE id = ?";
+    public ImageClass getImage(Long id, Boolean light){
+        String sql;
+
+        if (light){
+            // ? replaced with id in return statement. Only one object is returned. Exception otherwise.
+            sql = """
+            SELECT\s
+                    l.drawing_id AS id,
+                    l.filename,
+                    l.filepath,
+                    l.mime_type,
+                    d.submission_year,
+                    d.year_group,
+                    d.name
+            FROM\s
+                Lights l
+            INNER JOIN\s
+                Drawings d ON l.drawing_id = d.id\s
+            WHERE id = ?""";
+
+        } else {
+            sql = "SELECT * FROM Drawings WHERE id = ?";
+        }
+
         try{
             return jdbc.queryForObject(sql, imageItemMapper, id);
 

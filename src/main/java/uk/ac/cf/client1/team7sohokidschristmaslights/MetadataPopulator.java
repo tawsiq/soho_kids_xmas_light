@@ -45,7 +45,7 @@ public class MetadataPopulator {
 
                                                     if (correspondingDrawingId != null) {
                                                         System.out.println("Light image filename: " + file.getName() + ", Corresponding Drawing ID: " + correspondingDrawingId);
-                                                        insertLightIntoDatabase(connection, file.getName(), correspondingDrawingId);
+                                                        insertLightIntoDatabase(connection, file.getName(), file.getAbsolutePath(), correspondingDrawingId);
 
                                                     } else {
                                                         System.out.println("Corresponding Drawing ID not found for light image: " + file.getName());
@@ -89,13 +89,14 @@ public class MetadataPopulator {
     }
 
 
-    private static void insertLightIntoDatabase(Connection connection, String fileName, long correspondingDrawingId) throws Exception {
-        String sql = "INSERT INTO Lights (drawing_id, filename, mime_type) VALUES (?, ?, ?)";
+    private static void insertLightIntoDatabase(Connection connection, String fileName, String filePath, long correspondingDrawingId) throws Exception {
+        String sql = "INSERT INTO Lights (drawing_id, filename, filepath, mime_type) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, correspondingDrawingId); // Use the corresponding drawing ID
             preparedStatement.setString(2, fileName);
-            preparedStatement.setString(3, getMimeType(fileName));
+            preparedStatement.setString(3, filePath);
+            preparedStatement.setString(4, getMimeType(fileName));
             System.out.println();
             System.out.println("Executing insertLightIntoDatabase query for file: " + fileName + " and drawing ID: " + correspondingDrawingId);
             preparedStatement.executeUpdate();
