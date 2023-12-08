@@ -9,7 +9,8 @@ public class ImageClass {
     private Long id;
     private String fileName;
     private String filePath;
-    //private String mimeType; // not needed yet
+    private String mimeType;
+
     private Integer submissionYear; // enforces 4-digit format. DateTimeException thrown when violated, not to be confused with year group
     private String yearGroup;
     private String participantName; // not to be confused with filename.

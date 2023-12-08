@@ -2,9 +2,11 @@ package uk.ac.cf.client1.team7sohokidschristmaslights.submissions;
 
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
-
-//TODO: Updated MenuService method implementations (jdbc) go here
 
 @Service
 public class ImageService_imp implements ImageService{
@@ -20,5 +22,12 @@ public class ImageService_imp implements ImageService{
     }
     public ImageClass getImage(Long id) {
         return imageRepository.getImage(id);
+    }
+    // Retrieves image data based on the absolute file path stored in ImageClass
+    public byte[] getImageData(ImageClass image) throws IOException {
+
+        Path pathToImage = Paths.get(image.getFilePath());
+        // Read the image data into a byte array
+        return Files.readAllBytes(pathToImage);
     }
 }

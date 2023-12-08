@@ -1,4 +1,4 @@
-package uk.ac.cf.client1.team7sohokidschristmaslights.submissions;
+package uk.ac.cf.client1.team7sohokidschristmaslights;
 
 import java.io.File;
 import java.sql.*;
@@ -9,7 +9,10 @@ public class MetadataPopulator {
     private static final Map<String, Long> drawingNameToIdMap = new HashMap<>();
 
     public static void populateDatabase() {
-        String directoryPath = "D:\\Project_Resources\\image_storage_directory";
+        String currentDirectory = System.getProperty("user.dir");
+        System.out.println("MetadataPopulator located here: " + currentDirectory);
+
+        String directoryPath = currentDirectory + "\\src\\main\\resources\\static\\submission_storage_directory";
         String jdbcURL = "jdbc:mariadb://localhost:3306/team7_soho_kids_database?user=root&password=comsc"; //TODO: Improve safety here by defining individual variables that scan application.properties for user & password, so that program is maintainable.
 
         try (Connection connection = DriverManager.getConnection(jdbcURL)) {

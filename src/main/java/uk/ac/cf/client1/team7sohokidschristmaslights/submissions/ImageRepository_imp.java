@@ -23,6 +23,7 @@ public class ImageRepository_imp implements ImageRepository{
                 rs.getLong("id"),
                 rs.getString("filename"),
                 rs.getString("filepath"),
+                rs.getString("mime_type"),
                 rs.getInt("submission_year"),
                 rs.getString("year_group"),
                 rs.getString("name")
