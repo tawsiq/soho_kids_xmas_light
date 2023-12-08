@@ -14,13 +14,13 @@
 <header>
     <h2>Submission Repository</h2>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
 
-    <article th:replace="fragments/lists :: year-list"></article>
+    <article th:replace="~{fragments/lists :: year-list}"></article>
 
-    <article th:replace="fragments/lists :: year-group-list"></article>
+    <article th:replace="~{fragments/lists :: year-group-list}"></article>
 
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
 </header><br>
 
 <header class="winner-headline-flex-container">
@@ -35,24 +35,27 @@
 <main>
     <article class="winner-submissions-flex-container">
 
-        <div class="button" th:each="image : ${imageItemList[1]}"> <!--TODO: Fix image retrieval - Light images retrieved but not displayed.-->
+        <div class="button" th:each="image : ${imageItemList[1]}"> 
             <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
-            <img th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+            <img class="light" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+            <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
         </div>
+
     </article><br><br>
 </main>
 
 <header>
     <h3>All Submissions</h3>
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
 </header><br>
 
 <main>
     <article class="submissions-flex-container">
 
         <div class="button" th:each="image : ${imageItemList[0]}">
-            <img th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+            <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
         </div>
+
     </article><br><br>
 </main>
 

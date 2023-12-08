@@ -14,7 +14,7 @@
 <header>
     <h2>[Name]'s Submission</h2>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header>
 
@@ -23,7 +23,7 @@
     <article class="submitted-image-for-details-container">
         <div></div>
     </article>
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <br>
     <form class="form-div-flex-container" th:action = "@{URl/here}" method = "post">
 

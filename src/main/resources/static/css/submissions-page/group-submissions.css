@@ -40,13 +40,16 @@
     /*margin: 0 1em 0 1em;*/
 }
 
-.submissions-flex-container img, .winner-submissions-flex-container img{
-    /* % of the container of the element "img", which in this case is "div" */
-    max-width: 99%;
-    max-height: 99%;
-    /*margin: 5px;*/
+.light, .drawing{
     align-self: center;
+    justify-self: center;
+    /* % of the container of the element "img", which in this case is "div" */
+    max-width: 94%;
+    max-height: 94%;
 }
+
+
+
 
 @media (max-width: 600px) {
 
