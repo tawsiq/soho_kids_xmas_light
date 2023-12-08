@@ -8,6 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SubmissionsController {
 
+    private ImageService imageService; //TODO: Test if warning fix works
+
+    public SubmissionsController(ImageService anImageService){
+        this.imageService = anImageService;
+    }
+
     @GetMapping("home/submissions")
     public ModelAndView showYearGroupSubmissions() {
         return new ModelAndView("submissions-page/submissions");
