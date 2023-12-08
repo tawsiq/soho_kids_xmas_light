@@ -91,4 +91,8 @@ public class ImageRepository_imp implements ImageRepository{
         return null;
     }
     // Come back to https://www.notion.so/unequaled-moustache-536/Servers-2-73bc55350f0d4274b34ff8e9b67f8c50?pvs=4#1f1efe08fdab40f695a379ee5f30e56f if you want to start adding submissions through the app.
+    public Boolean lightCounterpartPresent(Long id){
+        String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";
+        return jdbc.queryForObject(sql, Boolean.class, id);
+    }
 }

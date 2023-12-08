@@ -6,5 +6,5 @@ import java.util.List;
 public interface ImageRepository {
     List<List<ImageClass>> getImageItemList();
     ImageClass getImage(Long id, Boolean light); // use the primary key to locate specific images in the database. Whether it's a light or a drawing is dependent on which table is used.
-
+    Boolean lightCounterpartPresent(Long id);
 }

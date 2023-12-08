@@ -20,8 +20,8 @@ public class SubmissionsController {
     public SubmissionsController(ImageService imageService){
         this.imageService = imageService;
     }
-
-    @GetMapping("home/submissions/submission-details")
+    // Use URL for debugging template.
+    @GetMapping("home/submissions/submission-details-template")
     public ModelAndView showSubmissionDetails() {
         return new ModelAndView("submissions-page/submission-details");
     }
@@ -53,6 +53,18 @@ public class SubmissionsController {
             return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(imageData);
         }
     }
+    // Page linking controller -> Allows user to visit submission-details page.
+    @GetMapping("/home/submissions/{id}")
+    public ModelAndView displaySubmissionDetails(@PathVariable Long id){
+        ModelAndView modelAndView = new ModelAndView("submissions-page/submission-details");
 
+        ImageClass drawing = imageService.getImage(id, false); // Required for all detail-pages.
 
+        if (imageService.lightCounterpartPresent(id)) {
+            ImageClass light = imageService.getImage(id, true); // Required only for winning submissions.
+            modelAndView.addObject("light", light);
+        }
+        modelAndView.addObject("drawing", drawing);
+        return modelAndView;
+    }
 }

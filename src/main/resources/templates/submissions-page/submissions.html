@@ -35,7 +35,7 @@
 <main>
     <article class="winner-submissions-flex-container">
 
-        <div class="button" th:each="image : ${imageItemList[1]}"> 
+        <div class="button" th:each="image : ${imageItemList[1]}">
             <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
             <img class="light" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
             <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
