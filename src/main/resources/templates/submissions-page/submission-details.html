@@ -7,7 +7,7 @@
 
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/submission-details.css}">
-    <script th:src="@{/js/submissions-page.js}" async></script>
+    <script th:src="@{/js/auto-expand-input.js}" async></script>
 
 </head>
 <body>
@@ -16,32 +16,21 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-</header><br>
+</header>
 
 <main>
 <!--    "@{'/menu/' + ${menuItem.id} + '/addReview'}"   -->
     <article class="submitted-image-for-details-container">
         <div></div>
     </article>
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <br>
     <form class="form-div-flex-container" th:action = "@{URl/here}" method = "post">
 
-        <div class="comment-box">
+        <label class="form-label" for="comment"></label>
+        <textarea class="auto-expanding-input" id="comment" name="comment" placeholder="Write a comment about this submission"></textarea>
 
-            <label class="form-label" for="comment"></label>
-            <textarea class="auto-expand" id="comment" name="comment" placeholder="Write a comment about this submission"></textarea><br>
-
-        </div><br>
-
-        <div class="submit">
-            <button class="btn btn-primary">Submit</button>
-        </div>
-
-        <div>
-            <div class="cancel">
-                <a class="btn btn-primary" href="home/year-groups/group-submissions/submission-details"> Cancel </a>
-            </div>
-        </div>
+        <button class="button">Post Comment</button>
 
     </form><br>
 </main>

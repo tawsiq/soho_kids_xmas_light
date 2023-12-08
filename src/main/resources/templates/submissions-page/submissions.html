@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile phones / tablets -->
     <title>Group Submissions</title>
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
+    <link rel = "stylesheet" th:href="@{/css/submissions-page/year-groups-list.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
-
 
 </head>
 <body>
-<!-- Headers will share CSS files. -->
+
 <header>
-    <h2>[Dynamic Year & Year Group]</h2>
+    <h2>Submission Repository</h2>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
-</header><br>
 
-<main></main>
+    <article th:replace="fragments/lists :: year-list"></article>
+
+    <article th:replace="fragments/lists :: year-group-list"></article>
+
+    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+</header><br>
 
 <header class="winner-headline-flex-container">
     <div class="left-line"></div>
@@ -33,9 +37,6 @@
         <div></div>
         <div></div>
         <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
     </article><br><br>
 </main>
 
@@ -46,9 +47,6 @@
 
 <main>
     <article class="submissions-flex-container">
-        <div></div>
-        <div></div>
-        <div></div>
         <div></div>
         <div></div>
         <div></div>
