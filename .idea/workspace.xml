@@ -5,74 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54272f1e-db87-4a13-9de3-1549ecc95c98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wireframes/Contact_and_About_Us.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wireframes/Home Page.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wireframes/Shop.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wireframes/Some_Notes.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wireframes/Submissions.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/jackson-annotations-2.6.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/jackson-core-2.6.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/jackson-databind-2.6.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/textrazor-1.0.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/MetadataPopulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/Team7SohoKidsChristmasLightsApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/moderation/TextModerationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageRepository_imp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService_imp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/RatingClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/SubmissionsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/shared.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/submissions-page/group-submissions.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/submissions-page/submission-details.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/submissions-page/year-groups-list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/auto-expand-input.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Hajar_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Hajar_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Marwa_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Marwa_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Emberley_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Emberley_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Vespev_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Vespev_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Aayan_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Aayan_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Kamila_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Kamila_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Rilley_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Rilley_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Sofia_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Sofia_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Lilli_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Lilli_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Yujin_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Yujin_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Maria_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Maria_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Milana_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Milana_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_JohnMichael_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_JohnMichael_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_Milena_drawing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_Milena_light.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/theme_shapes/hollow-triangle-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/theme_shapes/hollow-triangle-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/lists.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/shaped-header-underlines.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/submissions-page/submission-details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/submissions-page/submissions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/uk/ac/cf/client1/team7sohokidschristmaslights/Team7SohoKidsChristmasLightsApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/moderation/TextModerationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/moderation/TextModerationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService_imp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService_imp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/SubmissionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/SubmissionsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,43 +82,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Projects/team-7-soho-kids-christmas-lights/libs",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.10175695",
-    "project.structure.side.proportion": "0.31505656",
-    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
-    "spring.configuration.checksum": "519653ba139b17889617595d4b69ce22",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/team-7-soho-kids-christmas-lights/libs&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.10175695&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.31505656&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;519653ba139b17889617595d4b69ce22&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MariaDB",
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MariaDB&quot;,
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\java\uk\ac\cf\client1\team7sohokidschristmaslights" />
       <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main" />
       <recent name="D:\Projects\team-7-soho-kids-christmas-lights" />
       <recent name="D:\Projects\team-7-soho-kids-christmas-lights\libs" />
       <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\java\uk\ac\cf\client1\team7sohokidschristmaslights\moderation" />
+      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\resources\static\images" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="uk.ac.cf.client1.team7sohokidschristmaslights" />
@@ -315,7 +251,7 @@
       <workItem from="1702112589238" duration="9812000" />
       <workItem from="1702123910411" duration="296000" />
       <workItem from="1702124208676" duration="4373000" />
-      <workItem from="1702128602593" duration="534000" />
+      <workItem from="1702128602593" duration="340000" />
     </task>
     <servers />
   </component>
