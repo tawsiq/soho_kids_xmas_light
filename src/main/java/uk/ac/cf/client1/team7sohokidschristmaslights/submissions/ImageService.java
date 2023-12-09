@@ -11,4 +11,5 @@ public interface ImageService {
     byte[] getImageData(ImageClass imageClass) throws IOException;
     void moderateRating(RatingClass rating);
     void storeRating(RatingClass rating);
+    String logDateTime();
 }

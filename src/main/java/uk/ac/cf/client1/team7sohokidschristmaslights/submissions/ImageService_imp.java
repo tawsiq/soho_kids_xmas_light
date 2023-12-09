@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -52,5 +54,12 @@ public class ImageService_imp implements ImageService{
     }
     public void storeRating(RatingClass rating) {
         imageRepository.storeRating(rating);
+    }
+    public String logDateTime(){
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        String date = currentDateTime.format(formatDateTime).substring(0, 10);
+        String time = currentDateTime.format(formatDateTime).substring(11, 16);
+        return "On " + date + " at " + time;
     }
 }

@@ -31,12 +31,18 @@
 
     <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <br>
-    <form class="form-div-flex-container" th:action = "@{URl/here}" method = "post">
+    <form class="form-div-flex-container" th:action = "@{'/home/submissions/' + ${drawing.getId()} + '/addReview'}" method = "post">
 
-        <label class="form-label" for="comment"></label>
-        <textarea class="auto-expanding-input" id="comment" name="comment" placeholder="Write a comment about this submission"></textarea>
+        <label class="form-label" for="liked"> Like: </label>
+        <input type="checkbox" name="liked" id="liked">
 
-        <button class="button">Post Comment</button>
+        <label class="form-label" for="raterName"></label>
+        <textarea id="raterName" name="raterName" placeholder="Give name"></textarea>
+
+        <label class="form-label" for="commentText"></label>
+        <textarea class="auto-expanding-input" id="commentText" name="commentText" placeholder="Write a comment about this submission"></textarea>
+
+        <button class="button" type="submit">Post Comment</button>
 
     </form><br>
 

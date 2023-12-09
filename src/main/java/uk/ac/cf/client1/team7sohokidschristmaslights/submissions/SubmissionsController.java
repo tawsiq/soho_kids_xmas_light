@@ -67,15 +67,16 @@ public class SubmissionsController {
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
     // TODO: Transform this into an AJAX request.
-    @GetMapping("home/submissions/{id}/add-rating-to-submission")
+    @GetMapping("/home/submissions/{id}/addReview")
     public ModelAndView hostRatingSection(@PathVariable Long id){
         return new ModelAndView("submissions-page/submission-details");
     }
-    @PostMapping("home/submissions/{id}/add-rating-to-submission")
+    @PostMapping("/home/submissions/{id}/addReview")
     public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating){
 
+        rating.setDateTime(imageService.logDateTime());
         rating.setSubmissionId(id);
-        imageService.moderateRating(rating);
+//        imageService.moderateRating(rating);
         imageService.storeRating(rating);
 
         return new ModelAndView("redirect:/home/submissions/" + id);
