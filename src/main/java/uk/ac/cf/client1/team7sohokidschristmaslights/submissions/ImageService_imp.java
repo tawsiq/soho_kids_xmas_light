@@ -14,8 +14,8 @@ import java.util.List;
 @Service
 public class ImageService_imp implements ImageService{
 
-    private final ImageRepository imageRepository;
-    private final TextModerationService textModerationService;
+    private ImageRepository imageRepository;
+    private TextModerationService textModerationService;
 
     public ImageService_imp(ImageRepository anImageRepository, TextModerationService atextModerationService) {
         this.imageRepository = anImageRepository;
