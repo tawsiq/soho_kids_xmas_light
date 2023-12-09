@@ -12,7 +12,7 @@ import java.util.List;
 public class ImageService_imp implements ImageService{
 
     private final ImageRepository imageRepository;
-    // TODO: Test warning fix: Makes ^ final.
+
     public ImageService_imp(ImageRepository anImageRepository) {
         this.imageRepository = anImageRepository;
     }
@@ -32,5 +32,16 @@ public class ImageService_imp implements ImageService{
         Path pathToImage = Paths.get(image.getFilePath());
         // Read the image data into a byte array
         return Files.readAllBytes(pathToImage);
+    }
+    public void moderateComment(RatingClass rating) {
+//
+//        if (rating.getCommentText()){ // .isSafe()
+//            imageRepository.addRatingToSubmission(rating);
+//
+//        } else {
+//            String safeComment = rating.getCommentText();//.change
+//            rating.setCommentText(safeComment);
+//            imageRepository.addRatingToSubmission(rating);
+//        }
     }
 }

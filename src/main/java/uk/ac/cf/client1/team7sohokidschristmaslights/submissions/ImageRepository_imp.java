@@ -18,6 +18,7 @@ public class ImageRepository_imp implements ImageRepository{
         setImageItemMapper();
     }
 
+    // ---------- PRIVATE METHODS - INTERNAL USE ONLY ---------- //
     private void setImageItemMapper() {
         imageItemMapper = (rs, i) -> new ImageClass(
                 rs.getLong("id"),
@@ -30,6 +31,9 @@ public class ImageRepository_imp implements ImageRepository{
         );
     }
 
+
+
+    // ---------- PUBLIC METHODS ---------- //
     // Returns a list of lists. The first list, at element 0 of the return, will contain drawings. The second at element 1 will contain the lights.
     // Since these only contain the metadata, this shouldn't impact performance so much. The byte data is read separately when needed.
     public List<List<ImageClass>> getImageItemList() {
@@ -94,5 +98,9 @@ public class ImageRepository_imp implements ImageRepository{
     public Boolean lightCounterpartPresent(Long id){
         String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";
         return jdbc.queryForObject(sql, Boolean.class, id);
+    }
+
+    public void addRatingToSubmission(RatingClass rating) {
+        System.out.printf("%n--- Adding review to submission ---%n");
     }
 }

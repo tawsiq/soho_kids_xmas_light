@@ -15,9 +15,9 @@ import java.util.List;
 @Controller
 public class SubmissionsController {
 
-    private final ImageService imageService; //TODO: Test warning fix: final
+    private final ImageService imageService;
 
-    // TODO: Come back and autowire this if you face issues. Also use "anImageService" for the parameter.
+    // TODO: Make image viewing asynchronous
     public SubmissionsController(ImageService imageService){
         this.imageService = imageService;
     }
@@ -69,13 +69,18 @@ public class SubmissionsController {
         return modelAndView;
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
+    // TODO: Transform this into an AJAX request.
     @GetMapping("home/submissions/{id}/add-rating-to-submission")
     public ModelAndView hostRatingSection(@PathVariable Long id){
         return new ModelAndView("submissions-page/submission-details");
     }
     @PostMapping("home/submissions/{id}/add-rating-to-submission")
-    public ModelAndView processPostedRating(@PathVariable Long id){
-        // TODO: Come back once you've made a review entity class.
+    public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating){
+        // TODO: Come back once you've implemented repository methods, namely save() & retrieve(). I wonder if there's a way to make comments unique... to the session.... That's the only way to limit likes to only 1 per session at least. To simulate it, I'll make the like button active until pressed again.
+        //       The like count won't increase instantly unless I'm using AJAX or JS to simulate it. Will come to that later.
+        imageService.moderateComment(rating);
+
+
         return new ModelAndView();
     }
 
