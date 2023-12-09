@@ -4,7 +4,7 @@ import java.io.File;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
-
+// CREDIT FOR THIS GOES TO CHATGPT. I only helped debug it and correct it based on the projects needs. I understand what's going on!
 public class MetadataPopulator {
     private static final Map<String, Long> drawingNameToIdMap = new HashMap<>();
 
