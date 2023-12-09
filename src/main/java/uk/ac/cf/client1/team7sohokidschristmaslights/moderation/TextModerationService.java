@@ -25,12 +25,19 @@ public class TextModerationService {
     }
     //------ PUBLIC METHODS ------//
     public String moderateText(String textToModerate) {
-        if (isTextSafe(textToModerate)) {
-            return textToModerate; // Text is safe, return unchanged
-        } else {
-            // Text is not safe, censor or modify the text here
-            return censorText(textToModerate); // Modify this method for your censorship logic
+        try{
+            if (isTextSafe(textToModerate)) {
+                return textToModerate; // Text is safe, return unchanged
+            } else {
+                // Text is not safe, censor or modify the text here
+                return censorText(textToModerate); // Modify this method for your censorship logic
+            }
+        } catch (Exception e) {
+            System.out.printf("System failed to moderate " + textToModerate + "%n");
+            e.printStackTrace();
+            return "null moderation operation %n";
         }
+
     }
 
     //------ PRIVATE METHODS ------//
@@ -44,22 +51,21 @@ public class TextModerationService {
         }
 
         // Check entities for profanity or offensive terms
-        for (Entity entity : response.getResponse().getEntities()) {
-            // Check if the entity is recognized as profane or offensive
-            if (isProfane(entity) || isOffensive(entity)) {
-                return false; // Contains profanity or offensive content
+        if (response.getResponse().getEntities() != null) {
+            for (Entity entity : response.getResponse().getEntities()) {
+                // Check if the entity is recognized as profane or offensive
+                if (isProfane(entity) || isOffensive(entity)) {
+                    return false; // Contains profanity or offensive content
+                }
+            }
+            // Check categories for potentially offensive content
+            for (ScoredCategory category : response.getResponse().getCategories()) {
+                // Check if the category score is above the threshold and recognized as offensive
+                if (category.getScore() >= 0.5 && isCategoryOffensive(category.getLabel())) {
+                    return false; // Contains offensive content above the threshold score
+                }
             }
         }
-
-        // Check categories for potentially offensive content
-        for (ScoredCategory category : response.getResponse().getCategories()) {
-            // Check if the category score is above the threshold and recognized as offensive
-            if (category.getScore() >= 0.5 && isCategoryOffensive(category.getLabel())) {
-                return false; // Contains offensive content above the threshold score
-            }
-        }
-        // Additional checks for sentiment analysis or other categories for toxicity detection
-        // Example: Check sentiment scores or categories for toxicity detection
         return true; // Text is safe
     }
 

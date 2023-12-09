@@ -76,7 +76,7 @@ public class SubmissionsController {
 
         rating.setDateTime(imageService.logDateTime());
         rating.setSubmissionId(id);
-//        imageService.moderateRating(rating);
+        imageService.moderateRating(rating);
         imageService.storeRating(rating);
 
         return new ModelAndView("redirect:/home/submissions/" + id);

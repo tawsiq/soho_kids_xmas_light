@@ -45,12 +45,19 @@ public class ImageService_imp implements ImageService{
         return Files.readAllBytes(pathToImage);
     }
     public void moderateRating(RatingClass rating) {
+        System.out.printf("%n --- Rating received into moderateRating ---%n");
+
         String moderatedName = textModerationService.moderateText(rating.getRaterName());
+        System.out.printf("Name changed to %s%n", moderatedName);
+
         String moderatedComment = textModerationService.moderateText(rating.getCommentText());
+        System.out.printf("Comment changed to %s%n", moderatedComment);
 
         rating.setRaterName(moderatedName);
-        rating.setCommentText(moderatedComment);
+        System.out.printf("New name set%n");
 
+        rating.setCommentText(moderatedComment);
+        System.out.printf("New comment set%n");
     }
     public void storeRating(RatingClass rating) {
         imageRepository.storeRating(rating);
