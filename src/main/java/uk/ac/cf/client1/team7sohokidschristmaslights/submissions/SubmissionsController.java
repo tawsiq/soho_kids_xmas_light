@@ -21,12 +21,6 @@ public class SubmissionsController {
     public SubmissionsController(ImageService imageService){
         this.imageService = imageService;
     }
-    // Use URL for debugging template.
-    @GetMapping("home/submissions/submission-details-template")
-    public ModelAndView showSubmissionDetails() {
-        return new ModelAndView("submissions-page/submission-details");
-    }
-
 
     @GetMapping("home/submissions")
     public ModelAndView getImageMenu() {
@@ -66,6 +60,9 @@ public class SubmissionsController {
             modelAndView.addObject("light", light);
         }
         modelAndView.addObject("drawing", drawing);
+
+        modelAndView.addObject("ratingList", imageService.getRatingList(id)); // Also retrieve rating list from the database to play around with in the template.
+
         return modelAndView;
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.

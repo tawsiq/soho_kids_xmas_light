@@ -20,11 +20,17 @@ public class ImageService_imp implements ImageService{
     public List<List<ImageClass>> getImageItemList() {
         return imageRepository.getImageItemList();
     }
+
     public ImageClass getImage(Long id, Boolean light) {
         return imageRepository.getImage(id, light);
     }
+
     public Boolean lightCounterpartPresent(Long id){
         return imageRepository.lightCounterpartPresent(id);
+    }
+
+    public List<RatingClass> getRatingList(Long submission_id){
+        return imageRepository.getRatingList(submission_id);
     }
     // Retrieves image data based on the absolute file path stored in ImageClass
     public byte[] getImageData(ImageClass image) throws IOException {

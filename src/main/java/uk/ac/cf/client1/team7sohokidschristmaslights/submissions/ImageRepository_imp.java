@@ -10,12 +10,14 @@ import java.util.List;
 @Repository
 public class ImageRepository_imp implements ImageRepository{
     // allows opening of connection between DB data & java objects
-    private final JdbcTemplate jdbc; //TODO: Test "final" here.
+    private final JdbcTemplate jdbc;
     private RowMapper<ImageClass> imageItemMapper;
+    private RowMapper<RatingClass> ratingItemMapper;
     // Constructor
     public ImageRepository_imp(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setImageItemMapper();
+        setRatingItemMapper();
     }
 
     // ---------- PRIVATE METHODS - INTERNAL USE ONLY ---------- //
@@ -30,10 +32,33 @@ public class ImageRepository_imp implements ImageRepository{
                 rs.getString("name")
         );
     }
+    private void setRatingItemMapper(){
+        ratingItemMapper = (rs, i) -> new RatingClass(
+                rs.getLong("submission_id"),
+                rs.getString("name"),
+                rs.getString("comment"),
+                rs.getBoolean("liked"),
+                rs.getString("date_time")
+        );
+    }
 
+    private void insert(RatingClass rating){
+        String insertRatingSQL =
+                "INSERT INTO Ratings " +
+                "(`submission_id`, `name`, `comment`, `liked`, `date_time`)" +
+                "VALUES (?,?,?,?,?)";
 
+        jdbc.update(insertRatingSQL,
+                rating.getSubmissionId(), // This is set when the form is handed in by thymeleaf in template.
+                rating.getRaterName(),
+                rating.getCommentText(),
+                rating.getLiked(),
+                rating.getDateTime()
+        );
+    }
 
     // ---------- PUBLIC METHODS ---------- //
+    // --- RETRIEVERS --- //
     // Returns a list of lists. The first list, at element 0 of the return, will contain drawings. The second at element 1 will contain the lights.
     // Since these only contain the metadata, this shouldn't impact performance so much. The byte data is read separately when needed.
     public List<List<ImageClass>> getImageItemList() {
@@ -59,6 +84,7 @@ public class ImageRepository_imp implements ImageRepository{
                 jdbc.query(sql_lights, imageItemMapper)
         );
     }
+
     public ImageClass getImage(Long id, Boolean light){
         String sql;
 
@@ -94,13 +120,22 @@ public class ImageRepository_imp implements ImageRepository{
         }
         return null;
     }
+
+    public List<RatingClass> getRatingList(Long submission_id){
+
+        String sql = "SELECT * FROM Ratings WHERE submission_id = ?";
+        return jdbc.query(sql, ratingItemMapper, submission_id);
+    }
+
+
     // Come back to https://www.notion.so/unequaled-moustache-536/Servers-2-73bc55350f0d4274b34ff8e9b67f8c50?pvs=4#1f1efe08fdab40f695a379ee5f30e56f if you want to start adding submissions through the app.
     public Boolean lightCounterpartPresent(Long id){
         String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";
         return jdbc.queryForObject(sql, Boolean.class, id);
     }
-
+    // --- INSERTERS --- //
     public void addRatingToSubmission(RatingClass rating) {
+        insert(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
 }
