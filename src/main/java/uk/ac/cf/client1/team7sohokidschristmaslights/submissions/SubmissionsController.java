@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -67,4 +68,15 @@ public class SubmissionsController {
         modelAndView.addObject("drawing", drawing);
         return modelAndView;
     }
+    // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
+    @GetMapping("home/submissions/{id}/add-rating-to-submission")
+    public ModelAndView hostRatingSection(@PathVariable Long id){
+        return new ModelAndView("submissions-page/submission-details");
+    }
+    @PostMapping("home/submissions/{id}/add-rating-to-submission")
+    public ModelAndView processPostedRating(@PathVariable Long id){
+        // TODO: Come back once you've made a review entity class.
+        return new ModelAndView();
+    }
+
 }
