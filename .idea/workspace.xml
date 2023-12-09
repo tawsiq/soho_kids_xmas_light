@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="54272f1e-db87-4a13-9de3-1549ecc95c98" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wireframes/Contact_and_About_Us.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wireframes/Home Page.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wireframes/Shop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wireframes/Some_Notes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wireframes/Submissions.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/jackson-annotations-2.6.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/jackson-core-2.6.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/jackson-databind-2.6.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/textrazor-1.0.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/MetadataPopulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/Team7SohoKidsChristmasLightsApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/moderation/TextModerationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageRepository_imp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService_imp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/RatingClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/SubmissionsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/shared.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/submissions-page/group-submissions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/submissions-page/submission-details.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/submissions-page/year-groups-list.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/auto-expand-input.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Hajar_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Hajar_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Marwa_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/reception/2023_reception_Marwa_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Emberley_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Emberley_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Vespev_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year1/2023_year1_Vespev_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Aayan_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Aayan_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Kamila_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year2/2023_year2_Kamila_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Rilley_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Rilley_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Sofia_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year3/2023_year3_Sofia_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Lilli_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Lilli_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Yujin_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year4/2023_year4_Yujin_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Maria_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Maria_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Milana_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year5/2023_year5_Milana_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_JohnMichael_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_JohnMichael_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_Milena_drawing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/submission_storage_directory/2023/year6/2023_year6_Milena_light.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/theme_shapes/hollow-triangle-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/theme_shapes/hollow-triangle-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/lists.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/shaped-header-underlines.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/submissions-page/submission-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/submissions-page/submissions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/uk/ac/cf/client1/team7sohokidschristmaslights/Team7SohoKidsChristmasLightsApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2YtKJQRWKXx4JlHtRts4cZCMEm1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/Projects/team-7-soho-kids-christmas-lights/libs",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.10175695",
+    "project.structure.side.proportion": "0.31505656",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
+    "spring.configuration.checksum": "519653ba139b17889617595d4b69ce22",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MariaDB",
+      "MySQL"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\java\uk\ac\cf\client1\team7sohokidschristmaslights" />
+      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main" />
+      <recent name="D:\Projects\team-7-soho-kids-christmas-lights" />
+      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\libs" />
+      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\java\uk\ac\cf\client1\team7sohokidschristmaslights\moderation" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="uk.ac.cf.client1.team7sohokidschristmaslights" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.team-7-soho-kids-christmas-lights [build]">
+    <configuration name="team-7-soho-kids-christmas-lights [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="team-7-soho-kids-christmas-lights [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="team-7-soho-kids-christmas-lights [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Team7SohoKidsChristmasLightsApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="team-7-soho-kids-christmas-lights.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.client1.team7sohokidschristmaslights.Team7SohoKidsChristmasLightsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Team7SohoKidsChristmasLightsApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="uk.ac.cf.client1.team-7-soho-kids-christmas-lights.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.client1.team7sohokidschristmaslights.Team7SohoKidsChristmasLightsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Team7SohoKidsChristmasLightsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="team-7-soho-kids-christmas-lights.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.Team7SohoKidsLights.team7sohokidschristmaslights.Team7SohoKidsChristmasLightsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.team-7-soho-kids-christmas-lights [build]" />
+        <item itemvalue="Gradle.team-7-soho-kids-christmas-lights [clean]" />
+        <item itemvalue="Gradle.team-7-soho-kids-christmas-lights [bootRun]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54272f1e-db87-4a13-9de3-1549ecc95c98" name="Changes" comment="" />
+      <created>1701339366196</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701339366196</updated>
+      <workItem from="1701339366776" duration="11168000" />
+      <workItem from="1701525244947" duration="941000" />
+      <workItem from="1701537399304" duration="1624000" />
+      <workItem from="1701591833591" duration="20343000" />
+      <workItem from="1701612221809" duration="16299000" />
+      <workItem from="1701682856239" duration="37934000" />
+      <workItem from="1701777032036" duration="30646000" />
+      <workItem from="1701888407423" duration="789000" />
+      <workItem from="1701890551943" duration="4078000" />
+      <workItem from="1701901720483" duration="410000" />
+      <workItem from="1701904580711" duration="519000" />
+      <workItem from="1701948598426" duration="4786000" />
+      <workItem from="1701957826350" duration="13215000" />
+      <workItem from="1701979519774" duration="4407000" />
+      <workItem from="1702019944218" duration="41548000" />
+      <workItem from="1702109129662" duration="3184000" />
+      <workItem from="1702112589238" duration="9812000" />
+      <workItem from="1702123910411" duration="296000" />
+      <workItem from="1702124208676" duration="4373000" />
+      <workItem from="1702128602593" duration="534000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
