@@ -46,5 +46,10 @@
 
     </form><br>
 
+    <div th:each="rating : ${ratingList}">
+        <p th:text="${rating.getRaterName()}"></p>
+        <p th:text="${rating.getCommentText()}"></p>
+    </div>
+
 </body>
 </html>

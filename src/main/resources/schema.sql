@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS Ratings;
+-- DROP TABLE IF EXISTS Ratings;
+
+
 DROP TABLE IF EXISTS Lights;
 DROP TABLE IF EXISTS Drawings;
 
@@ -32,8 +34,8 @@ CREATE TABLE IF NOT EXISTS Ratings (
     `name` VARCHAR(128) NOT NULL,
     `comment` VARCHAR(128) NULL, -- Should be allowed to be NULL because the user may just want to submit a like.
     liked BOOLEAN, -- The like button will act as a check box, so null values cannot be entered, even though they're allowed.
-    `date_time` VARCHAR(64) NOT NULL,
+    `date_time` VARCHAR(64) NOT NULL
 
-    FOREIGN KEY (submission_id) REFERENCES Drawings(id)
+--     FOREIGN KEY (submission_id) REFERENCES Drawings(id)
 
 ) ENGINE=InnoDB;

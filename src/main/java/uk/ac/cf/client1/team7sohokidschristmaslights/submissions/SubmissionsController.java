@@ -59,6 +59,7 @@ public class SubmissionsController {
             ImageClass light = imageService.getImage(id, true); // Required only for winning submissions.
             modelAndView.addObject("light", light);
         }
+
         modelAndView.addObject("drawing", drawing);
 
         modelAndView.addObject("ratingList", imageService.getRatingList(id)); // Also retrieve rating list from the database to play around with in the template.
