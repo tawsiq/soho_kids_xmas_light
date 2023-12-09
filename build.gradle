@@ -35,7 +35,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	implementation files('libs/TextRazor.jar')
+	implementation files('libs/textrazor-1.0.12.jar')
 	implementation files('libs/jackson-core-2.6.6.jar')
 	implementation files('libs/jackson-annotations-2.6.6.jar')
 	implementation files('libs/jackson-databind-2.6.6.jar')
