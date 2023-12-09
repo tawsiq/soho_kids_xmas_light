@@ -73,12 +73,12 @@ public class SubmissionsController {
     }
     @PostMapping("home/submissions/{id}/add-rating-to-submission")
     public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating){
-        // TODO: Come back once you've implemented repository methods, namely save() & retrieve(). I wonder if there's a way to make comments unique... to the session.... That's the only way to limit likes to only 1 per session at least. To simulate it, I'll make the like button active until pressed again.
-        //       The like count won't increase instantly unless I'm using AJAX or JS to simulate it. Will come to that later.
-        imageService.moderateComment(rating);
 
+        rating.setSubmissionId(id);
+        imageService.moderateRating(rating);
+        imageService.storeRating(rating);
 
-        return new ModelAndView();
+        return new ModelAndView("redirect:/home/submissions/" + id);
     }
 
 }

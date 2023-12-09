@@ -1,6 +1,7 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.submissions;
 
 import org.springframework.stereotype.Service;
+import uk.ac.cf.client1.team7sohokidschristmaslights.moderation.TextModerationService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,9 +13,11 @@ import java.util.List;
 public class ImageService_imp implements ImageService{
 
     private final ImageRepository imageRepository;
+    private final TextModerationService textModerationService;
 
-    public ImageService_imp(ImageRepository anImageRepository) {
+    public ImageService_imp(ImageRepository anImageRepository, TextModerationService atextModerationService) {
         this.imageRepository = anImageRepository;
+        this.textModerationService = atextModerationService;
     }
     // Implement the ImageService Methods using the repository.
     public List<List<ImageClass>> getImageItemList() {
@@ -39,15 +42,15 @@ public class ImageService_imp implements ImageService{
         // Read the image data into a byte array
         return Files.readAllBytes(pathToImage);
     }
-    public void moderateComment(RatingClass rating) {
-//
-//        if (rating.getCommentText()){ // .isSafe()
-//            imageRepository.addRatingToSubmission(rating);
-//
-//        } else {
-//            String safeComment = rating.getCommentText();//.change
-//            rating.setCommentText(safeComment);
-//            imageRepository.addRatingToSubmission(rating);
-//        }
+    public void moderateRating(RatingClass rating) {
+        String moderatedName = textModerationService.moderateText(rating.getRaterName());
+        String moderatedComment = textModerationService.moderateText(rating.getCommentText());
+
+        rating.setRaterName(moderatedName);
+        rating.setCommentText(moderatedComment);
+
+    }
+    public void storeRating(RatingClass rating) {
+        imageRepository.storeRating(rating);
     }
 }

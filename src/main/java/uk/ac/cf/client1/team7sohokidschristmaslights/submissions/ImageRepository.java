@@ -8,5 +8,5 @@ public interface ImageRepository {
     ImageClass getImage(Long id, Boolean light); // use the primary key to locate specific images in the database. Whether it's a light or a drawing is dependent on which table is used.
     List<RatingClass> getRatingList(Long submission_id);
     Boolean lightCounterpartPresent(Long id);
-    void addRatingToSubmission(RatingClass rating);
+    void storeRating(RatingClass rating);
 }

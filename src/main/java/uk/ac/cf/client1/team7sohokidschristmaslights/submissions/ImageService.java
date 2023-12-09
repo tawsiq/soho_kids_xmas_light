@@ -9,5 +9,6 @@ public interface ImageService {
     List<RatingClass> getRatingList(Long submission_id);
     Boolean lightCounterpartPresent(Long id);
     byte[] getImageData(ImageClass imageClass) throws IOException;
-    void moderateComment(RatingClass rating);
+    void moderateRating(RatingClass rating);
+    void storeRating(RatingClass rating);
 }

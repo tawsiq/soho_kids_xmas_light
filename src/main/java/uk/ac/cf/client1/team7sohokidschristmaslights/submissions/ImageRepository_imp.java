@@ -134,7 +134,7 @@ public class ImageRepository_imp implements ImageRepository{
         return jdbc.queryForObject(sql, Boolean.class, id);
     }
     // --- INSERTERS --- //
-    public void addRatingToSubmission(RatingClass rating) {
+    public void storeRating(RatingClass rating) {
         insert(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
