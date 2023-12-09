@@ -1,5 +1,5 @@
 // Please create separate packages for other pages. Mixing controllers is probably a bad idea...
-package uk.ac.cf.client1.team7sohokidschristmaslights.submissions;
+package uk.ac.cf.spring.team7client1.submissions;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54272f1e-db87-4a13-9de3-1549ecc95c98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/moderation/TextModerationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/moderation/TextModerationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService_imp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/ImageService_imp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/SubmissionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/cf/client1/team7sohokidschristmaslights/submissions/SubmissionsController.java" afterDir="false" />
-    </list>
+    <list default="true" id="24ea9daf-e771-404c-9182-7810ecf0320c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -34,24 +26,12 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
+                <item name="team7-client1" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
+                <item name="team7-client1" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="team-7-soho-kids-christmas-lights" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -60,84 +40,52 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2YtKJQRWKXx4JlHtRts4cZCMEm1" />
+  <component name="ProjectId" id="2ZJJxUCDg5q7QTO0nc5bXrB8jfZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/team-7-soho-kids-christmas-lights/libs&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.10175695&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.31505656&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;519653ba139b17889617595d4b69ce22&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Projects/team7-client1/src/main/java/uk/ac/cf/spring/team7client1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.10175695",
+    "project.structure.side.proportion": "0.3716275",
+    "spring.configuration.checksum": "4e36eeb41fb9e5b75da1e180e9820d4e",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
-    ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MariaDB&quot;,
-      &quot;MySQL&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main" />
-      <recent name="D:\Projects\team-7-soho-kids-christmas-lights" />
-      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\libs" />
-      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\java\uk\ac\cf\client1\team7sohokidschristmaslights\moderation" />
-      <recent name="D:\Projects\team-7-soho-kids-christmas-lights\src\main\resources\static\images" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="uk.ac.cf.client1.team7sohokidschristmaslights" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\team7-client1\src\main\java\uk\ac\cf\spring\team7client1" />
+      <recent name="D:\Projects\team7-client1\src\main\java\uk\ac\cf\spring\team7client1\submissions" />
+      <recent name="D:\Projects\team7-client1\src\main\java\uk\ac\cf\spring\team7client1\moderation" />
+      <recent name="D:\Projects\team7-client1\src\main\resources" />
+      <recent name="D:\Projects\team7-client1\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="Gradle.team-7-soho-kids-christmas-lights [build]">
-    <configuration name="team-7-soho-kids-christmas-lights [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.team7-client1 [bootRun]">
+    <configuration name="team7-client1 [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -153,105 +101,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="team-7-soho-kids-christmas-lights [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="team-7-soho-kids-christmas-lights [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Team7SohoKidsChristmasLightsApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="team-7-soho-kids-christmas-lights.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.client1.team7sohokidschristmaslights.Team7SohoKidsChristmasLightsApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Team7SohoKidsChristmasLightsApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="uk.ac.cf.client1.team-7-soho-kids-christmas-lights.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.client1.team7sohokidschristmaslights.Team7SohoKidsChristmasLightsApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Team7SohoKidsChristmasLightsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="team-7-soho-kids-christmas-lights.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.Team7SohoKidsLights.team7sohokidschristmaslights.Team7SohoKidsChristmasLightsApplication" />
+    <configuration name="Team7Client1SohoKidsLightsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="team7-client1.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="uk.ac.cf.spring.team7client1.Team7Client1SohoKidsLightsApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.team-7-soho-kids-christmas-lights [build]" />
-        <item itemvalue="Gradle.team-7-soho-kids-christmas-lights [clean]" />
-        <item itemvalue="Gradle.team-7-soho-kids-christmas-lights [bootRun]" />
+        <item itemvalue="Gradle.team7-client1 [bootRun]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54272f1e-db87-4a13-9de3-1549ecc95c98" name="Changes" comment="" />
-      <created>1701339366196</created>
+      <changelist id="24ea9daf-e771-404c-9182-7810ecf0320c" name="Changes" comment="" />
+      <created>1702134496517</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701339366196</updated>
-      <workItem from="1701339366776" duration="11168000" />
-      <workItem from="1701525244947" duration="941000" />
-      <workItem from="1701537399304" duration="1624000" />
-      <workItem from="1701591833591" duration="20343000" />
-      <workItem from="1701612221809" duration="16299000" />
-      <workItem from="1701682856239" duration="37934000" />
-      <workItem from="1701777032036" duration="30646000" />
-      <workItem from="1701888407423" duration="789000" />
-      <workItem from="1701890551943" duration="4078000" />
-      <workItem from="1701901720483" duration="410000" />
-      <workItem from="1701904580711" duration="519000" />
-      <workItem from="1701948598426" duration="4786000" />
-      <workItem from="1701957826350" duration="13215000" />
-      <workItem from="1701979519774" duration="4407000" />
-      <workItem from="1702019944218" duration="41548000" />
-      <workItem from="1702109129662" duration="3184000" />
-      <workItem from="1702112589238" duration="9812000" />
-      <workItem from="1702123910411" duration="296000" />
-      <workItem from="1702124208676" duration="4373000" />
-      <workItem from="1702128602593" duration="340000" />
+      <updated>1702134496517</updated>
+      <workItem from="1702134497153" duration="99000" />
+      <workItem from="1702134662297" duration="837000" />
     </task>
     <servers />
   </component>

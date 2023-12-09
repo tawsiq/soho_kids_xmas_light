@@ -1,4 +1,4 @@
-package uk.ac.cf.client1.team7sohokidschristmaslights.submissions;
+package uk.ac.cf.spring.team7client1.submissions;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

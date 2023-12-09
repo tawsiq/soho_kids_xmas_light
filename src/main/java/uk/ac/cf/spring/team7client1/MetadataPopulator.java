@@ -1,4 +1,4 @@
-package uk.ac.cf.client1.team7sohokidschristmaslights;
+package uk.ac.cf.spring.team7client1;
 
 import java.io.File;
 import java.sql.*;

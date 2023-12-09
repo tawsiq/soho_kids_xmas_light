@@ -1,6 +1,6 @@
-package uk.ac.cf.client1.team7sohokidschristmaslights.submissions;
+package uk.ac.cf.spring.team7client1.submissions;
 
-import uk.ac.cf.client1.team7sohokidschristmaslights.moderation.TextModerationService;
+//import uk.ac.cf.client1.team7sohokidschristmaslights.moderation.TextModerationService;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +12,7 @@ import java.util.List;
 public class ImageService_imp implements ImageService{
 
     private final ImageRepository imageRepository;
-    TextModerationService textModerationService = new TextModerationService();
+//    TextModerationService textModerationService = new TextModerationService();
 
     public ImageService_imp(ImageRepository anImageRepository) {
         this.imageRepository = anImageRepository;
@@ -42,10 +42,10 @@ public class ImageService_imp implements ImageService{
     }
     public void moderateComment(RatingClass rating) {
 
-        String moderatedName = textModerationService.moderateText(rating.getRaterName());
-        String moderatedComment = textModerationService.moderateText(rating.getCommentText());
-
-        rating.setRaterName(moderatedName);
-        rating.setCommentText(moderatedComment);
+//        String moderatedName = textModerationService.moderateText(rating.getRaterName());
+//        String moderatedComment = textModerationService.moderateText(rating.getCommentText());
+//
+//        rating.setRaterName(moderatedName);
+//        rating.setCommentText(moderatedComment);
     }
 }
