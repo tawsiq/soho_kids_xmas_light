@@ -48,35 +48,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects/team7-client1/src/main/java/uk/ac/cf/spring/team7client1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.10175695&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.3716275&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;4e36eeb41fb9e5b75da1e180e9820d4e&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/Projects/team7-client1/libs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.10175695",
+    "project.structure.side.proportion": "0.3716275",
+    "spring.configuration.checksum": "4e36eeb41fb9e5b75da1e180e9820d4e",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\team7-client1\libs" />
       <recent name="D:\Projects\team7-client1\src\main\java\uk\ac\cf\spring\team7client1" />
       <recent name="D:\Projects\team7-client1\src\main\java\uk\ac\cf\spring\team7client1\submissions" />
       <recent name="D:\Projects\team7-client1\src\main\java\uk\ac\cf\spring\team7client1\moderation" />
       <recent name="D:\Projects\team7-client1\src\main\resources" />
-      <recent name="D:\Projects\team7-client1\src\main\resources\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.team7-client1 [bootRun]">
