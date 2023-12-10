@@ -76,6 +76,10 @@ public class SubmissionsController {
     @PostMapping("/home/submissions/{id}/addReview")
     public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating) {
 
+        if(rating.getRaterName().equals("")){
+            rating.setRaterName("Anonymous");
+        }
+
         if (ratingIsNotNull(rating)){
             rating.setDateTime(imageService.logDateTime());
             rating.setSubmissionId(id);
@@ -87,5 +91,6 @@ public class SubmissionsController {
     private boolean ratingIsNotNull(RatingClass rating){
         return rating.getLiked()!=null || !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
     }
+
 
 }

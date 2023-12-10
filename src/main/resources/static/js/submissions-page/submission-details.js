@@ -1,27 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     const checkbox = document.getElementById('liked');
-    let likeCount = document.getElementById('likeCount');
+    const likeCount = document.getElementById('likeCount');
+    const linkToCopy = document.getElementById('linkToCopy');
 
-    checkbox.addEventListener('change', function (event) {
+    checkbox.addEventListener('change', function(event) {
         // Your code here to handle the change event
+        const currentValue = parseInt(likeCount.textContent);
         if (event.target.checked) {
-            let currentValue = parseInt(likeCount.textContent);
-            currentValue += 1;
-            // Update the displayed number
-            likeCount.textContent = currentValue.toString();
+            likeCount.textContent = (currentValue + 1).toString();
         } else {
-            let currentValue = parseInt(likeCount.textContent);
-            currentValue -= 1;
-            likeCount.textContent = currentValue.toString();
+            likeCount.textContent = (currentValue - 1).toString();
         }
-
     });
 
-    const copyButton = document.getElementById('linkToCopy');
-    const labelForButton = document.querySelector('.copyLink-button');
-
-    copyButton.addEventListener('click', function () {
+    linkToCopy.addEventListener('click', function() {
         // Get the value from the 'data-value' attribute
         const linkText = this.getAttribute('data-value');
 
@@ -29,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
         copyToClipboard(linkText);
 
         // Optionally, you can provide feedback to the user
-        labelForButton.textContent = 'Link Copied!';
+        this.textContent = 'Link Copied!';
         setTimeout(() => {
-            labelForButton.textContent = 'Copy Link';
+            this.textContent = 'Copy Link';
         }, 2000); // Reset button text after 2 seconds
     });
 

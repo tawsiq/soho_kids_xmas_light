@@ -105,7 +105,7 @@ header h2, h3, h4{
     color: #EAEBED;
 
     height: 1.5em;
-    width: 40em; /* matches the image width above */
+    width: 60%;
     min-height: 1.5em; /* Set minimum height to prevent textarea from collapsing completely */
     overflow-y: hidden;
     resize: none; /* resizing handled by js*/

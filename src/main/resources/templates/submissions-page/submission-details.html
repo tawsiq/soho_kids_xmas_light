@@ -33,25 +33,32 @@
     <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <br>
 
-    <label for="linkToCopy" class="copyLink-button"></label>
-    <button id="linkToCopy" name="copyLink" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</button>
-
     <form class="form-div-flex-container" th:action = "@{'/home/submissions/' + ${drawing.getId()} + '/addReview'}" method = "post">
 
-        <input type="checkbox" name="liked" id="liked">
-        <label class="like-button" for="liked"></label>
+        <div class="inner-form-row-container">
 
-        <div th:text="${likeCount}" id="likeCount"></div>
+            <input type="checkbox" name="liked" id="liked">
 
-        <label class="form-label" for="raterName"></label>
-        <textarea id="raterName" name="raterName" placeholder="Give name"></textarea>
+            <label class="like-button" for="liked"></label>
 
-        <label class="form-label" for="commentText"></label>
-        <textarea class="auto-expanding-input" id="commentText" name="commentText" placeholder="Write a comment about this submission"></textarea>
+            <div th:text="${likeCount}" id="likeCount"></div>
+
+            <div class="copyLink-button" id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div>
+
+        </div>
+
+        <div class="inner-form-row-container" id="input">
+            <label class="form-label" for="raterName"></label>
+            <textarea class="auto-expanding-input name-input" id="raterName" name="raterName" placeholder="Name"></textarea>
+
+            <label class="form-label" for="commentText"></label>
+            <textarea class="auto-expanding-input comment-input" id="commentText" name="commentText" placeholder="Comment"></textarea>
+        </div>
 
         <button class="button" type="submit">Post Comment</button>
 
     </form><br>
+
 
     <div th:each="rating : ${ratingList}">
         <p th:text="${rating.getRaterName()}"></p>
