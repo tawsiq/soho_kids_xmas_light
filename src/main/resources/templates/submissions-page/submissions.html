@@ -37,15 +37,16 @@
 
 <main>
     <article class="winner-submissions-flex-container">
-        <div th:each="image : ${imageItemList[1]}">
-            <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
-            <a th:href="@{/home/submissions/{id} (id=${image.getId()})}">
-                <div class="button full-border" th:attr="data-year_group=${image.getYearGroup()}, data-submission_year=${image.getSubmissionYear()}">
-                    <img class="light winnerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
-                    <img class="drawing winnerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
-                </div>
-            </a>
-        </div>
+        <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
+        <a class="button full-border"
+           th:each="image : ${imageItemList[1]}"
+           th:href="@{/home/submissions/{id} (id=${image.getId()})}"
+           th:attr="data-year_group=${image.getYearGroup()},
+                    data-submission_year=${image.getSubmissionYear()}"
+        >
+            <img class="light winnerContainerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+            <img class="drawing winnerContainerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+        </a>
     </article><br><br>
 </main>
 
@@ -57,15 +58,13 @@
 <main>
     <article class="submissions-flex-container">
 
-        <div th:each="drawing : ${imageItemList[0]}">
-            <a class="button full-border"
-               th:href="@{/home/submissions/{id} (id=${drawing.getId()})}"
-               th:attr="data-year_group=${drawing.getYearGroup()},
-                        data-submission_year=${drawing.getSubmissionYear()}"
-            >
-                <img class="drawing submissionTag" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
-            </a>
-        </div>
+        <a class="button full-border" th:each="drawing : ${imageItemList[0]}"
+           th:href="@{/home/submissions/{id} (id=${drawing.getId()})}"
+           th:attr="data-year_group=${drawing.getYearGroup()},
+                    data-submission_year=${drawing.getSubmissionYear()}"
+        >
+            <img class="drawing submissionContainerTag" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
+        </a>
 
     </article><br><br>
 </main>

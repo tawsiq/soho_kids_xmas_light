@@ -56,18 +56,12 @@
     border-bottom: 2px solid gold;
     cursor: pointer;
 }
-.filtered-reset {
-    gap: 0;
-    margin: initial
-}
-.hidden{
+.filtered-out{
+    flex: none !important;
     display: none !important;
 }
-/*.filtered-winner-container, .filtered-submissions-container{*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*    justify-content: center;*/
-/*}*/
+
+
 
 
 
