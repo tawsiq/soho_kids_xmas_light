@@ -47,11 +47,75 @@ input[type="checkbox"]{
     display: inline-block;
     aspect-ratio: 1/1;
     width: 3em; /* Adjust width and height as needed */
-    background-color: transparent; /* Background color of the button */
+    /*background-color: transparent; !* Background color of the button *!*/
     border-radius: 50%; /* Make it round */
     cursor: pointer;
     border: 1px solid #ccc; /* Border color */
     margin: 0 1em 0 1em;
+}
+.like-button {
+    /* Your existing styles for the circular button */
+    /* Add position and padding to the container */
+    position: relative;
+    width: 3em; /* Width and height of the button */
+    height: 3em;
+    padding: 5px;
+    border-radius: 50%; /* Make it round */
+    border: 1px solid #ccc; /* Border color */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue; /* Background color of the button */
+    margin: 0 1em 0 1em;
+
+    background-size: 60%;
+    background-position: center;
+}
+
+.image-container::before {
+    content: ""; /* Create a pseudo-element to hold the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../theme_shapes/heart_red.png'); /* Path to your heart image */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%; /* Ensure it's round */
+    opacity: 90%; /* Hide the image by default */
+    transition: opacity 0.3s ease; /* Add a transition for smoother effect */
+}
+
+/* On hover/focus, display the heart image */
+.like-button:hover .image-container::before,
+.like-button:focus .image-container::before{
+    opacity: 100%;
+    transition: opacity 0.5s ease;
+    background-image: url('../../theme_shapes/heart_green.png');
+}
+#likeCount{
+    transition: border-color 0.5s ease;
+    box-sizing: border-box;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #754287;
+    border-left: 2px solid transparent;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    align-self: center;
+    font-size: 1.5em;
+}
+
+.like-button:hover + #likeCount,
+.like-button:focus + #likeCount {
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid gold;
+    border-left: 2px solid transparent;
 }
 .name-input{
     flex: 1;
