@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const images = document.querySelectorAll('.winner-submissions-flex-container .button.full-border, .submissions-flex-container .button.full-border');
 
         // This tags element before their classes affecting styling are removed in order to keep track of them. Ones that satisfy the filter will have their classes reinstated
-        // logic is wrong here. I'll need to tag images in the html. 
+        // logic is wrong here. I'll need to tag images in the html. I'll need to also obtain BOTH a list of images (done) AND a list of their containers - will just use another query selector.  
         images.forEach(image => {
                 if (image.classList.contains('winner-submissions-flex-container')) {
                     image.classList.add('winnerTag');

@@ -41,8 +41,8 @@
             <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
             <a th:href="@{/home/submissions/{id} (id=${image.getId()})}">
                 <div class="button full-border" th:attr="data-year_group=${image.getYearGroup()}, data-submission_year=${image.getSubmissionYear()}">
-                    <img class="light" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
-                    <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+                    <img class="light winnerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+                    <img class="drawing winnerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
                 </div>
             </a>
         </div>
@@ -63,7 +63,7 @@
                th:attr="data-year_group=${drawing.getYearGroup()},
                         data-submission_year=${drawing.getSubmissionYear()}"
             >
-                <img class="drawing" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
+                <img class="drawing submissionTag" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
             </a>
         </div>
 
