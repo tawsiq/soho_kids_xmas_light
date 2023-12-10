@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function filterImages(criteria) {
-        const images = document.querySelectorAll('.winner-submissions-flex-container div, .submissions-flex-container div');
+        const images = document.querySelectorAll('.winner-submissions-flex-container .button.full-border, .submissions-flex-container .button.full-border');
 
         images.forEach(image => {
-            const imageYearGroup = image.dataset.yearGroup;
-            const imageSubmissionYear = image.dataset.submissionYear;
+            const imageYearGroup = image.dataset.yeargroup;
+            const imageSubmissionYear = image.dataset.submissionyear;
 
             if ((criteria === imageYearGroup) || (criteria === imageSubmissionYear)) {
                 image.classList.remove('hidden');
