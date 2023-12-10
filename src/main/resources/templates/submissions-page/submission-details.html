@@ -59,11 +59,13 @@
 
     </form><br>
 
-
-    <div th:each="rating : ${ratingList}">
-        <p th:text="${rating.getRaterName()}"></p>
-        <p th:text="${rating.getCommentText()}"></p>
-    </div>
+    <ul class="comment-section">
+        <li th:each="rating : ${ratingList}" class="user-comment">
+            <p th:text="${rating.getRaterName()}" class="user-name"></p>
+            <p th:text="${rating.getCommentText()}" class="user-comment-text"></p>
+            <div class = "divider-line"></div>
+        </li>
+    </ul>
 
 </body>
 </html>

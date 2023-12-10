@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Ratings;
+-- DROP TABLE IF EXISTS Ratings;
 
 
 DROP TABLE IF EXISTS Lights;
@@ -31,9 +31,9 @@ CREATE TABLE IF NOT EXISTS Ratings (
 
     rating_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     submission_id BIGINT NOT NULL,
-    `name` VARCHAR(128) NOT NULL,
-    `comment` VARCHAR(128) NULL, -- Should be allowed to be NULL because the user may just want to submit a like.
-    liked BOOLEAN, -- The like button will act as a check box, so null values cannot be entered, even though they're allowed.
+    `name` VARCHAR(255) NOT NULL,
+    `comment` VARCHAR(10000) NULL, -- Should be allowed to be NULL because the user may just want to submit a like.
+    liked BOOLEAN DEFAULT FALSE, -- The like button will act as a check box, so null values cannot be entered, even though they're allowed.
     `date_time` VARCHAR(64) NOT NULL
 
 --     FOREIGN KEY (submission_id) REFERENCES Drawings(id)
