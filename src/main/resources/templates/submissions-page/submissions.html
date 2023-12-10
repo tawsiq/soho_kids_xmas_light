@@ -9,6 +9,8 @@
     <link rel = "stylesheet" th:href="@{/css/submissions-page/year-groups-list.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
 
+    <script th:src="@{/js/submissions-page/image-filter.js}"></script>
+
 </head>
 <body>
 
@@ -38,7 +40,7 @@
         <div th:each="image : ${imageItemList[1]}">
             <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
             <a th:href="@{/home/submissions/{id} (id=${image.getId()})}">
-                <div class="button full-border">
+                <div class="button full-border" th:attr="data-year-group=${image.getYearGroup()}, data-submission-year=${image.getSubmissionYear()}">
                     <img class="light" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
                     <img class="drawing" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
                 </div>
@@ -56,7 +58,11 @@
     <article class="submissions-flex-container">
 
         <div th:each="drawing : ${imageItemList[0]}">
-            <a class="button full-border" th:href="@{/home/submissions/{id} (id=${drawing.getId()})}">
+            <a class="button full-border"
+               th:href="@{/home/submissions/{id} (id=${drawing.getId()})}"
+               th:attr="data-year-group=${drawing.getYearGroup()},
+                        data-submission-year=${drawing.getSubmissionYear()}"
+            >
                 <img class="drawing" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
             </a>
         </div>

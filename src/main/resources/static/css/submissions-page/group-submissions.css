@@ -48,6 +48,12 @@
 .submissions-flex-container .button{
     justify-content: flex-start;
 }
+.button.active {
+    background: hsl(237, 35%, 16%);
+    color: hsl(283, 100%, 100%);
+    border-bottom: 2px solid #c42eff;
+    cursor: pointer;
+}
 
 @media (max-width: 600px) {
 

@@ -1,3 +1,6 @@
+.hidden{
+    display: none !important;
+}
 
 .list-container-year-groups{
     font-size: 1rem;
@@ -12,7 +15,6 @@
 
 }
 .year-group-list{
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
