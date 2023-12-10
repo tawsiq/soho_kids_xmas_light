@@ -48,12 +48,30 @@
 .submissions-flex-container .button{
     justify-content: flex-start;
 }
+
+/* FILTER CLASSES */
 .button.active {
     background: hsl(237, 35%, 16%);
     color: hsl(283, 100%, 100%);
-    border-bottom: 2px solid #c42eff;
+    border-bottom: 2px solid gold;
     cursor: pointer;
 }
+.filtered-reset {
+    gap: 0;
+    margin: initial
+}
+.hidden{
+    display: none !important;
+}
+/*.filtered-winner-container, .filtered-submissions-container{*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: center;*/
+/*}*/
+
+
+
+
 
 @media (max-width: 600px) {
 
