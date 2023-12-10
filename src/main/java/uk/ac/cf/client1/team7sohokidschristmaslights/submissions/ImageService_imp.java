@@ -37,6 +37,10 @@ public class ImageService_imp implements ImageService{
     public List<RatingClass> getRatingList(Long submission_id){
         return imageRepository.getRatingList(submission_id);
     }
+
+    public Integer countLikes(Long id){
+        return imageRepository.countLikes(id);
+    }
     // Retrieves image data based on the absolute file path stored in ImageClass
     public byte[] getImageData(ImageClass image) throws IOException {
 
@@ -69,4 +73,5 @@ public class ImageService_imp implements ImageService{
         String time = currentDateTime.format(formatDateTime).substring(11, 16);
         return "On " + date + " at " + time;
     }
+
 }
