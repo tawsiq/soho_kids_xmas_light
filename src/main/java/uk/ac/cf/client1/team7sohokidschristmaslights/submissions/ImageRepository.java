@@ -9,6 +9,5 @@ public interface ImageRepository {
     List<RatingClass> getRatingList(Long submission_id);
     Boolean lightCounterpartPresent(Long id);
     void storeRating(RatingClass rating);
-
     Integer countLikes(Long id);
 }

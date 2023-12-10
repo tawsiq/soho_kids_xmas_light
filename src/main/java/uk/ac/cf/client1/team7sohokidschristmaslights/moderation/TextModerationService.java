@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
-// Credit goes to ChatGPT For this one.
+// Pair Programmed with ChatGPT
 @Service
 public class TextModerationService {
 
@@ -48,14 +48,21 @@ public class TextModerationService {
 
     // Replace profanity in text with asterisks
     private static String censorProfanity(String text) {
-        // Convert text to lowercase for case-insensitive matching
-        String lowercaseText = text.toLowerCase();
+        // Use a StringBuilder to maintain the original case
+        StringBuilder censoredText = new StringBuilder(text);
 
-        // Replace profane words with asterisks
         for (String word : profaneWords) {
-            lowercaseText = lowercaseText.replaceAll("\\b" + word + "\\b", "***");
+            int index = 0;
+            // Replace profane words while maintaining the original case
+            while ((index = censoredText.toString()
+                            .toLowerCase()
+                            .indexOf(word.toLowerCase(), index)) != -1) {
+
+                censoredText.replace(index, index + word.length(), "*".repeat(word.length())); // Replace word with asterisks
+                index += word.length(); // Move the index forward after replacement
+            }
         }
-        return lowercaseText;
+        return censoredText.toString();
     }
 }
 
