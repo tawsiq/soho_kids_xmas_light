@@ -27,7 +27,30 @@
     max-width: 95%;
     margin: 5px;
     align-self: center;
+}
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    display: none;
+}
 
-
+/* Style the label as a like button */
+.like-button {
+    transition: border-color 0.5s ease, background-color 0.2s ease;
+    display: inline-block;
+    width: 30px; /* Adjust width and height as needed */
+    height: 30px;
+    background-color: #f0f0f0; /* Background color of the button */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+    border: 1px solid #ccc; /* Border color */
+}
+input[type="checkbox"]:hover + .like-button,  input[type="checkbox"]:focus + .like-button{
+    border-color: deeppink; /* Change border color on checked */
+}
+/* Change button appearance when checked */
+input[type="checkbox"]:checked + .like-button {
+    background-color: brown; /* Change background color on checked */
+    border-color: deeppink; /* Change border color on checked */
+    color: brown; /* Change text color on checked */
 }
 
