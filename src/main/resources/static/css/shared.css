@@ -85,6 +85,8 @@ header h2, h3, h4{
     border-right: 2px solid transparent;
     border-bottom: 2px solid #c42eff;
     border-left: 2px solid transparent;
+
+    outline: none;
 }
 
 

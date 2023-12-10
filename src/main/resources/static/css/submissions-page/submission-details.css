@@ -52,13 +52,19 @@ input[type="checkbox"]{
     height: 3em;
     width: 4em; /* Adjust width and height as needed */
     /*background-color: transparent; !* Background color of the button *!*/
-    border-radius: 10%; /* Make it round */
+    border-radius: 7%; /* Make it round */
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #754287;
+    border-left: 2px solid transparent;
+
+    background-color: hsl(237, 35%, 16%);
     cursor: pointer;
-    border: 2px solid #754287; /* Border color */
     margin: 0 1em 0 1em;
+
 }
 .copyLink-button{
-    transition: all;
+    transition: all 0.3s ease;
     display: flex;
     justify-items: center;
 }
@@ -80,13 +86,12 @@ input[type="checkbox"]{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #14152A; /* Background color of the button */
 
     background-size: 60%;
     background-position: center;
 }
 
-.image-container::before {
+.like-image-container::before {
     content: ""; /* Create a pseudo-element to hold the image */
     position: absolute;
     top: 0;
@@ -100,17 +105,11 @@ input[type="checkbox"]{
     border-radius: 50%; /* Ensure it's round */
     opacity: 90%; /* Hide the image by default */
     transition: opacity 0.3s ease; /* Add a transition for smoother effect */
+
 }
 
-/* On hover/focus, display the heart image */
-/*.like-button:hover .image-container::before,*/
-/*.like-button:focus .image-container::before{*/
-/*    opacity: 100%;*/
-/*    transition: opacity 0.4s ease;*/
-/*    !*background-image: url('../../theme_shapes/heart_gold.png');*!*/
-/*}*/
 #likeCount{
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     box-sizing: border-box;
     border-top: 2px solid transparent;
     border-right: 2px solid transparent;
@@ -122,13 +121,14 @@ input[type="checkbox"]{
     align-self: center;
     font-size: 1.5em;
 }
-
+.like-button span:focus,
 .like-button:hover + #likeCount,
 .like-button:focus + #likeCount {
     border-top: 2px solid transparent;
     border-right: 2px solid transparent;
-    border-bottom: 2px solid gold;
+    border-bottom: 2px solid #c42eff;
     border-left: 2px solid transparent;
+    outline: none;
 }
 .name-input{
     flex: 1;
@@ -144,19 +144,21 @@ input[type="checkbox"]{
 
 input[type="checkbox"]:hover + .like-button,  input[type="checkbox"]:focus + .like-button, .copyLink-button:focus, .copyLink-button:hover{
     border-color: #c42eff; /* Change border color on checked */
+    outline: none;
 }
 /* Change button appearance when checked */
 input[type="checkbox"]:checked + .like-button {
-    background-color: #14152A; /* Change background color on checked */
-    /*border-color: #00ef00; !* Change border color on checked *!*/
+    background-color: hsl(237, 35%, 16%);
 }
-input[type="checkbox"]:checked + .like-button .image-container::before{
-    opacity: 100%;
-    transition: opacity 0.4s ease;
+input[type="checkbox"]:checked + .like-button .like-image-container::before{
+    opacity: 90%;
+    transition: opacity 0.5s ease;
     background-image: url('../../theme_shapes/heart_gold.png');
+    outline: none;
 }
 input[type="checkbox"]:checked + .like-button + #likeCount{
     border-bottom: 2px solid gold;
+    outline: none;
 }
 
 @media (max-width: 600px) {

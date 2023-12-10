@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         copyToClipboard(linkText);
 
         // Optionally, you can provide feedback to the user
-        this.textContent = 'Link Copied!';
+        this.textContent = 'Link Copied';
         setTimeout(() => {
             this.textContent = 'Copy Link';
         }, 2000); // Reset button text after 2 seconds
@@ -38,4 +38,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Handle errors here
             });
     }
+
+    const clickableDivs = document.querySelectorAll('.clickableDiv');
+
+    clickableDivs.forEach((div) => {
+        div.addEventListener('click', () => {
+            // Your click event logic here
+            console.log('Element clicked!');
+        });
+
+        div.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                div.click();
+            }
+        });
+    });
 });
+
