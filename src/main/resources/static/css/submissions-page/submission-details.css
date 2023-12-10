@@ -29,12 +29,12 @@
     align-self: center;
 }
 /* Hide the default checkbox */
-input[type="checkbox"] {
+input[type="checkbox"]{
     display: none;
 }
 
 /* Style the label as a like button */
-.like-button {
+.like-button, .copyLink-button {
     transition: border-color 0.5s ease, background-color 0.2s ease;
     display: inline-block;
     width: 30px; /* Adjust width and height as needed */
@@ -53,4 +53,8 @@ input[type="checkbox"]:checked + .like-button {
     border-color: deeppink; /* Change border color on checked */
     color: brown; /* Change text color on checked */
 }
-
+input[name="copyLink"]:checked + .copyLink-button{
+    background-color: brown;
+    border-color: deeppink;
+    color: brown;
+}

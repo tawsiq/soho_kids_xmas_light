@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class SubmissionsController {
@@ -73,14 +74,18 @@ public class SubmissionsController {
         return new ModelAndView("submissions-page/submission-details");
     }
     @PostMapping("/home/submissions/{id}/addReview")
-    public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating){
+    public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating) {
 
-        rating.setDateTime(imageService.logDateTime());
-        rating.setSubmissionId(id);
-        imageService.moderateRating(rating);
-        imageService.storeRating(rating);
-
+        if (ratingIsNotNull(rating)){
+            rating.setDateTime(imageService.logDateTime());
+            rating.setSubmissionId(id);
+            imageService.moderateRating(rating);
+            imageService.storeRating(rating);
+        }
         return new ModelAndView("redirect:/home/submissions/" + id);
+    }
+    private boolean ratingIsNotNull(RatingClass rating){
+        return rating.getLiked()!=null || !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
     }
 
 }
