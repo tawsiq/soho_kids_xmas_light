@@ -37,7 +37,7 @@
 
 <main>
     <article class="winner-submissions-flex-container">
-        <!-- Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
+        <!--  Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
         <a class="button full-border"
            th:each="image : ${imageItemList[1]}"
            th:href="@{/home/submissions/{id} (id=${image.getId()})}"
