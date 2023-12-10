@@ -4,15 +4,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
-// Pair Programmed with ChatGPT
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Service
 public class TextModerationService {
 
     public String moderateText(String textToModerate) {
-        try{
+        try {
             if (containsProfanity(textToModerate)) {
                 return censorProfanity(textToModerate);
-
             } else {
                 return textToModerate;
             }
@@ -21,10 +22,8 @@ public class TextModerationService {
             e.printStackTrace();
             return "null moderation operation %n";
         }
-
     }
 
-    // List of profane words
     private static final List<String> profaneWords = Arrays.asList(
             "areallybadword",
             "profane_word_2",
@@ -32,37 +31,54 @@ public class TextModerationService {
             "profane_word_n"
     );
 
-    // Check if text contains profanity
     private static boolean containsProfanity(String text) {
-        // Convert text to lowercase for case-insensitive matching
-        String lowercaseText = text.toLowerCase();
+        String lowercaseText = text.toLowerCase(); // Convert text to lowercase for case-insensitive matching
 
-        // Check if the text contains any profane words
+        // Remove special characters from the text
+        String textWithoutSpecialChars = lowercaseText.replaceAll("[^a-zA-Z0-9]+", "");
+
+        // Check if the text without special characters contains any profane words
         for (String word : profaneWords) {
-            if (lowercaseText.contains(word)) {
+            if (textWithoutSpecialChars.contains(word)) {
                 return true; // Profanity found
             }
         }
         return false; // No profanity found
     }
 
-    // Replace profanity in text with asterisks
     private static String censorProfanity(String text) {
-        // Use a StringBuilder to maintain the original case
         StringBuilder censoredText = new StringBuilder(text);
 
-        for (String word : profaneWords) {
-            int index = 0;
-            // Replace profane words while maintaining the original case
-            while ((index = censoredText.toString()
-                            .toLowerCase()
-                            .indexOf(word.toLowerCase(), index)) != -1) {
+        // Convert text to lowercase for case-insensitive matching
+        String lowercaseText = text.toLowerCase();
 
-                censoredText.replace(index, index + word.length(), "*".repeat(word.length())); // Replace word with asterisks
-                index += word.length(); // Move the index forward after replacement
+        // Replace profane words with asterisks
+        for (String word : profaneWords) {
+            // Generate a pattern that matches the word with any special characters
+            Pattern pattern = generateWordPattern(word);
+            Matcher matcher = pattern.matcher(lowercaseText);
+
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                // Replace the word in the original text with asterisks
+                for (int i = start; i < end; i++) {
+                    if (Character.isLetterOrDigit(text.charAt(i))) {
+                        censoredText.setCharAt(i, '*');
+                    }
+                }
             }
         }
         return censoredText.toString();
     }
-}
 
+    private static Pattern generateWordPattern(String word) {
+        // Create a pattern for the word, ignoring special characters and spaces
+        String patternString = Arrays.stream(word.split(""))
+                .map(c -> Pattern.quote(c) + "[^a-zA-Z0-9]*") // Allow any special characters or spaces between letters
+                .reduce((s1, s2) -> s1 + s2)
+                .orElse("");
+
+        return Pattern.compile("(?i)" + patternString, Pattern.CASE_INSENSITIVE);
+    }
+}
