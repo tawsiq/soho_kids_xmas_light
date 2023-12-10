@@ -11,6 +11,7 @@
     gap: 0.7em;
 
     border: 2px solid #481e57;
+    border-radius: 2%;
     aspect-ratio: 1.8 / 1;
     width: 40em;
     margin: 1em;
@@ -28,6 +29,9 @@
     justify-content: center;
     width: 100%;
     gap: 1em;
+}
+.inner-form-row-container{
+    margin: 0.5em 0 0.5em 0;
 }
 
 .submitted-image-for-details-container img{
@@ -48,26 +52,25 @@ input[type="checkbox"]{
     aspect-ratio: 1/1;
     width: 3em; /* Adjust width and height as needed */
     /*background-color: transparent; !* Background color of the button *!*/
-    border-radius: 50%; /* Make it round */
+    border-radius: 30%; /* Make it round */
     cursor: pointer;
-    border: 1px solid #ccc; /* Border color */
+    border: 2px solid #754287; /* Border color */
     margin: 0 1em 0 1em;
 }
+.copyLink-button{
+    text-align: center;
+}
+
 .like-button {
     /* Your existing styles for the circular button */
     /* Add position and padding to the container */
     position: relative;
-    width: 3em; /* Width and height of the button */
-    height: 3em;
     padding: 5px;
-    border-radius: 50%; /* Make it round */
-    border: 1px solid #ccc; /* Border color */
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue; /* Background color of the button */
-    margin: 0 1em 0 1em;
+    background-color: #14152A; /* Background color of the button */
 
     background-size: 60%;
     background-position: center;
@@ -94,7 +97,7 @@ input[type="checkbox"]{
 .like-button:focus .image-container::before{
     opacity: 100%;
     transition: opacity 0.5s ease;
-    background-image: url('../../theme_shapes/heart_green.png');
+    background-image: url('../../theme_shapes/heart_gold.png');
 }
 #likeCount{
     transition: border-color 0.5s ease;
@@ -134,14 +137,18 @@ input[type="checkbox"]:hover + .like-button,  input[type="checkbox"]:focus + .li
 }
 /* Change button appearance when checked */
 input[type="checkbox"]:checked + .like-button {
-    background-color: brown; /* Change background color on checked */
-    border-color: deeppink; /* Change border color on checked */
+    background-color: hsl(237, 35%, 16%); /* Change background color on checked */
+    border-color: #00ef00; /* Change border color on checked */
     color: brown; /* Change text color on checked */
 }
-input[name="copyLink"]:checked + .copyLink-button{
-    background-color: brown;
+input[type="checkbox"]:checked + .like-button .image-container::before{
+    background-image: url('../../theme_shapes/heart_gold.png');
+}
+
+.copyLink-button{
     border-color: deeppink;
     color: brown;
+
 }
 
 
