@@ -43,7 +43,7 @@
 
             <div th:inline="text" id="likeCount"> [[${likeCount}]] </div>
 
-            <div class="copyLink-button" id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div>
+            <div class="copyLink-button"><div id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div></div>
 
         </div>
 
