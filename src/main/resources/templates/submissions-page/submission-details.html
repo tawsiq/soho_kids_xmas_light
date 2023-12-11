@@ -6,34 +6,66 @@
     <title>Submission Details</title>
 
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
+    <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/submission-details.css}">
     <script th:src="@{/js/auto-expand-input.js}" async></script>
+    <script th:src="@{/js/submissions-page/submission-details.js}"></script>
 
 </head>
 <body>
 <header>
-    <h2>[Name]'s Submission</h2>
+    <h2 th:inline="text">
+        [[${drawing.getParticipantName()}]]'s Submission
+    </h2>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header>
-
-<main>
 <!--    "@{'/menu/' + ${menuItem.id} + '/addReview'}"   -->
-    <article class="submitted-image-for-details-container">
-        <div></div>
+    <article class="centering-container">
+    <div class="submitted-image-for-details-container">
+        <!-- A light image is displayed only if it has been passed to the view by the controller with the key "light"-->
+        <img th:if="${light}"  class="light" th:src="@{'/getImage/' +  ${light.getId()} + '/true'}" th:alt="${light.getFileName()}">
+        <img class="drawing" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
+    </div>
     </article>
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <br>
-    <form class="form-div-flex-container" th:action = "@{URl/here}" method = "post">
 
-        <label class="form-label" for="comment"></label>
-        <textarea class="auto-expanding-input" id="comment" name="comment" placeholder="Write a comment about this submission"></textarea>
+    <form class="form-div-flex-container" th:action = "@{'/home/submissions/' + ${drawing.getId()} + '/addReview'}" method = "post">
 
-        <button class="button">Post Comment</button>
+        <div class="inner-form-row-container like_share_count">
+
+            <input type="checkbox" name="liked" id="liked" >
+
+            <label class="like-button clickableDiv" for="liked" tabindex="0" ><span class="like-image-container"></span></label>
+
+            <div th:inline="text" id="likeCount"> [[${likeCount}]] </div>
+
+            <div class="copyLink-button"><div tabindex="0" class="clickableDiv" id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div></div>
+
+        </div>
+
+        <div class="inner-form-row-container" id="input">
+            <label class="form-label" for="raterName"></label>
+            <textarea class="auto-expanding-input name-input" id="raterName" name="raterName" placeholder="Name"></textarea>
+
+            <label class="form-label" for="commentText"></label>
+            <textarea class="auto-expanding-input comment-input" id="commentText" name="commentText" placeholder="Comment"></textarea>
+        </div>
+
+        <button class="button" type="submit">Post Review</button>
 
     </form><br>
-</main>
+
+    <ul class="comment-section">
+        <li th:each="rating : ${ratingList}" class="user-comment">
+            <p th:text="${rating.getRaterName()}" class="user-name"></p>
+            <p th:text="${rating.getCommentText()}" class="user-comment-text"></p>
+            <div class = "divider-line"></div>
+        </li>
+    </ul>
 
 </body>
 </html>

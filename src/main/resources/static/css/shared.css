@@ -56,6 +56,10 @@ header h2, h3, h4{
 /***************************************/
 /*********** LIGHT UP BUTTONS *************/
 .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     transition: border-color 0.3s ease;
     color: #EAEBED;
     padding: 0.5em;
@@ -81,6 +85,13 @@ header h2, h3, h4{
     border-right: 2px solid transparent;
     border-bottom: 2px solid #c42eff;
     border-left: 2px solid transparent;
+
+    outline: none;
+}
+
+
+.full-border:hover, .full-border:focus{
+    border: 2px solid #c42eff;
 }
 
 /**********************************/
@@ -96,7 +107,7 @@ header h2, h3, h4{
     color: #EAEBED;
 
     height: 1.5em;
-    width: 40em; /* matches the image width above */
+    width: 60%;
     min-height: 1.5em; /* Set minimum height to prevent textarea from collapsing completely */
     overflow-y: hidden;
     resize: none; /* resizing handled by js*/

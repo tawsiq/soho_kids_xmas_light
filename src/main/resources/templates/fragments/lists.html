@@ -3,27 +3,27 @@
 <!-- Sets up element flow from left to right. Insert fragment below a h3 element-->
 
 <article class="list-container-year-groups" th:fragment="year-group-list">
-  <ul class="year-group-list">
-    <li class="button"> Reception </li>
+  <div class="year-group-list">
+    <button class="button" data-filter="reception"> Reception </button>
 
-    <li class="button"> Year 1 </li>
-    <li class="button"> Year 2 </li>
+    <button class="button" data-filter="year1"> Year 1 </button>
+    <button class="button" data-filter="year2"> Year 2 </button>
 
-    <li class="button"> Year 3 </li>
-    <li class="button"> Year 4 </li>
+    <button class="button" data-filter="year3"> Year 3 </button>
+    <button class="button" data-filter="year4"> Year 4 </button>
 
-    <li class="button"> Year 5 </li>
-    <li class="button"> Year 6 </li>
-  </ul>
+    <button class="button" data-filter="year5"> Year 5 </button>
+    <button class="button" data-filter="year6"> Year 6 </button>
+  </div>
 
 </article>
 
 <article class="list-container-year-groups" th:fragment="year-list">
-  <ul class="year-group-list">
-    <li class="button"> 2021 </li>
-    <li class="button"> 2022 </li>
-    <li class="button"> 2023 </li>
-  </ul>
+  <div class="year-group-list">
+    <button class="button" data-filter="2021"> 2021 </button>
+    <button class="button" data-filter="2022"> 2022 </button>
+    <button class="button" data-filter="2023"> 2023 </button>
+  </div>
 
 </article>
 

@@ -26,19 +26,46 @@
     justify-content: center;
 
 }
-.winner-submissions-flex-container div{
-    border: 2px solid #481e57;
+.winner-submissions-flex-container .button{
     height: 15em;
     width: 25em;
     margin: 1em;
 }
-.submissions-flex-container div{
-    border: 2px solid #481e57;
-    height: 11em;
+.submissions-flex-container .button{
+    height: 12em;
     width: 18.34em;
     margin: 0.5em;
     /*margin: 0 1em 0 1em;*/
 }
+
+.button .light, .button .drawing{
+    align-self: center;
+    /* % of the container of the element "img", which in this case is "div" */
+    max-height: 97%;
+    max-width: 97%;
+}
+/* IMAGE POSITION IN SUBMISSIONS */
+.submissions-flex-container .button{
+    justify-content: flex-start;
+}
+
+/* FILTER CLASSES */
+.button.active {
+    background: hsl(237, 35%, 16%);
+    color: hsl(283, 100%, 100%);
+    border-bottom: 2px solid gold;
+    cursor: pointer;
+}
+.filtered-out{
+    flex: none !important;
+    display: none !important;
+}
+
+
+
+
+
+
 
 @media (max-width: 600px) {
 
