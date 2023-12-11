@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org" lang="en">
+<!-- Sets up element flow from left to right. Insert fragment below a h3 element-->
+
+<article class="list-container-year-groups" th:fragment="year-group-list">
+  <div class="year-group-list">
+    <button class="button" data-filter="reception"> Reception </button>
+
+    <button class="button" data-filter="year1"> Year 1 </button>
+    <button class="button" data-filter="year2"> Year 2 </button>
+
+    <button class="button" data-filter="year3"> Year 3 </button>
+    <button class="button" data-filter="year4"> Year 4 </button>
+
+    <button class="button" data-filter="year5"> Year 5 </button>
+    <button class="button" data-filter="year6"> Year 6 </button>
+  </div>
+
+</article>
+
+<article class="list-container-year-groups" th:fragment="year-list">
+  <div class="year-group-list">
+    <button class="button" data-filter="2021"> 2021 </button>
+    <button class="button" data-filter="2022"> 2022 </button>
+    <button class="button" data-filter="2023"> 2023 </button>
+  </div>
+
+</article>
+
+
+<!--
+- Need 3 separate fragments here to include separate links to pages per year.
+- This isn't dry code, but it works for now. Need to get functionality sorted + a basic design. Improve later.
+-->
+</html>
