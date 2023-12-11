@@ -1,11 +1,16 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.homepage;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@AllArgsConstructor
+@Data
 public class Image {
 
     @Id

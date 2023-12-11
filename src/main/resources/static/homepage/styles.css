@@ -119,7 +119,7 @@
     .dot {
         height: 15px;
         width: 15px;
-        margin 0 2px;
+        margin: 0 2px;
         background-color: #481e57;
         border-radius: 50%;
         display: inline-block;
