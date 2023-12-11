@@ -125,7 +125,6 @@ header h2, h3, h4{
     border-left: 2px solid transparent;
     color: #EAEBED;
 }
-/**********************************/
 
 /*
 - Optimise content for screens of width 600px or less
@@ -151,3 +150,5 @@ header h2, h3, h4{
         margin: 0.35em 0 0 10%;
     }
 }
+
+
