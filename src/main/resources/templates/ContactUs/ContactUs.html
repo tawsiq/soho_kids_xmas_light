@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/shared.css">
+    <link rel="stylesheet" href="ContactUs.css">
+    <link rel="stylesheet" href="NewFooter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Contact Us!</title>
+</head>
+
+<body>
+<header>
+    <img id="logo1" src="logo1.png" alt="logo" width="100" height="100">
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Submissions.html">Submissions</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="contact-form">
+        <h1>Contact Us</h1>
+        <p>Please fill out the form below and we will get back to you as soon as possible :D</p>
+        <form action="submit.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Enter your message" rows="10"
+                          required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit">Send Message</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="contact-details">
+        <h2>Our Details</h2>
+        <p>You can also reach out by email, or visit our monthly SOHO gatherings!</p>
+        <div class="detail">
+            <img src="email.png" alt="email" class="icon">
+            <p>info@soho.co.uk</p>
+        </div>
+        <div class="detail">
+            <img src="location.png" alt="location" class="icon">
+            <p>123 SOHO Street, Westminister, London, UK</p>
+        </div>
+    </section>
+
+</main>
+<footer>
+    <div class="background">
+        <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="100%"
+                height="100%"
+                viewBox="0 0 1600 900"
+        >
+            <defs>
+                <linearGradient id="bg" x2="0%" y2="100%">
+                    <stop
+                            offset="0%"
+                            style="stop-color: rgba(75, 0, 130, 0.6)"
+                    ></stop>
+                    <stop
+                            offset="100%"
+                            style="stop-color: rgba(128, 0, 128, 0.06)"
+                    ></stop>
+                </linearGradient>
+                <path
+                        id="wave"
+                        fill="url(#bg)"
+                        d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+      s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z"
+                />
+            </defs>
+            <g>
+                <use xlink:href="#wave" opacity=".3">
+                    <animateTransform
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="translate"
+                            dur="8s"
+                            calcMode="spline"
+                            values="270 230; -334 180; 270 230"
+                            keyTimes="0; .5; 1"
+                            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                            repeatCount="indefinite"
+                    />
+                </use>
+                <use xlink:href="#wave" opacity=".6">
+                    <animateTransform
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="translate"
+                            dur="6s"
+                            calcMode="spline"
+                            values="-270 230;243 220;-270 230"
+                            keyTimes="0; .6; 1"
+                            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                            repeatCount="indefinite"
+                    />
+                </use>
+                <use xlink:href="#wave" opacty=".9">
+                    <animateTransform
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="translate"
+                            dur="4s"
+                            calcMode="spline"
+                            values="0 230;-140 200;0 230"
+                            keyTimes="0; .4; 1"
+                            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                            repeatCount="indefinite"
+                    />
+                </use>
+            </g>
+        </svg>
+    </div>
+
+    <section>
+        <ul class="socials">
+            <li><a class="fa-brands fa-facebook"></a></li>
+            <li><a class="fa-brands fa-twitter"></a></li>
+            <li><a class="fa-brands fa-linkedin"></a></li>
+            <li><a class="fa-brands fa-instagram"></a></li>
+        </ul>
+        <ul class="links">
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li><a>Submissions</a></li>
+            <li><a>Marketplace</a></li>
+            <li><a>Contact Us</a></li>
+        </ul>
+        <p class="legal">© SOHO 2023 All rights reserved</p>
+    </section>
+</footer>
+
+
+<script>
+    const links = document.querySelectorAll('.links a');
+
+    links.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            link.style.color = 'lawngreen'; // Change text color on hover
+            link.style.textDecoration = 'underline'; // Add underline
+            link.style.transition = 'color 0.3s ease, text-decoration 0.3s ease'; // Transition effect
+        });
+
+        link.addEventListener('mouseout', () => {
+            link.style.color = 'white'; // Change text color back
+            link.style.textDecoration = 'none'; // Remove underline
+        });
+    });
+
+    const socialIcons = document.querySelectorAll('.socials a');
+
+    socialIcons.forEach(icon => {
+        icon.addEventListener('mouseover', () => {
+            icon.style.color = 'lawngreen'; // Change icon color on hover
+            icon.style.transition = 'color 0.3s ease'; // Transition effect
+        });
+
+        icon.addEventListener('mouseout', () => {
+            icon.style.color = 'white'; // Change icon color back
+        });
+    });
+</script>
+</body>
+
+</html>
+
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="../../static/css/shared.css">-->
+<!--    <link rel="stylesheet" href="ContactUs.css">-->
+
+<!--    <meta charset="UTF-8" />-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+
+<!--    &lt;!&ndash;CONTENT ADAPTED FROM https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&ndash;&gt;-->
+<!--    &lt;!&ndash;ADAPTED HTML CONTENT TO SUIT CLIENT'S WANTS&ndash;&gt;-->
+<!--    &lt;!&ndash;HAVE ALSO CHANGED CSS STYLING TO HAVE PARITY IN TERMS OF STYLING WITH REST OF SITE&ndash;&gt;-->
+<!--    <link   rel="stylesheet"-->
+<!--            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"-->
+<!--            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="-->
+<!--            crossorigin="anonymous"-->
+<!--            referrerpolicy="no-referrer"-->
+<!--    />-->
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com" />-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"-->
+<!--          rel="stylesheet"/>-->
+<!--    <link rel="stylesheet" href="NewFooter.css" />-->
+
+<!--    <title>Contact Us!</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <header>-->
+<!--        <img id="logo1" src="logo1.png" alt="logo" width="100" height="100">-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="Home.html">Home</a></li>-->
+<!--                <li><a href="AboutUs.html">About Us</a></li>-->
+<!--                <li><a href="Submissions.html">Submissions</a></li>-->
+<!--                <li><a href="ContactUs.html">Contact Us</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<!--    </header>-->
+<!--    <main>-->
+<!--        <section id="contact-form">-->
+<!--            <h1>Contact Us</h1>-->
+<!--            <p>Please fill out the form below and we will get back to you as soon as possible :D</p>-->
+<!--            <form action="submit.php" method="POST">-->
+<!--                <div class="form-group">-->
+<!--                    <label for="name">Name</label>-->
+<!--                    <input type="text" id="name" name="name" placeholder="Enter your name" required>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="email">Email</label>-->
+<!--                    <input type="email" id="email" name="email" placeholder="Enter your name" required>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="subject">Subject</label>-->
+<!--                    <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message"-->
+<!--                        required>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="message">Message</label>-->
+<!--                    <textarea id="message" name="message" placeholder="Enter your message" rows="10"-->
+<!--                        required></textarea>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <button type="submit" id="submit">Send Message</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </section>-->
+<!--        <section id="contact-details">-->
+<!--            <h2>Our Details</h2>-->
+<!--            <p>You can also reach out by email, or visit our monthly SOHO gatherings!</p>-->
+<!--            <div class="detail">-->
+<!--                <img src="email.png" alt="email" class="icon">-->
+<!--                <p>info@soho.co.uk</p>-->
+<!--            </div>-->
+<!--            <div class="detail">-->
+<!--                <img src="location.png" alt="location" class="icon">-->
+<!--                <p>123 SOHO Street, Westminister, London, UK</p>-->
+<!--            </div>-->
+<!--        </section>-->
+
+
+<!--&lt;!&ndash;        <footer>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div id="social-media">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://www.facebook.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="facebook.png" alt="facebook" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://www.twitter.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="twitter.png" alt="twitter" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://www.instagram.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="instagram.png" alt="instagram" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://linkedin.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="linkedin.png" alt="linkedin" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div id="copyright">&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>SOHO 2023, all rights reserved.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </footer>&ndash;&gt;-->
+
+<!--        <footer>-->
+
+<!--        </footer>-->
+
+
+
+<!--    </main>-->
+<!--</body>-->
+
+<!--</html>-->
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
