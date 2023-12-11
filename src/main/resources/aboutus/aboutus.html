@@ -27,20 +27,38 @@
         </section>
 
         <section>
-        <h2>Sponsor Sign-Up Form</h2>
-        <form action="/sponsor/signup" method="post">
-            <label for="companyName">Company Name:</label>
-            <input type="text" id="companyName" name="companyName" required aria-required="true">
+            <!-- Display success message if present -->
+            <div th:if="${message}" class="success-message">
+                <p th:text="${message}"></p>
+            </div>
 
-            <label for="contactPerson">Contact Person:</label>
-            <input type="text" id="contactPerson" name="contactPerson" required aria-required="true">
+            <!-- Sign-up form -->
+            <form th:action="@{/sponsor/signup}" method="post" th:object="${sponsor}">
+                <h2>Sponsor Sign-Up</h2>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required aria-required="true">
+                <!-- Company Name -->
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" th:field="*{companyName}" required>
 
-            <button type="submit">Sign Up</button>
-        </form>
+                <!-- Contact Person -->
+                <label for="contactPerson">Contact Person:</label>
+                <input type="text" id="contactPerson" name="contactPerson" th:field="*{contactPerson}" required>
+
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:field="*{email}" required>
+
+                <!-- Additional Information (if needed) -->
+                <!-- <label for="additionalInfo">Additional Information (optional):</label>
+                <textarea id="additionalInfo" name="additionalInfo" th:field="*{additionalInfo}" rows="4"></textarea> -->
+
+                <!-- Submit Button -->
+                <button type="submit">Sign Up</button>
+            </form>
         </section>
+
+
+
 
         <br>
 
