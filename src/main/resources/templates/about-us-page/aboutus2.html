@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js"></script>
+  <script src="aboutus2.js"></script>
   <title>About Us- Soho Kids Xmas Lights Project</title>
 </head>
 <body>
@@ -101,7 +101,7 @@
     </div>
 
     <!-- Sign-up form -->
-    <form th:action="@{/sponsor/signup}" method="post" th:object="${sponsor}">
+    <form th:action="@{/sponsor/signup}" method="post" th:object="${sponsor}" onsubmit="validateEmail()">
       <h2>Sponsor Sign-Up</h2>
 
       <!-- Company Name -->
