@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th = "https://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
@@ -17,7 +17,7 @@
   <ul>
     <li>
             <span class="logo-container">
-        <img src="AFK_Logo_small.png" height="73" width="262" alt="Logo" class="logo"/>
+        <img th:src="@{/sponsor-logos/AFK_Logo_small.png}" height="73" width="262" alt="Logo" class="logo"/>
             </span>
     </li>
 
@@ -58,9 +58,13 @@
 <header>
   <h3>Sponsors</h3>
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-  <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+  <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
   <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-
+<!--  <div class = "header-underline" th:fragment="underline-circle">-->
+<!--    <div class = "left-line"></div>-->
+<!--    <div class = "circle"></div>-->
+<!--    <div class = right-line></div>-->
+<!--  </div>-->
 </header>
 
 <!-- Sponsors Heading -->
@@ -68,13 +72,14 @@
 <!-- Section for Sponsor Logos -->
 <section id="sponsors">
   <div class="sponsor-logos">
-   <img src="../../static/sponsor logos/fashion-textile-museum-logo [PNG].png" height="232" width="344" alt="Sponsor 1"/>
-    <img src="../../static/sponsor logos/FE SKXL.png" height="322" width="966" alt="Sponsor 2"/>
-    <img src="../../static/sponsor logos/Hines 187 Logo.png" height="468" width="1606" alt="Sponsor 3"/>
-    <img src="../../static/sponsor logos/SHAFTESBURY CAPITAL LOGO RGB.jpg" height="626" width="3567" alt="Sponsor 4"/>
-    <img src="../../static/sponsor logos/NatSoftwareAcademyWhite.png" height="386" width="1273" alt="Sponsor 5"/>
-    <img src="../../static/sponsor logos/TV Logo_VP white.png" height="4500" width="8000" alt="Sponsor 6"/>
-    <img src="../../static/sponsor logos/TheLIA_LOGO_Master.png" height="199" width="514" alt="Sponsor 7"/>
+
+    <img th:src="@{/sponsor-logos/fashion-textile-museum-logo.png}" height="232" width="344" alt="Sponsor 1"/>
+    <img th:src="@{/sponsor-logos/FE_SKXL.png}" height="322" width="966" alt="Sponsor 2"/>
+    <img th:src="@{/sponsor-logos/Hines_187_Logo.png}" height="468" width="1606" alt="Sponsor 3"/>
+    <img th:src="@{/sponsor-logos/NatSoftwareAcademyWhite.png}" height="626" width="3567" alt="Sponsor 4"/>
+    <img th:src="@{/sponsor-logos/SHAFTESBURY_CAPITAL_LOGO_RGB.jpg}" height="386" width="1273" alt="Sponsor 5"/>
+    <img th:src="@{/sponsor-logos/TheLIA_LOGO_Master.png}" height="4500" width="8000" alt="Sponsor 6"/>
+    <img th:src="@{/sponsor-logos/TV_Logo_VP_white.png}" height="199" width="514" alt="Sponsor 7"/>
 </div>
 </section>
 
@@ -82,9 +87,13 @@
 <header>
   <h3>Interested in sponsoring us?</h3>
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-  <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+  <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
   <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-
+<!--  <div class = "header-underline" th:fragment="underline-circle">-->
+<!--    <div class = "left-line"></div>-->
+<!--    <div class = "circle"></div>-->
+<!--    <div class = right-line></div>-->
+<!--  </div>-->
 
   <section>
     <!-- Display success message if present -->
@@ -94,25 +103,20 @@
 
     <!-- Sign-up form -->
     <form th:action="@{/sponsor/signup}" method="post"  onsubmit="validateEmail()">
-<!--      th:object="${sponsor}"-->
       <h2>Sponsor Sign-Up</h2>
-
+<!--      th:object="${sponsor}"-->
       <!-- Company Name -->
       <label for="companyName">Company Name:</label>
       <input type="text" id="companyName" name="companyName"  required>
 <!--      th:field="*{companyName}"-->
-
       <!-- Contact Person -->
       <label for="contactPerson">Contact Person:</label>
       <input type="text" id="contactPerson" name="contactPerson"  required>
 <!--      th:field="*{contactPerson}"-->
-
       <!-- Email -->
       <label for="email">Email:</label>
       <input type="email" id="email" name="email"  required>
-
 <!--      th:field="*{email}"-->
-
       <!-- Submit Button -->
       <button type="submit">Sign Up</button>
     </form>
@@ -125,9 +129,13 @@
 <header id="media">
   <h3>Media</h3>
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-  <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+  <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
   <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-
+<!--  <div class = "header-underline" th:fragment="underline-circle">-->
+<!--    <div class = "left-line"></div>-->
+<!--    <div class = "circle"></div>-->
+<!--    <div class = right-line></div>-->
+<!--  </div>-->
 
   <br>
   <br>

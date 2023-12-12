@@ -1,18 +1,17 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.aboutus;
 
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/sponsor")
 public class SponsorController {
 
     private final SponsorRepository sponsorRepository;
@@ -41,7 +40,7 @@ public class SponsorController {
     }
 
     @GetMapping("home/aboutus")
-    public ModelAndView hostaboutus() {
+    public ModelAndView hostAboutUs() {
         ModelAndView modelAndView = new ModelAndView("about-us-page/aboutus2");
 
         return modelAndView;

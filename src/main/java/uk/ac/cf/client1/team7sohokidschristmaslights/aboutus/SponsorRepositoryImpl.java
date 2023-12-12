@@ -3,6 +3,10 @@ package uk.ac.cf.client1.team7sohokidschristmaslights.aboutus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Repository

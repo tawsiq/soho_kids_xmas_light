@@ -48,6 +48,7 @@ public class ImageService_imp implements ImageService{
         // Read the image data into a byte array
         return Files.readAllBytes(pathToImage);
     }
+
     public void moderateRating(RatingClass rating) {
         System.out.printf("%n --- Rating received into moderateRating ---%n");
 
