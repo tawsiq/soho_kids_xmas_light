@@ -49,7 +49,7 @@
         left: 7px;
     }
 
-/* Adjustments for the Sponsor Sign-Up form */
+/*Sponsor Sign-Up form */
 section {
     display: flex;
     flex-direction: column;
@@ -57,8 +57,8 @@ section {
 }
 
 form {
-    max-width: 600px; /* Adjust the maximum width of the form */
-    margin: 20px; /* Adjust margin as needed */
+    max-width: 600px;
+    margin: 20px;
     padding: 20px;
     border: 1px solid #754287; /* Add a border for visual separation */
     border-radius: 8px;
@@ -68,7 +68,7 @@ form {
 label {
     display: block;
     margin-bottom: 10px; /* Add spacing between labels */
-    color: #EAEBED; /* Text color */
+    color: #EAEBED;
 }
 
 input,
@@ -80,7 +80,7 @@ button {
     border: 1px solid #754287;
     border-radius: 4px;
     background-color: #282c41; /* Form element background color */
-    color: #EAEBED; /* Text color */
+    color: #EAEBED;
 }
 
 button {
@@ -96,7 +96,6 @@ button {
         width: 100%;
     }
 }
-
 
 /** NavBar */
 
@@ -147,14 +146,14 @@ button {
         border: gold;
     }
 
-/* Apply styles to the media links */
+/* Media Links Styles */
 .media-links {
-    list-style: none; /* Remove default list styles */
+    list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center; /* Center the links */
-    max-width: 600px; /* Set a maximum width for the container */
-    margin: 0 auto; /* Center the container */
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .media-links li {
@@ -162,14 +161,14 @@ button {
 }
 
 .media-links a {
-    display: block; /* Make links behave as blocks */
-    padding: 15px; /* Add padding for a better visual appearance */
+    display: block;
+    padding: 15px; /* Add padding so links are spread out*/
     text-decoration: none;
-    color: #fff; /* Set the text color */
-    background-color: #754287; /* Set the background color */
-    border-radius: 5px; /* Add rounded corners */
-    transition: background-color 0.3s; /* Add a smooth transition effect */
-    font-weight: bold; /* Make the text bold */
+    color: #fff;
+    background-color: #754287;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition effect */
+    font-weight: bold; }
 
 /* Style the link on hover */
 &:hover {
@@ -177,9 +176,9 @@ button {
  }
 }
 
-/* Add styling for the sponsor logos */
+/* Sponsor Styling Logos */
 #sponsors {
-    text-align: center; /* Center align the logos */
+    text-align: center; /* Center align logos */
 }
 
 .sponsor-logos {
@@ -190,7 +189,7 @@ button {
 }
 
 .sponsor-logos img {
-    max-width: 150px; /* Adjust the maximum width as needed */
+    max-width: 150px;
     height: auto;
     margin: 10px;
 }
