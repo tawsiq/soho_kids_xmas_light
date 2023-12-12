@@ -147,6 +147,36 @@ button {
         border: gold;
     }
 
+/* Apply styles to the media links */
+.media-links {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center the links */
+    max-width: 600px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.media-links li {
+    margin-bottom: 10px; /* Add margin between links */
+}
+
+.media-links a {
+    display: block; /* Make links behave as blocks */
+    padding: 15px; /* Add padding for a better visual appearance */
+    text-decoration: none;
+    color: #fff; /* Set the text color */
+    background-color: #754287; /* Set the background color */
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+    font-weight: bold; /* Make the text bold */
+
+/* Style the link on hover */
+&:hover {
+     background-color: #634a7e; /* Change background color on hover */
+ }
+}
+
 /* Add styling for the sponsor logos */
 #sponsors {
     text-align: center; /* Center align the logos */
