@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shared.css">
+    <title>About Us!</title>
+</head>
+
+<body>
+
+    <main>
+        <section>
+            <h1>About Us</h1>
+            <p>This year the children from Soho Parish School brought the most magical Christmas lights to Soho. <br>
+
+                <br>
+
+                The Soho Christmas lights had a unique theme this year involving the community. The installations have been designed by children from Soho Parish School under the direction of architect and RIBA Architecture Ambassador Antonio Capelao and light up our vibrant streets.
+                <br>
+                The creative and unique light designs which are hand drawn by the children of Soho Parish School, range from snowmen and Christmas trees to baubles and reindeer.  The heartwarming light installations show what it is like to experience Christmas through children’s eyes. 
+                <br>
+                Antonio Capelao, architect and RIBA Architecture Ambassador, worked alongside, Hannah Peaty, art lead at Soho Parish School, and local Soho florist, Joao Rocha of Storm Flowers London, to create 21 lighting panels for this special project. 
+                <br>
+                Soho Parish School held a competition to choose the Christmas designs, the judging panel included The Royal Institute of British Architects – RIBA, The National Gallery, Shaftesbury, St Anne’s Church, architect and RIBA Architecture Ambassador Antonio Capelao, Storm Flowers London and Soho Ward Councillors alongside ex-pupils from the school.</p>
+                <br>
+        </section>
+
+        <section>
+            <!-- Display success message if present -->
+            <div th:if="${message}" class="success-message">
+                <p th:text="${message}"></p>
+            </div>
+
+            <!-- Sign-up form -->
+            <form th:action="@{/sponsor/signup}" method="post" th:object="${sponsor}">
+                <h2>Sponsor Sign-Up</h2>
+
+                <!-- Company Name -->
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" th:field="*{companyName}" required>
+
+                <!-- Contact Person -->
+                <label for="contactPerson">Contact Person:</label>
+                <input type="text" id="contactPerson" name="contactPerson" th:field="*{contactPerson}" required>
+
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:field="*{email}" required>
+
+                <!-- Additional Information (if needed) -->
+                <!-- <label for="additionalInfo">Additional Information (optional):</label>
+                <textarea id="additionalInfo" name="additionalInfo" th:field="*{additionalInfo}" rows="4"></textarea> -->
+
+                <!-- Submit Button -->
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+
+
+
+
+        <br>
+
+        <section>
+            <h2>Media</h2>
+        </section>
+
+    </main>
+</body>
+
+</html>
