@@ -146,3 +146,21 @@ button {
     nav a:last-child::after {
         border: gold;
     }
+
+/* Add styling for the sponsor logos */
+#sponsors {
+    text-align: center; /* Center align the logos */
+}
+
+.sponsor-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sponsor-logos img {
+    max-width: 150px; /* Adjust the maximum width as needed */
+    height: auto;
+    margin: 10px;
+}
