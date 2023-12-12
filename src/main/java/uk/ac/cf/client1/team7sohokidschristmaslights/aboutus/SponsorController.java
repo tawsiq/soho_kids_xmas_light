@@ -38,4 +38,6 @@ public class SponsorController {
         // Redirect to the home page or another appropriate page
         return "redirect:/";
     }
+
+    @GetMapping
 }
