@@ -60,11 +60,7 @@
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
   <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
   <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-  <div class = "header-underline" th:fragment="underline-circle">
-    <div class = "left-line"></div>
-    <div class = "circle"></div>
-    <div class = right-line></div>
-  </div>
+
 </header>
 
 <!-- Sponsors Heading -->
@@ -88,33 +84,34 @@
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
   <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
   <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-  <div class = "header-underline" th:fragment="underline-circle">
-    <div class = "left-line"></div>
-    <div class = "circle"></div>
-    <div class = right-line></div>
-  </div>
+
 
   <section>
     <!-- Display success message if present -->
-    <div th:if="${message}" class="success-message">
-      <p th:text="${message}"></p>
-    </div>
+<!--    <div th:if="${message}" class="success-message">-->
+<!--      <p th:text="${message}"></p>-->
+<!--    </div>-->
 
     <!-- Sign-up form -->
-    <form th:action="@{/sponsor/signup}" method="post" th:object="${sponsor}" onsubmit="validateEmail()">
+    <form th:action="@{/sponsor/signup}" method="post"  onsubmit="validateEmail()">
+<!--      th:object="${sponsor}"-->
       <h2>Sponsor Sign-Up</h2>
 
       <!-- Company Name -->
       <label for="companyName">Company Name:</label>
-      <input type="text" id="companyName" name="companyName" th:field="*{companyName}" required>
+      <input type="text" id="companyName" name="companyName"  required>
+<!--      th:field="*{companyName}"-->
 
       <!-- Contact Person -->
       <label for="contactPerson">Contact Person:</label>
-      <input type="text" id="contactPerson" name="contactPerson" th:field="*{contactPerson}" required>
+      <input type="text" id="contactPerson" name="contactPerson"  required>
+<!--      th:field="*{contactPerson}"-->
 
       <!-- Email -->
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" th:field="*{email}" required>
+      <input type="email" id="email" name="email"  required>
+
+<!--      th:field="*{email}"-->
 
       <!-- Submit Button -->
       <button type="submit">Sign Up</button>
@@ -130,11 +127,7 @@
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
   <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
   <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-  <div class = "header-underline" th:fragment="underline-circle">
-    <div class = "left-line"></div>
-    <div class = "circle"></div>
-    <div class = right-line></div>
-  </div>
+
 
   <br>
   <br>
