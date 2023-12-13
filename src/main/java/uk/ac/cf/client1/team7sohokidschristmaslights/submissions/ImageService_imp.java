@@ -14,8 +14,8 @@ import java.util.List;
 @Service
 public class ImageService_imp implements ImageService{
 
-    private ImageRepository imageRepository;
-    private TextModerationService textModerationService;
+    private final ImageRepository imageRepository;
+    private final TextModerationService textModerationService;
 
     public ImageService_imp(ImageRepository anImageRepository, TextModerationService atextModerationService) {
         this.imageRepository = anImageRepository;
@@ -36,6 +36,10 @@ public class ImageService_imp implements ImageService{
 
     public List<RatingClass> getRatingList(Long submission_id){
         return imageRepository.getRatingList(submission_id);
+    }
+
+    public void storeRating(RatingClass rating) {
+        imageRepository.storeRating(rating);
     }
 
 //    public Integer countLikes(Long id){
@@ -64,9 +68,7 @@ public class ImageService_imp implements ImageService{
         rating.setCommentText(moderatedComment);
         System.out.printf("New comment set%n");
     }
-    public void storeRating(RatingClass rating) {
-        imageRepository.storeRating(rating);
-    }
+
     public String logDateTime(){
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -74,5 +76,6 @@ public class ImageService_imp implements ImageService{
         String time = currentDateTime.format(formatDateTime).substring(11, 16);
         return "On " + date + " at " + time;
     }
+
 
 }

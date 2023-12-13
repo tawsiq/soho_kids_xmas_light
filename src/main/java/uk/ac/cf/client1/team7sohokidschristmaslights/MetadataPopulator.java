@@ -1,19 +1,20 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights;
 
+
 import java.io.File;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 // Pair programmed with ChatGPT.
 public class MetadataPopulator {
+
     private static final Map<String, Long> drawingNameToIdMap = new HashMap<>();
 
-    public static void populateDatabase() {
+    public static void populateDatabase(String jdbcURL) {
         String currentDirectory = System.getProperty("user.dir");
         System.out.println("MetadataPopulator located here: " + currentDirectory);
 
         String directoryPath = currentDirectory + "\\src\\main\\resources\\static\\submission_storage_directory";
-        String jdbcURL = "jdbc:mariadb://localhost:3306/team7_soho_kids_database?user=root&password=comsc"; //TODO: Improve safety here by defining individual variables that scan application.properties for user & password, so that program is maintainable.
 
         try (Connection connection = DriverManager.getConnection(jdbcURL)) {
             File mainDirectory = new File(directoryPath);
@@ -103,6 +104,30 @@ public class MetadataPopulator {
             System.out.println("Inserted light image: " + fileName + " for drawing ID: " + correspondingDrawingId);
             System.out.println();
             System.out.println();
+        }
+    }
+
+    public static void initializeLikeCounts(Connection connection) {
+        try {
+            String selectDrawingsIds = "SELECT id FROM Drawings";
+            String insertIntoLikeCounts = "INSERT INTO LikeCounts (submission_id, like_count) VALUES (?, 0)";
+
+            PreparedStatement selectStatement = connection.prepareStatement(selectDrawingsIds);
+            ResultSet drawingsIds = selectStatement.executeQuery();
+
+            PreparedStatement insertStatement = connection.prepareStatement(insertIntoLikeCounts);
+
+            while (drawingsIds.next()) {
+                long drawingId = drawingsIds.getLong("id");
+                insertStatement.setLong(1, drawingId);
+                insertStatement.addBatch();
+            }
+
+            insertStatement.executeBatch();
+            System.out.println("Inserted Drawings IDs into LikeCounts with initial like_count of 0.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

@@ -139,21 +139,5 @@ public class ImageRepository_imp implements ImageRepository{
         insert(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
-    public void initialiseLikeCountsTable(){
-
-        String queryForEmptinessSQL = "SELECT IF(EXISTS (SELECT 1 FROM LikeCounts), 'Not_Empty', 'Empty')";
-
-        String tableStatus = jdbc.queryForObject(queryForEmptinessSQL, String.class);
-
-        if(Objects.equals(tableStatus, "Empty")){
-            // This'll help to avoid checking everytime before you update a like_count, whether the entry is there or not.
-            String sql = "INSERT INTO LikeCounts (submission_id, like_count) SELECT id, 0 FROM Drawings";
-            jdbc.execute(sql);
-        } else {
-            System.out.println("LikeCounts Table Initialised");
-        }
-        
-    }
-
 
 }

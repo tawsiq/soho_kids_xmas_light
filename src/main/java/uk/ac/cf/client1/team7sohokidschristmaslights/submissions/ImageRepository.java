@@ -10,5 +10,4 @@ public interface ImageRepository {
     Boolean lightCounterpartPresent(Long id);
     void storeRating(RatingClass rating);
 //    Integer countLikes(Long id);
-    void initialiseLikeCountsTable();
 }

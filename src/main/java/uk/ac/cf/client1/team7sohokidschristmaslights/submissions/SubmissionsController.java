@@ -21,7 +21,6 @@ public class SubmissionsController {
 
     StringBuilder htmlBuilder;
 
-    // TODO: Make image viewing asynchronous
     public SubmissionsController(ImageService imageService){
         this.imageService = imageService;
     }
@@ -73,7 +72,6 @@ public class SubmissionsController {
         return modelAndView;
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
-    // TODO: Transform this into an AJAX request.
     @GetMapping("/home/submissions/{id}/addReview")
     public ModelAndView hostRatingSection(@PathVariable Long id){
         return new ModelAndView("submissions-page/submission-details");
