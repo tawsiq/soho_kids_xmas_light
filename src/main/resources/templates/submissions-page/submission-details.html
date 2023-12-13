@@ -23,7 +23,6 @@
     <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
 </header>
-<!--    "@{'/menu/' + ${menuItem.id} + '/addReview'}"   -->
     <article class="centering-container">
     <div class="submitted-image-for-details-container">
         <!-- A light image is displayed only if it has been passed to the view by the controller with the key "light"-->
@@ -34,24 +33,26 @@
 
     <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <br>
+    <!-- Here be AJAX. I've removed the form's action and put it into a data-attribute so that it can be easily retrieved by JS. It also makes Thymeleaf usable.  -->
 
-    <!--method="post" via AJAX sendRating()-->
     <form class="form-div-flex-container"
           name="submitRating" id="submitRating" onsubmit="return sendRating()"
           th:data-action="'/home/submissions/' + ${drawing.getId()} + '/addReview'">
 
         <div class="inner-form-row-container like_share_count">
-
-            <input type="checkbox" name="liked" id="liked" >
+            <!-- When the state of this button is changed starting from "checked", we send a likeUpdate to the database with value -1, +1 otherwise. -->
+            <!-- This simulates an actual like button which you wouldn't need a form to submit. See JS implementation of this function for more details. -->
+            <input type="checkbox" name="liked" id="liked" onchange="this.checked ? sendLikeUpdate(1) : sendLikeUpdate(-1)" th:data-sendLikeEndpoint_withoutIncrement="'/home/submissions/' + ${drawing.getId()} + '/updateLikeCount/'">
 
             <label class="like-button clickableDiv" for="liked" tabindex="0" ><span class="like-image-container"></span></label>
 
-            <div th:inline="text" id="likeCount"> [[${likeCount}]] </div>
+            <!-- This div is changed in two instances. 1) On page first time page load / refresh (thymeleaf inline), 2) When the like button is pressed (data endpoint) -->
+            <div id="likeCount" th:inline="text" th:data-likesEndpoint="'/home/submissions/' + ${drawing.getId()} + '/getLikes'"> [[${likeCount}]] </div>
 
             <div class="copyLink-button"><div tabindex="0" class="clickableDiv" id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div></div>
 
         </div>
-
+        <!-- Here's the standard form inputs that have a manual post request written in JS. See sendRating.-->
         <div class="inner-form-row-container" id="input">
             <label class="form-label" for="raterName"></label>
             <textarea class="auto-expanding-input name-input" id="raterName" name="raterName" placeholder="Name"></textarea>
@@ -63,8 +64,11 @@
         <button class="button" type="submit">Post Review</button>
 
     </form><br>
-
-    <ul class="comment-section">
+    <!--
+        I chose to pass this in normally through the server because there was an issue with document onload attributes not activating the required JS functions on load.
+        The synchronous and asynchronous systems work nicely together regardless. Synchronous provides a sort of foundation that Async can stand on and manipulate.
+    -->
+    <ul class="comment-section" th:data-commentsEndpoint="'/home/submissions/' + ${drawing.getId()} + '/getComments'">
         <li th:each="rating : ${ratingList}" class="user-comment">
             <p th:text="${rating.getRaterName()}" class="user-name"></p>
             <p th:text="${rating.getCommentText()}" class="user-comment-text"></p>

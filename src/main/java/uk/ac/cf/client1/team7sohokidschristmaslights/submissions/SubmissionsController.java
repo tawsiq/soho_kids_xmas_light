@@ -19,7 +19,8 @@ public class SubmissionsController {
 
     private final ImageService imageService;
 
-    // TODO: Make image viewing asynchronous
+    StringBuilder htmlBuilder;
+
     public SubmissionsController(ImageService imageService){
         this.imageService = imageService;
     }
@@ -33,7 +34,7 @@ public class SubmissionsController {
         return modelAndView;
     }
 
-    // Controller endpoint to serve image data based on image metadata
+    // endpoint serving image data based on its metadata
     @GetMapping("/getImage/{id}/{light}")
     public ResponseEntity<byte[]> getImageDataForTemplate(@PathVariable Long id,
                                                           @PathVariable Boolean light) throws IOException {
@@ -66,26 +67,25 @@ public class SubmissionsController {
                 .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
                 .toList();
 
+
         modelAndView.addObject("drawing", drawing);
-        modelAndView.addObject("likeCount", imageService.countLikes(id));
-        modelAndView.addObject("ratingList", filteredList); // Also retrieve rating list from the database to play around with in the template.
+        modelAndView.addObject("likeCount", imageService.getLikeCount(id)); // Adding this manually again because using fetchLikes() on load causes some issues I don't have time to fix.
+        modelAndView.addObject("ratingList", filteredList);
 
         return modelAndView;
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
-    // TODO: Transform this into an AJAX request.
     @GetMapping("/home/submissions/{id}/addReview")
     public ModelAndView hostRatingSection(@PathVariable Long id){
         return new ModelAndView("submissions-page/submission-details");
     }
     @PostMapping("/home/submissions/{id}/addReview")
     public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating) {
-
+        // After ASYNC implementation this controller remains the same. It was just changed to account for the fact that empty comments need not be stored anymore.
         if(rating.getRaterName().equals("")){
             rating.setRaterName("Anonymous");
         }
-
-        if (ratingIsNotNull(rating)){
+        if (ratingIsNotEmpty(rating)){
             rating.setDateTime(imageService.logDateTime());
             rating.setSubmissionId(id);
             imageService.moderateRating(rating);
@@ -93,8 +93,50 @@ public class SubmissionsController {
         }
         return new ModelAndView("redirect:/home/submissions/" + id);
     }
-    private boolean ratingIsNotNull(RatingClass rating){
-        return rating.getLiked()!=null || !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
+    private boolean ratingIsNotEmpty(RatingClass rating){
+        return !Objects.equals(rating.getCommentText(), "");
+    }
+
+    @PostMapping("/home/submissions/{id}/updateLikeCount/{increment}")
+    public ResponseEntity<Object> ResponseEntity(@PathVariable Long id, @PathVariable Short increment) {
+        // Different controller implementation to the other POST controller just above. This follows closely to the ResponseEntity that returns the image byte data.
+        // Increment & id passes in by HTML through JS received & used to process. .build() will then allow the changes to be seen in response.
+        imageService.updateLikeCount(id, increment);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = "/home/submissions/{id}/getComments", produces = MediaType.TEXT_HTML_VALUE)
+    @ResponseBody
+    public String getComments(@PathVariable Long id) {
+        // Mimics the fetching system that occurs on page load or refresh. The aim is to stop that...
+        // ... and rely only on this. Something like "document.onload" should work (see async JS file linked to submission-details template)
+        // This was tried a few times in different ways, but it never ended up working. Since I don't have time to figure it out, I'll bite the bullet and repeat the code structure here.
+        List<RatingClass> ratingList = imageService.getRatingList(id);
+        List<RatingClass> filteredList = ratingList.stream()
+                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
+                .toList();
+
+        // Generating HTML for comments section. This is also done by Thymeleaf on page refresh or load.
+        htmlBuilder = new StringBuilder();
+        for (RatingClass rating : filteredList) {
+            htmlBuilder.append("<li class=\"user-comment\">");
+            htmlBuilder.append("<p class=\"user-name\">").append(rating.getRaterName()).append("</p>");
+            htmlBuilder.append("<p class=\"user-comment-text\">").append(rating.getCommentText()).append("</p>");
+            htmlBuilder.append("<div class=\"divider-line\"></div>");
+            htmlBuilder.append("</li>");
+        }
+        return htmlBuilder.toString();
+    }
+
+    @GetMapping(value = "/home/submissions/{id}/getLikes", produces = MediaType.TEXT_HTML_VALUE)
+    @ResponseBody
+    public String getLikes(@PathVariable Long id) {
+        // this is just a simpler version of getComments just above.
+        int likeCount = imageService.getLikeCount(id);
+        htmlBuilder = new StringBuilder();
+        // Replaces the innerHTML of the div containing the like count. Element id = "likeCount"
+        htmlBuilder.append(likeCount);
+        return htmlBuilder.toString();
     }
     
 }
