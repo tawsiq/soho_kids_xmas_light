@@ -56,6 +56,8 @@ public class ImageRepository_imp implements ImageRepository{
     }
 
     // ---------- PUBLIC METHODS ---------- //
+
+
     // --- RETRIEVERS --- //
     // Returns a list of lists. The first list, at element 0 of the return, will contain drawings. The second at element 1 will contain the lights.
     // Since these only contain the metadata, this shouldn't impact performance so much. The byte data is read separately when needed.
@@ -124,10 +126,10 @@ public class ImageRepository_imp implements ImageRepository{
         String sql = "SELECT * FROM Ratings WHERE submission_id = ?";
         return jdbc.query(sql, ratingItemMapper, submission_id);
     }
-//    public Integer countLikes(Long id){
-//        String sql = "SELECT COUNT(*) FROM Ratings WHERE liked=1 AND submission_id=?";
-//        return jdbc.queryForObject(sql, Integer.class, id);
-//    }
+    public Integer getLikeCount(Long id){
+        String sql = "SELECT like_count FROM likecounts WHERE submission_id = ?";
+        return jdbc.queryForObject(sql, Integer.class, id);
+    }
 
     public Boolean lightCounterpartPresent(Long id){
         String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";

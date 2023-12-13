@@ -46,9 +46,9 @@ public class ImageService_imp implements ImageService{
         imageRepository.updateLikeCount(id, increment);
     }
 
-    //    public Integer countLikes(Long id){
-//        return imageRepository.countLikes(id);
-//    }
+    public Integer getLikeCount(Long id){
+        return imageRepository.getLikeCount(id);
+    }
     // Retrieves image data based on the absolute file path stored in ImageClass
     public byte[] getImageData(ImageClass image) throws IOException {
 
