@@ -16,6 +16,7 @@ function sendRating(){
             // Response is logged in the console
             console.log(xhttp.responseText);
             fetchComments();
+            fetchLikes(); // on form submission to update its number too.
         } else {
             // If response failed in any way, log the error into the console.
             console.error(xhttp.statusText);
