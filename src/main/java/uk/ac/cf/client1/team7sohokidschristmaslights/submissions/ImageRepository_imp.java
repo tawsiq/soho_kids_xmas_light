@@ -38,10 +38,11 @@ public class ImageRepository_imp implements ImageRepository{
                 rs.getString("name"),
                 rs.getString("comment"),
                 rs.getString("date_time")
+                // Removed liked field from rating class & table & cascaded changes to inert() below.
         );
     }
 
-    private void insert(RatingClass rating){
+    private void insertRating(RatingClass rating){
         String insertRatingSQL =
                 "INSERT INTO Ratings " +
                 "(`submission_id`, `name`, `comment`, `date_time`)" +
@@ -122,12 +123,12 @@ public class ImageRepository_imp implements ImageRepository{
     }
 
     public List<RatingClass> getRatingList(Long submission_id){
-
         String sql = "SELECT * FROM Ratings WHERE submission_id = ?";
         return jdbc.query(sql, ratingItemMapper, submission_id);
     }
     public Integer getLikeCount(Long id){
         String sql = "SELECT like_count FROM likecounts WHERE submission_id = ?";
+        // Now the likes are being selected from a new table specifically made to increment / decrement the like count for each submission.
         return jdbc.queryForObject(sql, Integer.class, id);
     }
 
@@ -137,7 +138,7 @@ public class ImageRepository_imp implements ImageRepository{
     }
     // --- INSERTERS & UPDATERS --- //
     public void storeRating(RatingClass rating) {
-        insert(rating);
+        insertRating(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
     public void updateLikeCount(Long id, Short increment) {
@@ -146,6 +147,7 @@ public class ImageRepository_imp implements ImageRepository{
         try {
             int rowsAffected = jdbc.update(updateQuery, increment, id);
             if (rowsAffected > 0) {
+                // This check is an additional layer of safety in the case that the GPT-written table initializer (see MetadataPopulator) fails, although I've included a double check for empty tables in there as well.
                 System.out.println("Updated like count for submission_id " + id + " by " + increment);
             } else {
                 System.out.println("No rows were updated for submission_id " + id);
