@@ -62,13 +62,9 @@ public class SubmissionsController {
             ImageClass light = imageService.getImage(id, true); // Required only for winning submissions.
             modelAndView.addObject("light", light);
         }
-//        List<RatingClass> ratingList = imageService.getRatingList(id);
-//        List<RatingClass> filteredList = ratingList.stream()
-//                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
-//                .toList();
+
         modelAndView.addObject("drawing", drawing);
-//        modelAndView.addObject("likeCount", imageService.countLikes(id));
-//        modelAndView.addObject("ratingList", filteredList); // Also retrieve rating list from the database to play around with in the template.
+        modelAndView.addObject("likeCount", imageService.getLikeCount(id)); // Adding this manually again because using fetchLikes() on load causes some issues I don't have time to fix.
         return modelAndView;
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
