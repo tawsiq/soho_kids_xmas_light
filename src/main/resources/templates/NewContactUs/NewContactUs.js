@@ -3,29 +3,47 @@
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("contactForm");
     const submitButton = document.getElementById("submit");
+    const nameField = document.getElementById("name");
+    const emailField = document.getElementById("email");
+    const subjectField = document.getElementById("subject");
+    const messageField = document.getElementById("message");
+    const charCount = document.getElementById("charCount");
 
     submitButton.addEventListener("click", function(event) {
         event.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const subject = document.getElementById("subject").value;
-        const message = document.getElementById("message").value;
+        const name = nameField.value;
+        const email = emailField.value;
+        const subject = subjectField.value;
+        const message = messageField.value;
 
-        // Perform basic validation
-        if (!name || !email || !subject || !message) {
-            alert("Please fill in all fields!");
+        const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (!name.match(/^[a-zA-Z]+$/)) {
+            alert("Name should only contain alphabetic characters!");
             return;
         }
 
-        // Check email format using regular expression
-        const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (!email.match(emailFormat)) {
             alert("Please enter a valid email address!");
             return;
         }
 
-        // Validation successful, you can submit the form
+        if (subject.length < 5 || subject.length > 50) {
+            alert("Subject should be between 5 and 50 characters!");
+            return;
+        }
+
+        if (message.length > 2500) {
+            alert("Message exceeds the character limit of 2500!");
+            return;
+        }
+
         form.submit();
+    });
+
+    messageField.addEventListener("input", function() {
+        const messageLength = messageField.value.length;
+        charCount.textContent = `${messageLength} / 2500 characters`;
     });
 });
