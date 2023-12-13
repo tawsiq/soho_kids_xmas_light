@@ -5,83 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/shared.css">
     <link rel="stylesheet" href="ContactUs.css">
-
+    <link rel="stylesheet" href="NewFooter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Contact Us!</title>
 </head>
 
 <body>
-    <header>
-        <img id="logo1" src="logo1.png" alt="logo" width="100" height="100">
-        <nav>
-            <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="AboutUs.html">About Us</a></li>
-                <li><a href="Submissions.html">Submissions</a></li>
-                <li><a href="ContactUs.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="contact-form">
-            <h1>Contact Us</h1>
-            <p>Please fill out the form below and we will get back to you as soon as possible :D</p>
-            <form action="submit.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Enter your message" rows="10"
-                        required></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" id="submit">Send Message</button>
-                </div>
-            </form>
-        </section>
-        <section id="contact-details">
-            <h2>Our Details</h2>
-            <p>You can also reach out by email, or visit our monthly SOHO gatherings!</p>
-            <div class="detail">
-                <img src="email.png" alt="email" class="icon">
-                <p>info@soho.co.uk</p>
+<header>
+    <img id="logo1" src="logo1.png" alt="logo" width="100" height="100">
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Submissions.html">Submissions</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="contact-form">
+        <h1>Contact Us</h1>
+        <p>Please fill out the form below and we will get back to you as soon as possible :D</p>
+        <form action="submit.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
             </div>
-            <div class="detail">
-                <img src="location.png" alt="location" class="icon">
-                <p>123 SOHO Street, Westminister, London, UK</p>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your name" required>
             </div>
-        </section>
-    </main>
-</body>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Enter your message" rows="10"
+                          required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit">Send Message</button>
+            </div>
+        </form>
+    </section>
 
-<!--START OF FOOTER STUFF, COPIED AND PASTED FROM TEMPLATE I MADE PREVIOUSLY UNDER "NewFooter.html" and "NewFooter.css"-->
+    <section id="contact-details">
+        <h2>Our Details</h2>
+        <p>You can also reach out by email, or visit our monthly SOHO gatherings!</p>
+        <div class="detail">
+            <img src="email.png" alt="email" class="icon">
+            <p>info@soho.co.uk</p>
+        </div>
+        <div class="detail">
+            <img src="location.png" alt="location" class="icon">
+            <p>123 SOHO Street, Westminister, London, UK</p>
+        </div>
+    </section>
 
-<!--CONTENT ADAPTED FROM https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css-->
-<!--ADAPTED HTML CONTENT TO SUIT CLIENT'S WANTS-->
-<!--HAVE ALSO CHANGED CSS STYLING TO HAVE PARITY IN TERMS OF STYLING WITH REST OF SITE-->
-<link        rel="stylesheet"
-             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-             integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-             crossorigin="anonymous"
-             referrerpolicy="no-referrer"
-/>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"/>
-<link rel="stylesheet" href="NewFooter.css" />
-</head>
-<body>
+</main>
 <footer>
     <div class="background">
         <svg
@@ -174,7 +158,7 @@
     </section>
 </footer>
 
-<!--START OF JAVASCRIPT CONTENT FOR HOVER ANIMATION-->
+
 <script>
     const links = document.querySelectorAll('.links a');
 
@@ -205,4 +189,135 @@
     });
 </script>
 </body>
+
 </html>
+
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="../../static/css/shared.css">-->
+<!--    <link rel="stylesheet" href="ContactUs.css">-->
+
+<!--    <meta charset="UTF-8" />-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+
+<!--    &lt;!&ndash;CONTENT ADAPTED FROM https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&ndash;&gt;-->
+<!--    &lt;!&ndash;ADAPTED HTML CONTENT TO SUIT CLIENT'S WANTS&ndash;&gt;-->
+<!--    &lt;!&ndash;HAVE ALSO CHANGED CSS STYLING TO HAVE PARITY IN TERMS OF STYLING WITH REST OF SITE&ndash;&gt;-->
+<!--    <link   rel="stylesheet"-->
+<!--            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"-->
+<!--            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="-->
+<!--            crossorigin="anonymous"-->
+<!--            referrerpolicy="no-referrer"-->
+<!--    />-->
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com" />-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"-->
+<!--          rel="stylesheet"/>-->
+<!--    <link rel="stylesheet" href="NewFooter.css" />-->
+
+<!--    <title>Contact Us!</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <header>-->
+<!--        <img id="logo1" src="logo1.png" alt="logo" width="100" height="100">-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="Home.html">Home</a></li>-->
+<!--                <li><a href="AboutUs.html">About Us</a></li>-->
+<!--                <li><a href="Submissions.html">Submissions</a></li>-->
+<!--                <li><a href="ContactUs.html">Contact Us</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<!--    </header>-->
+<!--    <main>-->
+<!--        <section id="contact-form">-->
+<!--            <h1>Contact Us</h1>-->
+<!--            <p>Please fill out the form below and we will get back to you as soon as possible :D</p>-->
+<!--            <form action="submit.php" method="POST">-->
+<!--                <div class="form-group">-->
+<!--                    <label for="name">Name</label>-->
+<!--                    <input type="text" id="name" name="name" placeholder="Enter your name" required>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="email">Email</label>-->
+<!--                    <input type="email" id="email" name="email" placeholder="Enter your name" required>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="subject">Subject</label>-->
+<!--                    <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message"-->
+<!--                        required>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="message">Message</label>-->
+<!--                    <textarea id="message" name="message" placeholder="Enter your message" rows="10"-->
+<!--                        required></textarea>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <button type="submit" id="submit">Send Message</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </section>-->
+<!--        <section id="contact-details">-->
+<!--            <h2>Our Details</h2>-->
+<!--            <p>You can also reach out by email, or visit our monthly SOHO gatherings!</p>-->
+<!--            <div class="detail">-->
+<!--                <img src="email.png" alt="email" class="icon">-->
+<!--                <p>info@soho.co.uk</p>-->
+<!--            </div>-->
+<!--            <div class="detail">-->
+<!--                <img src="location.png" alt="location" class="icon">-->
+<!--                <p>123 SOHO Street, Westminister, London, UK</p>-->
+<!--            </div>-->
+<!--        </section>-->
+
+
+<!--&lt;!&ndash;        <footer>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div id="social-media">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://www.facebook.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="facebook.png" alt="facebook" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://www.twitter.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="twitter.png" alt="twitter" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://www.instagram.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="instagram.png" alt="instagram" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="https://linkedin.com/SOHO">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img src="linkedin.png" alt="linkedin" class="icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div id="copyright">&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>SOHO 2023, all rights reserved.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </footer>&ndash;&gt;-->
+
+<!--        <footer>-->
+
+<!--        </footer>-->
+
+
+
+<!--    </main>-->
+<!--</body>-->
+
+<!--</html>-->
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->

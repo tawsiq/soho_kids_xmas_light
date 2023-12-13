@@ -11,7 +11,7 @@ body{
     color: #EAEBED;
     font-size: 1rem;
 }
-/*** HEADER UNDERLINES ***/
+/********* HEADER UNDERLINES *********/
 header{
     display: flex;
     flex-direction: column;
@@ -54,16 +54,83 @@ header h2, h3, h4{
     flex: 1;
 }
 /***************************************/
+/*********** LIGHT UP BUTTONS *************/
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    transition: border-color 0.3s ease;
+    color: #EAEBED;
+    padding: 0.5em;
+    background: hsl(237, 35%, 15%);
+    /*border: 2px solid #754287;*/
+    border-radius: 0.28em;
+
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #754287;
+    border-left: 2px solid transparent;
+}
+/* Button hover style */
+.button:hover, .button:focus{
+
+    background: hsl(237, 35%, 16%);
+    color: hsl(283, 100%, 100%);
+    /*border: 2px solid #c42eff;*/
+    border-radius: 0.28em;
+    cursor: pointer;
+
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #c42eff;
+    border-left: 2px solid transparent;
+
+    outline: none;
+}
+
+
+.full-border:hover, .full-border:focus{
+    border: 2px solid #c42eff;
+}
+
+/**********************************/
+/*********** EXPANDING INPUTS *************/
+.auto-expanding-input{
+    transition: border-color 0.7s ease;
+
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #754287;
+    border-left: 2px solid transparent;
+    background: #14152A;
+    color: #EAEBED;
+
+    height: 1.5em;
+    width: 60%;
+    min-height: 1.5em; /* Set minimum height to prevent textarea from collapsing completely */
+    overflow-y: hidden;
+    resize: none; /* resizing handled by js*/
+
+}
+.auto-expanding-input::placeholder{
+    text-align: center;
+    color: #919191;
+}
+.auto-expanding-input:focus, .auto-expanding-input:hover{
+    outline: none;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #c42eff;
+    border-left: 2px solid transparent;
+    color: #EAEBED;
+}
 
 /*
 - Optimise content for screens of width 600px or less
 - Put all Css you'd like to override for these screens here.
 */
-@media (max-width: 450px) {
-    body{
-        font-size: 1.2rem;
-    }
+@media (max-width: 600px) {
     header h2, h3, h4{
         padding: 0.2em;
     }
@@ -83,3 +150,5 @@ header h2, h3, h4{
         margin: 0.35em 0 0 10%;
     }
 }
+
+
