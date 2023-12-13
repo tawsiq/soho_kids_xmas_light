@@ -1,3 +1,5 @@
+
+//Function to validate email address the user is entering to ensure it follows the correct format
 function validateEmail() {
     var email = document.getElementById("email").value;
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
