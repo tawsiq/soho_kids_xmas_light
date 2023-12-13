@@ -138,6 +138,11 @@ public class ImageRepository_imp implements ImageRepository{
         insert(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
+    public void initialiseLikeCountsTable(){
+        // This'll help to avoid checking everytime before you update a like_count, whether the entry is there or not.
+        String sql = "INSERT INTO LikeCounts (submission_id, like_count) SELECT id, 0 FROM Drawings";
+        jdbc.execute(sql);
+    }
 
-    // Come back to https://www.notion.so/unequaled-moustache-536/Servers-2-73bc55350f0d4274b34ff8e9b67f8c50?pvs=4#1f1efe08fdab40f695a379ee5f30e56f if you want to start adding submissions through the app.
+
 }

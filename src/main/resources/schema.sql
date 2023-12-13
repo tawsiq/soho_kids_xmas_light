@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS Ratings (
 CREATE TABLE IF NOT EXISTS LikeCounts (
 
    submission_id BIGINT PRIMARY KEY NOT NULL,
-   likeCount BIGINT NOT NULL,
+   like_count BIGINT NOT NULL,
    -- Every time a like is submitted, the entry corresponding to the submission id will be updated.
    -- No duplicates can be entered due to the way implementation will work.
 
