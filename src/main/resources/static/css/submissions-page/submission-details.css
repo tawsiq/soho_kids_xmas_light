@@ -1,15 +1,200 @@
-.submitted-image-for-details-container, .form-div-flex-container{
+.centering-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+}
+
+.submitted-image-for-details-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: center;
     gap: 0.7em;
 
-}
-.submitted-image-for-details-container div{
     border: 2px solid #481e57;
-    aspect-ratio: 2 / 1;
+    border-radius: 2%;
+    aspect-ratio: 1.8 / 1;
     width: 40em;
     margin: 1em;
 }
 
+.form-div-flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+}
+.inner-form-row-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 1em;
+}
+.inner-form-row-container{
+    margin: 0.5em 0 0.5em 0;
+}
 
+.submitted-image-for-details-container img{
+    max-height: 95%;
+    max-width: 95%;
+    margin: 5px;
+    align-self: center;
+}
+/* Hide the default checkbox */
+input[type="checkbox"]{
+    display: none;
+}
+
+/* Style the label as a like button */
+.like-button, .copyLink-button {
+    transition: border-color 0.5s ease, background-color 0.2s ease;
+    display: inline-block;
+    height: 3em;
+    width: 4em; /* Adjust width and height as needed */
+    /*background-color: transparent; !* Background color of the button *!*/
+    border-radius: 7%; /* Make it round */
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #754287;
+    border-left: 2px solid transparent;
+
+    background-color: hsl(237, 35%, 16%);
+    cursor: pointer;
+    margin: 0 1em 0 1em;
+
+}
+.copyLink-button{
+    transition: all 0.3s ease;
+    display: flex;
+    justify-items: center;
+}
+.copyLink-button div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+.like-button {
+    /* Your existing styles for the circular button */
+    /* Add position and padding to the container */
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: 60%;
+    background-position: center;
+}
+
+.like-image-container::before {
+    content: ""; /* Create a pseudo-element to hold the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../theme_shapes/heart_red.png'); /* Path to your heart image */
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%; /* Ensure it's round */
+    opacity: 90%; /* Hide the image by default */
+    transition: opacity 0.3s ease; /* Add a transition for smoother effect */
+
+}
+
+#likeCount{
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #754287;
+    border-left: 2px solid transparent;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    align-self: center;
+    font-size: 1.5em;
+}
+.like-button span:focus,
+.like-button:hover + #likeCount,
+.like-button:focus + #likeCount {
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid #c42eff;
+    border-left: 2px solid transparent;
+    outline: none;
+}
+.name-input{
+    flex: 1;
+    margin: 0 0 0 3em;
+}
+.comment-input{
+    flex: 3;
+    margin: 0 3em 0 0;
+}
+#input{
+    gap: 1em;
+}
+
+input[type="checkbox"]:hover + .like-button,  input[type="checkbox"]:focus + .like-button, .copyLink-button:focus, .copyLink-button:hover{
+    border-color: #c42eff; /* Change border color on checked */
+    outline: none;
+}
+/* Change button appearance when checked */
+input[type="checkbox"]:checked + .like-button {
+    background-color: hsl(237, 35%, 16%);
+}
+input[type="checkbox"]:checked + .like-button .like-image-container::before{
+    opacity: 90%;
+    transition: opacity 0.5s ease;
+    background-image: url('../../theme_shapes/heart_gold.png');
+    outline: none;
+}
+input[type="checkbox"]:checked + .like-button + #likeCount{
+    border-bottom: 2px solid gold;
+    outline: none;
+}
+
+.comment-section{
+    display: flex;
+    flex-direction: column;
+    column-gap: 1em;
+}
+.user-comment{
+    margin: 0.7em 3em 0.7em 3em;
+    list-style: outside url("../../theme_shapes/square_green_small.png");
+}
+.user-name{
+    margin-left: 0.5em;
+    margin-bottom: 0.45em;
+}
+.user-comment-text{
+    margin-left: 0.65em;
+    font-size: 0.8em;
+}
+.divider-line{
+    border: 0.05em solid hsl(237, 35%, 23%);
+    height: 0;
+    margin: 0.35em 0 0 0;
+}
+
+@media (max-width: 600px) {
+    #input{
+        gap: 0.2em;
+    }
+    .name-input{
+        margin: 0 0 0 1em;
+    }
+    .comment-input{
+        margin: 0 1em 0 0;
+    }
+    .user-comment{
+        margin: 1em;
+    }
+}

@@ -4,52 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile phones / tablets -->
     <title>Group Submissions</title>
+
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/year-groups-list.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
+
+    <script th:src="@{/js/submissions-page/image-filter.js}"></script>
 
 </head>
 <body>
 
 <header>
-    <h2>Submission Repository</h2>
+    <h2>Soho Submissions</h2>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
 
-    <article th:replace="fragments/lists :: year-list"></article>
+    <article th:replace="~{fragments/lists :: year-list}"></article>
 
-    <article th:replace="fragments/lists :: year-group-list"></article>
+    <article th:replace="~{fragments/lists :: year-group-list}"></article>
 
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
 </header><br>
 
 <header class="winner-headline-flex-container">
     <div class="left-line"></div>
-    <img class="left-hollow-triangle" th:src="@{/images/submissions-page/hollow-triangle-left.png}" height="15" width="15" alt="left-hollow-triangle"/>
-    <h3>Winning Submissions</h3>
-    <img class="right-hollow-triangle" th:src="@{/images/submissions-page/hollow-triangle-right.png}" height="15" width="15" alt="right-hollow-triangle"/>
+    <img class="left-hollow-triangle" th:src="@{/theme_shapes/hollow-triangle-left.png}" height="15" width="15" alt="left-hollow-triangle"/>
+    <h3>Winning Submissions</h3> <!-- TODO: Fix warnings regarding missing src attributes-->
+    <img class="right-hollow-triangle" th:src="@{/theme_shapes/hollow-triangle-right.png}" height="15" width="15" alt="right-hollow-triangle"/>
     <div class="right-line"></div>
 
 </header><br>
 
 <main>
     <article class="winner-submissions-flex-container">
-        <div></div>
-        <div></div>
-        <div></div>
+        <!--  Here, we use the source url /getImage/{id}/{light} where path variable {light} is a boolean. Controller mapped to this url delivers the image. -->
+        <a class="button full-border"
+           th:each="image : ${imageItemList[1]}"
+           th:href="@{/home/submissions/{id} (id=${image.getId()})}"
+           th:attr="data-year_group=${image.getYearGroup()},
+                    data-submission_year=${image.getSubmissionYear()}"
+        >
+            <img class="light winnerContainerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/true'}" th:alt="${image.getFileName()}">
+            <img class="drawing winnerContainerTag" th:src="@{'/getImage/' +  ${image.getId()} + '/false'}" th:alt="${image.getFileName()}">
+        </a>
     </article><br><br>
 </main>
 
 <header>
     <h3>All Submissions</h3>
-    <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
+    <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
 </header><br>
 
 <main>
     <article class="submissions-flex-container">
-        <div></div>
-        <div></div>
-        <div></div>
+
+        <a class="button full-border" th:each="drawing : ${imageItemList[0]}"
+           th:href="@{/home/submissions/{id} (id=${drawing.getId()})}"
+           th:attr="data-year_group=${drawing.getYearGroup()},
+                    data-submission_year=${drawing.getSubmissionYear()}"
+        >
+            <img class="drawing submissionContainerTag" th:src="@{'/getImage/' +  ${drawing.getId()} + '/false'}" th:alt="${drawing.getFileName()}">
+        </a>
+
     </article><br><br>
 </main>
 
