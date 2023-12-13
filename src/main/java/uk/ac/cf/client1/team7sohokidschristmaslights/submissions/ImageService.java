@@ -13,5 +13,6 @@ public interface ImageService {
     void storeRating(RatingClass rating);
     String logDateTime();
 
+    void updateLikeCount(Long id, Integer increment);
 //    Integer countLikes(Long id);
 }

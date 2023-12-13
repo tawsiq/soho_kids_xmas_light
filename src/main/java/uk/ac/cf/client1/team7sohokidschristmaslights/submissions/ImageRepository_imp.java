@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Objects;
 
 @Repository
 public class ImageRepository_imp implements ImageRepository{
@@ -139,10 +138,9 @@ public class ImageRepository_imp implements ImageRepository{
         insert(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
-
     public void updateLikeCount(Long id, Integer increment) {
         String updateQuery = "UPDATE LikeCounts SET like_count = like_count + ? WHERE submission_id = ?";
-        // The increment will be hardcoded to either -1 or 1 during this function's call, depending on the state change of the like button. 
+        // The increment will be hardcoded to either -1 or 1 during this function's call, depending on the state change of the like button.
         try {
             int rowsAffected = jdbc.update(updateQuery, increment, id);
             if (rowsAffected > 0) {

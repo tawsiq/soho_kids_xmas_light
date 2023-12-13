@@ -42,7 +42,11 @@ public class ImageService_imp implements ImageService{
         imageRepository.storeRating(rating);
     }
 
-//    public Integer countLikes(Long id){
+    public void updateLikeCount(Long id, Integer increment) {
+        imageRepository.updateLikeCount(id, increment);
+    }
+
+    //    public Integer countLikes(Long id){
 //        return imageRepository.countLikes(id);
 //    }
     // Retrieves image data based on the absolute file path stored in ImageClass
