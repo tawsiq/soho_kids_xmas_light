@@ -34,7 +34,7 @@ public class SubmissionsController {
         return modelAndView;
     }
 
-    // Controller endpoint to serve image data based on image metadata
+    // endpoint serving image data based on its metadata
     @GetMapping("/getImage/{id}/{light}")
     public ResponseEntity<byte[]> getImageDataForTemplate(@PathVariable Long id,
                                                           @PathVariable Boolean light) throws IOException {
@@ -81,11 +81,10 @@ public class SubmissionsController {
     }
     @PostMapping("/home/submissions/{id}/addReview")
     public ModelAndView processPostedRating(@PathVariable Long id, RatingClass rating) {
-
+        // After ASYNC implementation this controller remains the same. It was just changed to account for the fact that empty comments need not be stored anymore.
         if(rating.getRaterName().equals("")){
             rating.setRaterName("Anonymous");
         }
-
         if (ratingIsNotEmpty(rating)){
             rating.setDateTime(imageService.logDateTime());
             rating.setSubmissionId(id);
@@ -98,26 +97,26 @@ public class SubmissionsController {
         return !Objects.equals(rating.getCommentText(), "");
     }
 
-
     @PostMapping("/home/submissions/{id}/updateLikeCount/{increment}")
     public ResponseEntity<Object> ResponseEntity(@PathVariable Long id, @PathVariable Short increment) {
+        // Different controller implementation to the other POST controller just above. This follows closely to the ResponseEntity that returns the image byte data.
+        // Increment & id passes in by HTML through JS received & used to process. .build() will then allow the changes to be seen in response.
         imageService.updateLikeCount(id, increment);
-
         return ResponseEntity.ok().build();
     }
-
 
     @GetMapping(value = "/home/submissions/{id}/getComments", produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
     public String getComments(@PathVariable Long id) {
         // Mimics the fetching system that occurs on page load or refresh. The aim is to stop that...
         // ... and rely only on this. Something like "document.onload" should work (see async JS file linked to submission-details template)
+        // This was tried a few times in different ways, but it never ended up working. Since I don't have time to figure it out, I'll bite the bullet and repeat the code structure here.
         List<RatingClass> ratingList = imageService.getRatingList(id);
         List<RatingClass> filteredList = ratingList.stream()
                 .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
                 .toList();
 
-        // Generating HTML for comments section. This would have been done by Thymeleaf on page refresh or load.
+        // Generating HTML for comments section. This is also done by Thymeleaf on page refresh or load.
         htmlBuilder = new StringBuilder();
         for (RatingClass rating : filteredList) {
             htmlBuilder.append("<li class=\"user-comment\">");
@@ -132,13 +131,11 @@ public class SubmissionsController {
     @GetMapping(value = "/home/submissions/{id}/getLikes", produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
     public String getLikes(@PathVariable Long id) {
-
+        // this is just a simpler version of getComments just above.
         int likeCount = imageService.getLikeCount(id);
-
         htmlBuilder = new StringBuilder();
-        // This will replace the innerHTML of the div containing the like count. Its id is "likeCount"
+        // Replaces the innerHTML of the div containing the like count. Element id = "likeCount"
         htmlBuilder.append(likeCount);
-
         return htmlBuilder.toString();
     }
 
