@@ -1,3 +1,5 @@
+
+
 function sendRating(){
     const raterName = document.forms["submitRating"]["raterName"].value;
     const commentText = document.forms["submitRating"]["commentText"].value;
@@ -62,4 +64,4 @@ function fetchLikes() {
 // So that comments don't need to be directly passed by the controller the first time the URL is accessed.
 // Filtered rating code & fetching like counter in GetMapping controller no longer needs to be repeated (see where it was commented out)
 document.addEventListener('DOMContentLoaded', fetchComments);
-document.addEventListener('DOMContentLoaded', fetchLikes);
+

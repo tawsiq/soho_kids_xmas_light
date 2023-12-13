@@ -67,11 +67,9 @@ public class SubmissionsController {
 //        List<RatingClass> filteredList = ratingList.stream()
 //                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
 //                .toList();
-
         modelAndView.addObject("drawing", drawing);
-//        modelAndView.addObject("likeCount", imageService.countLikes(id));
+        modelAndView.addObject("likeCount", imageService.countLikes(id));
 //        modelAndView.addObject("ratingList", filteredList); // Also retrieve rating list from the database to play around with in the template.
-
         return modelAndView;
     }
     // These next two handle reviews. One hosts & the other receives, processes and redirects. Note that these URLS shouldn't be used elsewhere. Same goes for the rest.
