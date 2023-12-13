@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -94,6 +95,28 @@ public class SubmissionsController {
     }
     private boolean ratingIsNotNull(RatingClass rating){
         return rating.getLiked()!=null || !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
+    }
+
+    @GetMapping(value = "/home/submissions/{id}/getComments", produces = MediaType.TEXT_HTML_VALUE)
+    @ResponseBody
+    public String getComments(@PathVariable Long id) {
+        // Mimics the fetching system that occurs on page load or refresh. The aim is to stop that...
+        // ... and rely only on this. Something like "document.onload" should work.
+        List<RatingClass> ratingList = imageService.getRatingList(id);
+        List<RatingClass> filteredList = ratingList.stream()
+                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
+                .toList();
+
+        // Generate HTML for comments section dynamically
+        StringBuilder htmlBuilder = new StringBuilder();
+        for (RatingClass rating : filteredList) {
+            htmlBuilder.append("<li class=\"user-comment\">");
+            htmlBuilder.append("<p class=\"user-name\">").append(rating.getRaterName()).append("</p>");
+            htmlBuilder.append("<p class=\"user-comment-text\">").append(rating.getCommentText()).append("</p>");
+            htmlBuilder.append("<div class=\"divider-line\"></div>");
+            htmlBuilder.append("</li>");
+        }
+        return htmlBuilder.toString();
     }
 
 }
