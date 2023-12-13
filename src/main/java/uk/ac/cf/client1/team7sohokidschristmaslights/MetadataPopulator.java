@@ -109,27 +109,36 @@ public class MetadataPopulator {
 
     public static void initializeLikeCounts(Connection connection) {
         try {
-            String selectDrawingsIds = "SELECT id FROM Drawings";
+            String countRowsQuery = "SELECT COUNT(*) AS rowCount FROM LikeCounts";
             String insertIntoLikeCounts = "INSERT INTO LikeCounts (submission_id, like_count) VALUES (?, 0)";
 
-            PreparedStatement selectStatement = connection.prepareStatement(selectDrawingsIds);
-            ResultSet drawingsIds = selectStatement.executeQuery();
+            PreparedStatement countStatement = connection.prepareStatement(countRowsQuery);
+            ResultSet rowCountResult = countStatement.executeQuery();
+            rowCountResult.next();
+            int rowCount = rowCountResult.getInt("rowCount");
 
-            PreparedStatement insertStatement = connection.prepareStatement(insertIntoLikeCounts);
+            if (rowCount == 0) {
+                PreparedStatement selectStatement = connection.prepareStatement("SELECT id FROM Drawings");
+                ResultSet drawingsIds = selectStatement.executeQuery();
 
-            while (drawingsIds.next()) {
-                long drawingId = drawingsIds.getLong("id");
-                insertStatement.setLong(1, drawingId);
-                insertStatement.addBatch();
+                PreparedStatement insertStatement = connection.prepareStatement(insertIntoLikeCounts);
+
+                while (drawingsIds.next()) {
+                    long drawingId = drawingsIds.getLong("id");
+                    insertStatement.setLong(1, drawingId);
+                    insertStatement.addBatch();
+                }
+
+                insertStatement.executeBatch();
+                System.out.println("Inserted Drawings IDs into LikeCounts with initial like_count of 0.");
+            } else {
+                System.out.println("LikeCounts table already contains data. Skipping initialization.");
             }
-
-            insertStatement.executeBatch();
-            System.out.println("Inserted Drawings IDs into LikeCounts with initial like_count of 0.");
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     private static String getMimeType(String fileName) {
         if (fileName.endsWith(".jpeg") || fileName.endsWith(".jpg")) {

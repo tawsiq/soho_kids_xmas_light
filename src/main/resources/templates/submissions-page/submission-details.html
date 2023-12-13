@@ -41,8 +41,9 @@
 
         <div class="inner-form-row-container like_share_count">
 
-            <input type="checkbox" name="liked" id="liked" th:data-sendLikeEndpoint_withoutIncrement="'/home/submissions/' + ${drawing.getId()} + '/updateLikeCount/'">
-    
+            <input type="checkbox" name="liked" id="liked" onchange="this.checked ? sendLikeUpdate(1) : sendLikeUpdate(-1)" th:data-sendLikeEndpoint_withoutIncrement="'/home/submissions/' + ${drawing.getId()} + '/updateLikeCount/'">
+
+
             <label class="like-button clickableDiv" for="liked" tabindex="0" ><span class="like-image-container"></span></label>
 
             <div id="likeCount" th:inline="text" th:data-likesEndpoint="'/home/submissions/' + ${drawing.getId()} + '/getLikes'"> [[${likeCount}]] </div>

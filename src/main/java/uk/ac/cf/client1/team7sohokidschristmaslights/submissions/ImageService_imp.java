@@ -42,7 +42,7 @@ public class ImageService_imp implements ImageService{
         imageRepository.storeRating(rating);
     }
 
-    public void updateLikeCount(Long id, Integer increment) {
+    public void updateLikeCount(Long id, Short increment) {
         imageRepository.updateLikeCount(id, increment);
     }
 
