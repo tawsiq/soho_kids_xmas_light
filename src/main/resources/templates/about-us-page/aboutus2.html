@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel = "stylesheet" th:href="@{/css/shared.css}">
+  <link rel = "stylesheet" th:href="@{/css/aboutuspage/styles.css}">
+  <script th:src="@{/js/aboutuspage/aboutus2.js}"></script>
+  <title>About Us- Soho Kids Xmas Lights Project</title>
+</head>
+<body>
+
+<!-- Thymeleaf attributes i.e. th, throughout the code has been utilised to retrieve files throughout the
+resources directory e.g. sponsor logos, shapes used for the headings-->
+
+<!-- NavBar -->
+
+<nav>
+
+  <ul>
+    <li>
+            <span class="logo-container">
+        <img th:src="@{/sponsor-logos/AFK_Logo_small.png}" height="73" width="262" alt="Logo" class="logo"/>
+            </span>
+    </li>
+
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#drawings">Drawings</a></li>
+    <li><a href="#marketplace">Marketplace</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- Title -->
+
+<div class="title-container">
+  <h1 class="main-title">About Us</h1>
+  <p>This year the children from Soho Parish School brought the most magical Christmas lights to Soho. <br>
+
+
+<!--About us paragraph -->
+    <br>
+
+    The Soho Christmas lights had a unique theme this year involving the community. The installations have been designed by children from Soho Parish School under the direction of architect and RIBA Architecture Ambassador Antonio Capelao and light up our vibrant streets. <br>
+    <br>
+    The creative and unique light designs which are hand drawn by the children of Soho Parish School, range from snowmen and Christmas trees to baubles and reindeer.  The heartwarming light installations show what it is like to experience Christmas through children’s eyes. <br>
+    <br>
+    Antonio Capelao, architect and RIBA Architecture Ambassador, worked alongside, Hannah Peaty, art lead at Soho Parish School, and local Soho florist, Joao Rocha of Storm Flowers London, to create 21 lighting panels for this special project. <br>
+    <br>
+    Soho Parish School held a competition to choose the Christmas designs, the judging panel included The Royal Institute of British Architects – RIBA, The National Gallery, Shaftesbury, St Anne’s Church, architect and RIBA Architecture Ambassador Antonio Capelao, Storm Flowers London and Soho Ward Councillors alongside ex-pupils from the school.</p>
+  <br>
+</div>
+
+<!-- Sponsors Heading -->
+<header>
+  <h3>Sponsors</h3>
+  <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+  <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
+  <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+<!--  <div class = "header-underline" th:fragment="underline-circle">-->
+<!--    <div class = "left-line"></div>-->
+<!--    <div class = "circle"></div>-->
+<!--    <div class = right-line></div>-->
+<!--  </div>-->
+</header>
+
+<!-- Section for Sponsor Logos -->
+<section id="sponsors">
+  <div class="sponsor-logos">
+
+    <img th:src="@{/sponsor-logos/fashion-textile-museum-logo.png}" height="232" width="344" alt="Sponsor 1"/>
+    <img th:src="@{/sponsor-logos/FE_SKXL.png}" height="322" width="966" alt="Sponsor 2"/>
+    <img th:src="@{/sponsor-logos/Hines_187_Logo.png}" height="468" width="1606" alt="Sponsor 3"/>
+    <img th:src="@{/sponsor-logos/NatSoftwareAcademyWhite.png}" height="626" width="3567" alt="Sponsor 4"/>
+    <img th:src="@{/sponsor-logos/SHAFTESBURY_CAPITAL_LOGO_RGB.jpg}" height="386" width="1273" alt="Sponsor 5"/>
+    <img th:src="@{/sponsor-logos/TheLIA_LOGO_Master.png}" height="4500" width="8000" alt="Sponsor 6"/>
+    <img th:src="@{/sponsor-logos/TV_Logo_VP_white.png}" height="199" width="514" alt="Sponsor 7"/>
+</div>
+</section>
+
+<!-- Sponsor sign-up form -->
+<header>
+  <h3>Interested in sponsoring us?</h3>
+  <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+  <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
+  <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+<!--  <div class = "header-underline" th:fragment="underline-circle">-->
+<!--    <div class = "left-line"></div>-->
+<!--    <div class = "circle"></div>-->
+<!--    <div class = right-line></div>-->
+<!--  </div>-->
+
+  <section>
+    <!-- Display success message if present -->
+<!--    <div th:if="${message}" class="success-message">-->
+<!--      <p th:text="${message}"></p>-->
+<!--    </div>-->
+
+    <!-- Sign-up form -->
+    <form th:action="@{/sponsor/signup}" method="post"  onsubmit="validateEmail()">
+      <h2>Sponsor Sign-Up</h2>
+<!--      th:object="${sponsor}"-->
+      <!-- Company Name -->
+      <label for="companyName">Company Name:</label>
+      <input type="text" id="companyName" name="companyName"  required>
+<!--      th:field="*{companyName}"-->
+      <!-- Contact Person -->
+      <label for="contactPerson">Contact Person:</label>
+      <input type="text" id="contactPerson" name="contactPerson"  required>
+<!--      th:field="*{contactPerson}"-->
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"  required>
+<!--      th:field="*{email}"-->
+      <!-- Submit Button -->
+      <button type="submit">Sign Up</button>
+    </form>
+  </section>
+
+</header>
+
+<!-- Media links section -->
+<header id="media">
+  <h3>Media</h3>
+  <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
+  <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
+  <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
+<!--  <div class = "header-underline" th:fragment="underline-circle">-->
+<!--    <div class = "left-line"></div>-->
+<!--    <div class = "circle"></div>-->
+<!--    <div class = right-line></div>-->
+<!--  </div>-->
+
+  <br>
+  <br>
+  <br>
+
+
+  <ul class="media-links">
+    <li><a href="https://southlondon.co.uk/news/soho-kids-christmas-lights-returns-for-the-third-year/" target="_blank" rel="noopener noreferrer">South London - Soho kids Christmas lights returns for the third year</a></li>
+    <li><a href="https://secretldn.com/soho-christmas-lights/" target="_blank" rel="noopener noreferrer">Secret London - These Heartwarming Soho Christmas Lights Were Designed By Schoolchildren</a></li>
+    <li><a href="https://mysohotimes.co.uk/2023/11/18/soho-parish-school-kids-light-up-the-streets-of-soho-again-this-christmas-my-soho-times/" target="_blank" rel="noopener noreferrer">MY SOHO TIMES - Soho Parish School kids light up the Streets of Soho again this Christmas | My Soho Times</a></li>
+    <li><a href="https://theglasshouse.org.uk/co-design-collaboration/soho-kids-xmas-lights-bringing-together-architecture-children-and-communities/" target="_blank" rel="noopener noreferrer">The Glass House - Soho Kids Xmas Lights: Bringing together architecture, children and community</a></li>
+    <li><a href="https://www.thelia.org.uk/news/659782/Soho-unveils-Soho-Kids-Xmas-Lights.htm" target="_blank" rel="noopener noreferrer">theLIA - Soho unveils Soho Kids Xmas Lights</a></li>
+  </ul>
+</header>
+
+<section id="home">
+  <!-- Home content here -->
+</section>
+
+<section id="about">
+  <!-- About Us content here -->
+</section>
+
+<section id="drawings">
+  <!-- Drawings -->
+</section>
+
+<section id="marketplace">
+  <!-- Marketplace -->
+</section>
+
+<section id="contact">
+  <!-- Contact Us content here -->
+</section>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+</body>
+</html>
