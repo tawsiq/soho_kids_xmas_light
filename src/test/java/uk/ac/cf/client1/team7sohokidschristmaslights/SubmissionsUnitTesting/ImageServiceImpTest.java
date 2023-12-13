@@ -143,10 +143,50 @@ class ImageServiceImpTest {
         assertTrue(actualResult.get(1).isEmpty()); // Check lights list
     }
 
+    //////// GET-IMAGE TESTS ////////
     @Test
     @Transactional
-    void getImageGeneralTests() {
-        
+    void testGetExistingImage() {
+        Long id = 1L; // Assuming this ID exists in the database (at least 1 will be stored according to previous testing above).
+        ImageClass drawing = imageService.getImage(id, false);
+        ImageClass light = imageService.getImage(id, true);
 
+        System.out.println("Testing For Null image objects...");
+        assertNotNull(drawing);
+        assertNotNull(light);
+        System.out.println("Passed.");
+
+        System.out.println("Testing For Null Fields in Drawing...");
+        assertNotNull(drawing.getId());
+        assertNotNull(drawing.getFileName());
+        assertNotNull(drawing.getFilePath());
+        assertNotNull(drawing.getMimeType());
+        assertNotNull(drawing.getSubmissionYear());
+        assertNotNull(drawing.getYearGroup());
+        assertNotNull(drawing.getParticipantName());
+        System.out.println("Passed.");
+
+        System.out.println("Testing For Null Fields in light...");
+        assertNotNull(light.getId());
+        assertNotNull(light.getFileName());
+        assertNotNull(light.getFilePath());
+        assertNotNull(light.getMimeType());
+        assertNotNull(light.getSubmissionYear());
+        assertNotNull(light.getYearGroup());
+        assertNotNull(light.getParticipantName());
+        System.out.println("Passed.");
     }
+
+    @Test
+    @Transactional
+    void testGetNonExistingLight() {
+        // Delete from a table that doesn't host foreign keys
+        jdbc.execute("DELETE FROM Lights");
+        Long id = 1L; // No longer exists in lights
+        ImageClass nonExistingLight = imageService.getImage(id, true);
+        assertNull(nonExistingLight);
+        // If this passes, a type mismatch test is also passed because we know the function handles the retrieval of non-existent objects well.
+        // Plus, nothing in the database table "lights" will exist without first having a corresponding id to the Drawings table, because they're created with foreign keys. 
+    }
+
 }
