@@ -69,7 +69,7 @@ public class ImageService_imp implements ImageService{
     }
     public String logDateTime(){
         LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        DateTimeFormatter formatDateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String date = currentDateTime.format(formatDateTime).substring(0, 10);
         String time = currentDateTime.format(formatDateTime).substring(11, 16);
         return "On " + date + " at " + time;

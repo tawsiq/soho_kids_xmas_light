@@ -8,7 +8,9 @@
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/submission-details.css}">
+
     <script th:src="@{/js/auto-expand-input.js}" async></script>
+    <script th:src="@{/js/submissions-page/async-ratings.js}" async></script>
     <script th:src="@{/js/submissions-page/submission-details.js}"></script>
 
 </head>
@@ -33,7 +35,10 @@
     <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
     <br>
 
-    <form class="form-div-flex-container" th:action = "@{'/home/submissions/' + ${drawing.getId()} + '/addReview'}" method = "post">
+    <!--method="post" via AJAX sendRating()-->
+    <form class="form-div-flex-container"
+          name="submitRating" id="submitRating" onsubmit="return sendRating()"
+          th:data-action="'/home/submissions/' + ${drawing.getId()} + '/addReview'">
 
         <div class="inner-form-row-container like_share_count">
 
