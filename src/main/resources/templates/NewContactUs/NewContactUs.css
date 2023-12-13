@@ -117,3 +117,18 @@ nav ul li a:hover {
 .animated-footer {
     /* Add your footer styling here */
 }
+
+.form-group input,
+.form-group textarea {
+    width: 50%; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+/* Adjustments for smaller screens if needed */
+
+@media (max-width: 600px) {
+    /* ... (Previous media query styles remain unchanged) */
+}
