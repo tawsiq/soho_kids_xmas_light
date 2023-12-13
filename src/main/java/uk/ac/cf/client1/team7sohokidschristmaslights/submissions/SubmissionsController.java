@@ -95,6 +95,23 @@ public class SubmissionsController {
         return !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
     }
 
+    @GetMapping("/home/submissions/{id}/updateLikeCount/{increment}") // might not need this TODO: test app without this.
+    public ModelAndView hostRatingSection(@PathVariable Long id, @PathVariable Short increment){
+        return new ModelAndView("submissions-page/submission-details");
+    }
+    @PostMapping("/home/submissions/{id}/updateLikeCount/{increment}")
+    public void updateLikeCountFromButton(@PathVariable Long id, @PathVariable Short increment) {
+
+        if (increment == 1) {
+            imageService.updateLikeCount(id, 1);
+        } else if (increment == -1){
+            imageService.updateLikeCount(id, -1);
+        } else {
+            System.out.println("LikeCount for submission " + id + " not updated");
+        }
+    }
+
+
     @GetMapping(value = "/home/submissions/{id}/getComments", produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
     public String getComments(@PathVariable Long id) {
