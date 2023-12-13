@@ -121,7 +121,7 @@ public class SubmissionsController {
     @ResponseBody
     public String getLikes(@PathVariable Long id) {
 
-        Integer likeCount = 0; // imageService.countLikes(id);
+        int likeCount = imageService.getLikeCount(id);
 
         htmlBuilder = new StringBuilder();
         // This will replace the innerHTML of the div containing the like count. Its id is "likeCount"
