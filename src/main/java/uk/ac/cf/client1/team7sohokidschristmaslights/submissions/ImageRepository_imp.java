@@ -102,8 +102,8 @@ public class ImageRepository_imp implements ImageRepository{
             FROM\s
                 Lights l
             INNER JOIN\s
-                Drawings d ON l.drawing_id = d.id\s
-            WHERE id = ?""";
+                Drawings d ON l.drawing_id = d.id\s    
+            WHERE d.id = ?"""; // Addressed potential ambiguity in the case of repeated entries in both tables from unit testing.
 
         } else {
             sql = "SELECT * FROM Drawings WHERE id = ?";
@@ -112,13 +112,13 @@ public class ImageRepository_imp implements ImageRepository{
         try{
             return jdbc.queryForObject(sql, imageItemMapper, id);
 
-        } catch (IncorrectResultSizeDataAccessException ignored) {
+        } catch (IncorrectResultSizeDataAccessException e) {
             System.out.printf("%n ---------------- ERROR CAUGHT ----------------" +
                     "Either getImage() implementation in imageRepository_imp attempted to query for more than one object, or found no objects in Drawings table" +
                               "%n ----------------------------------------------"
                     );
+            return null;
         }
-        return null;
     }
 
     public List<RatingClass> getRatingList(Long submission_id){

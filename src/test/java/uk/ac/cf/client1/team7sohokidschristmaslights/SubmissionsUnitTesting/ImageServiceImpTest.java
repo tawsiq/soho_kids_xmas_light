@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import uk.ac.cf.client1.team7sohokidschristmaslights.submissions.*;
 import uk.ac.cf.client1.team7sohokidschristmaslights.moderation.TextModerationService;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,31 +14,80 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Objects;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TO GET THESE TESTS TO WORK: Make sure the database is populated & the tables are not dropped before running these tests. populateDatabase() doesn't work for some reason.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-@SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 // This is really cool.
 // Spring uses the original database within the scope of transactions that can be rolled back. Annotate methods with @Transactional.
 // So I can delete data during the test but won't need to worry about the production database losing anything. This effectively isolates the testing environment from the production environment.
+@SpringBootTest
+@Transactional
+@Rollback
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ImageServiceImpTest {
 
     @Autowired
     private final JdbcTemplate jdbc = new JdbcTemplate();
+    @Autowired
+    private TextModerationService textModerationService;
+    @Autowired
+    private ImageRepository imageRepository;
+
     private ImageService_imp imageService;
 
     @BeforeEach
     public void setUp() {
-        TextModerationService atextModerationService = new TextModerationService();
-        ImageRepository anImageRepository = new ImageRepository_imp(jdbc);
-        imageService = new ImageService_imp(anImageRepository, atextModerationService);
+        imageService = new ImageService_imp(imageRepository, textModerationService);
+    }
+
+
+    //////// GET-IMAGE TESTS ////////
+    @Test
+    void testGetExistingImage() {
+        Long id = 1L; // Assuming this ID exists in the database (at least 1 will be stored according to previous testing above).
+        ImageClass drawing = imageService.getImage(id, false);
+        ImageClass light = imageService.getImage(id, true);
+
+        System.out.println();
+        System.out.println("Testing For Null image objects...");
+        System.out.println();
+        assertNotNull(drawing);
+        assertNotNull(light);
+        System.out.println("Passed.");
+
+        System.out.println("Testing For Null Fields in Drawing...");
+        assertThat(drawing)
+                .extracting(
+                        "id",
+                        "fileName",
+                        "filePath",
+                        "mimeType",
+                        "submissionYear",
+                        "yearGroup",
+                        "participantName"
+                )
+                .doesNotContainNull();
+        System.out.println("Passed.");
+
+        System.out.println("Testing For Null Fields in light...");
+        assertThat(light)
+                .extracting(
+                        "id",
+                        "fileName",
+                        "filePath",
+                        "mimeType",
+                        "submissionYear",
+                        "yearGroup",
+                        "participantName"
+                )
+                .doesNotContainNull();
+        System.out.println("Passed.");
     }
 
     @Test
-    @Transactional
     void getImageItemListGeneralTests() {
         // Access the database and store the return statement in actualResult.
         List<List<ImageClass>> actualResult = imageService.getImageItemList();
@@ -143,40 +193,6 @@ class ImageServiceImpTest {
         assertTrue(actualResult.get(1).isEmpty()); // Check lights list
     }
 
-    //////// GET-IMAGE TESTS ////////
-    @Test
-    @Transactional
-    void testGetExistingImage() {
-        Long id = 1L; // Assuming this ID exists in the database (at least 1 will be stored according to previous testing above).
-        ImageClass drawing = imageService.getImage(id, false);
-        ImageClass light = imageService.getImage(id, true);
-
-        System.out.println("Testing For Null image objects...");
-        assertNotNull(drawing);
-        assertNotNull(light);
-        System.out.println("Passed.");
-
-        System.out.println("Testing For Null Fields in Drawing...");
-        assertNotNull(drawing.getId());
-        assertNotNull(drawing.getFileName());
-        assertNotNull(drawing.getFilePath());
-        assertNotNull(drawing.getMimeType());
-        assertNotNull(drawing.getSubmissionYear());
-        assertNotNull(drawing.getYearGroup());
-        assertNotNull(drawing.getParticipantName());
-        System.out.println("Passed.");
-
-        System.out.println("Testing For Null Fields in light...");
-        assertNotNull(light.getId());
-        assertNotNull(light.getFileName());
-        assertNotNull(light.getFilePath());
-        assertNotNull(light.getMimeType());
-        assertNotNull(light.getSubmissionYear());
-        assertNotNull(light.getYearGroup());
-        assertNotNull(light.getParticipantName());
-        System.out.println("Passed.");
-    }
-
     @Test
     @Transactional
     void testGetNonExistingLight() {
@@ -186,7 +202,7 @@ class ImageServiceImpTest {
         ImageClass nonExistingLight = imageService.getImage(id, true);
         assertNull(nonExistingLight);
         // If this passes, a type mismatch test is also passed because we know the function handles the retrieval of non-existent objects well.
-        // Plus, nothing in the database table "lights" will exist without first having a corresponding id to the Drawings table, because they're created with foreign keys. 
+        // Plus, nothing in the database table "lights" will exist without first having a corresponding id to the Drawings table, because they're created with foreign keys.
     }
 
 }
