@@ -10,7 +10,9 @@
 </head>
 <body>
 
-<!-- NavBar -->
+
+
+                                                 <!-- NavBar -->
 
 <nav>
 
@@ -23,21 +25,23 @@
 
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
+
             <li><a href="#drawings">Drawings</a></li>
             <li><a href="#marketplace">Marketplace</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="http://localhost:63342/team-7-soho-kids-christmas-lights/team-7-soho-kids-christmas-lights.main/templates/ContactUs/ContactUs.html?_ijt=ktqnjnj4e0j0o1v938h0e09osi">Contact Us</a></li>
     </ul>
 </nav>
 
 
-<!-- Title -->
+
+                                                 <!-- Title -->
 
 <div class="title-container">
-    <h1 class="main-title">Soho Kids XMAS Lights Project</h1>
+    <h1 class="main-title">SOHO Kids XMAS Lights Project</h1>
 </div>
 
 <header>
-    <h3>Welcome to Soho Kids XMAS Lights</h3>
+    <h3>Welcome to SOHO Kids XMAS Lights</h3>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
@@ -48,7 +52,9 @@
     </div>
 </header>
 
-<!-- Slideshow -->
+
+
+                                                 <!-- Slideshow -->
 
 <div
         class="slideshow-container">
@@ -66,7 +72,6 @@
     <script src="script.js"> </script>
 
 
-<!-- Content -->
 
 <br>
 <br>
@@ -92,9 +97,15 @@
 <br>
 <br>
 
+
+
+
+
+
+                                                 <!-- School Sign Up Section -->
 
 <header>
-    <h3>Have a look around!</h3>
+    <h3>Sign up your school below!</h3>
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
@@ -105,27 +116,31 @@
     </div>
 </header>
 
+<br>
 
-    <section id="home">
-        <!-- Home content here -->
-    </section>
+<!-- Sign Up Form -->
 
-    <section id="about">
-        <!-- About Us content here -->
-    </section>
+    <form id="schoolForm">
 
-    <section id="drawings">
-        <!-- Drawings -->
-    </section>
+        <label for="schoolName">School Name:</label>
+        <input type="text" id="schoolName" name="schoolName" required>
 
-    <section id="marketplace">
-        <!-- Marketplace -->
-    </section>
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required>
 
-    <section id="contact">
-        <!-- Contact Us content here -->
-    </section>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" required>
 
+        <button type="button" onclick="submitForm()">Submit</button>
+
+    </form>
+
+    <script src="form.js"></script>
+
+
+
+
+                                                 <!-- Map Section -->
 
 <header>
     <h3>Our Locations</h3>
@@ -140,18 +155,22 @@
 </header>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="image-container">
+    <button id="changeImageButton" onclick="changeImage()">Change Year</button>
+    <img id="displayedImage" src="default-image.jpg" alt="Displayed Image">
+</div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 </body>

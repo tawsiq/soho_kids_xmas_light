@@ -1,3 +1,5 @@
+                                                 // Slideshow Functionality
+
 document.addEventListener('DOMContentLoaded', function () {
 
     <!-- List of Image URLs -->
@@ -95,3 +97,18 @@ async function showSlides() {
 
     // Initialize the slideshow
 showSlides();
+
+// Array of objects with year and image URL
+
+    const imagesByYear = [
+        { year: '2021', url: 'image2021.jpg'},
+        { year: '2022', url: 'image2022.jpg'},
+        { year: '2023', url: 'image2023.jpg'},
+    ];
+
+    let currentImageIndex = 0;
+    function changeImage() {
+        const displayedImage = document.getElementById('displayedImage');
+        currentImageIndex = (currentImageIndex + 1) % imagesByYear.length;
+        displayedImage.src = imagesByYear[currentImageIndex].url;
+    }
