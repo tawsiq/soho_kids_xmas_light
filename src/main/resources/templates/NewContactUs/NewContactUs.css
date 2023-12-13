@@ -51,7 +51,7 @@ nav ul li a:hover {
     width: 70%;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 30px;
     color: #EAEBED;
 }
 
@@ -74,7 +74,7 @@ nav ul li a:hover {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 30px;
 }
 
 .form-group textarea {
@@ -86,27 +86,28 @@ nav ul li a:hover {
     background-color: #c42eff;
     color: #EAEBED;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
 }
 
 .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 25%;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
-.contact-details h2, .contact-details p {
+.contact-details h3, .contact-details p {
     color: #EAEBED;
-}
-
-.detail {
+    text-align: center;
     margin-bottom: 15px;
 }
 
-.detail p {
-    margin-top: 5px;
+.detail {
+    text-align: center;
 }
 
 .detail-label {
@@ -121,10 +122,10 @@ nav ul li a:hover {
 
 .form-group input,
 .form-group textarea {
-    width: 50%; /
+    width: 30%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 30px;
     box-sizing: border-box;
 }
 

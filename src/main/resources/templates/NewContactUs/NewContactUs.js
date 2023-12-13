@@ -47,4 +47,3 @@ document.addEventListener("DOMContentLoaded", function() {
         charCount.textContent = `${messageLength} / 2500 characters`;
     });
 });
-
