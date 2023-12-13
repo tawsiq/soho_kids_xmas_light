@@ -45,7 +45,7 @@
     
             <label class="like-button clickableDiv" for="liked" tabindex="0" ><span class="like-image-container"></span></label>
 
-            <div th:inline="text" id="likeCount"> [[${likeCount}]] </div>
+            <div id="likeCount"  th:data-likesEndpoint="'/home/submissions/' + ${drawing.getId()} + '/getLikes'"> </div>
 
             <div class="copyLink-button"><div tabindex="0" class="clickableDiv" id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div></div>
 
