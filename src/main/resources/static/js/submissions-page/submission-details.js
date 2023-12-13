@@ -3,15 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const likeCount = document.getElementById('likeCount');
     const linkToCopy = document.getElementById('linkToCopy');
 
-    checkbox.addEventListener('change', function(event) {
-        // Your code here to handle the change event
-        const currentValue = parseInt(likeCount.textContent);
-        if (event.target.checked) {
-            likeCount.textContent = (currentValue + 1).toString();
-        } else {
-            likeCount.textContent = (currentValue - 1).toString();
-        }
-    });
+    checkbox.addEventListener('change', fetchLikes)
+        // Used to simulate likes going up / down 1 when clicked, but this would only register and be stored on the database once submitted manually.
+        // I need a new system of like storage, one that updates the database with an empty comment with either 1, 0, or -1. -1
+        //  will be stored if the button goes from checked to unchecked, decreasing the total count. 1 is stored if the button goes from unchecked to checked,
+        //  and 0 is stored otherwise.
+
+        // const currentValue = parseInt(likeCount.textContent);
+        // if (event.target.checked) {
+        //     likeCount.textContent = (currentValue + 1).toString();
+        // } else {
+        //     likeCount.textContent = (currentValue - 1).toString();
+        // }
+
 
     linkToCopy.addEventListener('click', function() {
         // Get the value from the 'data-value' attribute
