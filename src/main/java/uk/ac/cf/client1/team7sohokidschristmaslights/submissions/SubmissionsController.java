@@ -19,6 +19,8 @@ public class SubmissionsController {
 
     private final ImageService imageService;
 
+    StringBuilder htmlBuilder;
+
     // TODO: Make image viewing asynchronous
     public SubmissionsController(ImageService imageService){
         this.imageService = imageService;
@@ -61,14 +63,14 @@ public class SubmissionsController {
             ImageClass light = imageService.getImage(id, true); // Required only for winning submissions.
             modelAndView.addObject("light", light);
         }
-        List<RatingClass> ratingList = imageService.getRatingList(id);
-        List<RatingClass> filteredList = ratingList.stream()
-                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
-                .toList();
+//        List<RatingClass> ratingList = imageService.getRatingList(id);
+//        List<RatingClass> filteredList = ratingList.stream()
+//                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
+//                .toList();
 
         modelAndView.addObject("drawing", drawing);
-        modelAndView.addObject("likeCount", imageService.countLikes(id));
-        modelAndView.addObject("ratingList", filteredList); // Also retrieve rating list from the database to play around with in the template.
+//        modelAndView.addObject("likeCount", imageService.countLikes(id));
+//        modelAndView.addObject("ratingList", filteredList); // Also retrieve rating list from the database to play around with in the template.
 
         return modelAndView;
     }
@@ -101,14 +103,14 @@ public class SubmissionsController {
     @ResponseBody
     public String getComments(@PathVariable Long id) {
         // Mimics the fetching system that occurs on page load or refresh. The aim is to stop that...
-        // ... and rely only on this. Something like "document.onload" should work.
+        // ... and rely only on this. Something like "document.onload" should work (see async JS file linked to submission-details template)
         List<RatingClass> ratingList = imageService.getRatingList(id);
         List<RatingClass> filteredList = ratingList.stream()
                 .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
                 .toList();
 
-        // Generate HTML for comments section dynamically
-        StringBuilder htmlBuilder = new StringBuilder();
+        // Generating HTML for comments section. This would have been done by Thymeleaf on page refresh or load.
+        htmlBuilder = new StringBuilder();
         for (RatingClass rating : filteredList) {
             htmlBuilder.append("<li class=\"user-comment\">");
             htmlBuilder.append("<p class=\"user-name\">").append(rating.getRaterName()).append("</p>");
@@ -119,4 +121,17 @@ public class SubmissionsController {
         return htmlBuilder.toString();
     }
 
+    @GetMapping(value = "/home/submissions/{id}/getLikes", produces = MediaType.TEXT_HTML_VALUE)
+    @ResponseBody
+    public String getLikes(@PathVariable Long id) {
+
+        Integer likeCount = imageService.countLikes(id);
+
+        htmlBuilder = new StringBuilder();
+        htmlBuilder.append("<div id=\"likeCount\">").append(likeCount).append("</div>");
+
+        return htmlBuilder.toString();
+    }
+
 }
+//

@@ -15,7 +15,7 @@ function sendRating(){
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             // Response is logged in the console
             console.log(xhttp.responseText);
-            fetchComments();
+            fetchCommentsAndLikes();
         } else {
             // If response failed in any way, log the error into the console.
             console.error(xhttp.statusText);
@@ -26,7 +26,7 @@ function sendRating(){
     xhttp.send(params);
     return false;
 }
-function fetchComments() {
+function fetchCommentsAndLikes() {
     // Asynchronous request to get updated comments
     const commentsContainer = document.querySelector('.comment-section');
     //Obtaining endpoint defined by Thymeleaf in the container:
@@ -41,3 +41,6 @@ function fetchComments() {
             console.error('Error fetching comments:', error);
         });
 }
+// So that comments don't need to be directly passed by the controller the first time the URL is accessed.
+// Filtered rating code & fetching like counter in GetMapping controller no longer needs to be repeated (see where it was commented out)
+document.addEventListener('DOMContentLoaded', fetchCommentsAndLikes);
