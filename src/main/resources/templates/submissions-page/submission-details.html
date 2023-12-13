@@ -51,7 +51,7 @@
             <div class="copyLink-button"><div tabindex="0" class="clickableDiv" id="linkToCopy" th:attr="data-value='/home/submissions/' + ${drawing.getId()}">Copy Link</div></div>
 
         </div>
-
+        <!-- Here's the standard form inputs that have a manual post request written in JS. See sendRating.-->
         <div class="inner-form-row-container" id="input">
             <label class="form-label" for="raterName"></label>
             <textarea class="auto-expanding-input name-input" id="raterName" name="raterName" placeholder="Name"></textarea>
@@ -63,7 +63,10 @@
         <button class="button" type="submit">Post Review</button>
 
     </form><br>
-    <!-- The comments are not passed to this page on refresh/ load. Instead, -->
+    <!--
+        I chose to pass this in normally through the server because there was an issue with document onload attributes not activating the required JS functions on load.
+        The synchronous and asynchronous systems work nicely together regardless. Synchronous provides a sort of foundation that Async can stand on and manipulate. 
+    -->
     <ul class="comment-section" th:data-commentsEndpoint="'/home/submissions/' + ${drawing.getId()} + '/getComments'">
         <li th:each="rating : ${ratingList}" class="user-comment">
             <p th:text="${rating.getRaterName()}" class="user-name"></p>
