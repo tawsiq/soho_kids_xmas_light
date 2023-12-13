@@ -134,10 +134,24 @@ public class ImageRepository_imp implements ImageRepository{
         String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";
         return jdbc.queryForObject(sql, Boolean.class, id);
     }
-    // --- INSERTERS --- //
+    // --- INSERTERS & UPDATERS --- //
     public void storeRating(RatingClass rating) {
         insert(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
 
+    public void updateLikeCount(Long id, Integer increment) {
+        String updateQuery = "UPDATE LikeCounts SET like_count = like_count + ? WHERE submission_id = ?";
+        // The increment will be hardcoded to either -1 or 1 during this function's call, depending on the state change of the like button. 
+        try {
+            int rowsAffected = jdbc.update(updateQuery, increment, id);
+            if (rowsAffected > 0) {
+                System.out.println("Updated like count for submission_id " + id + " by " + increment);
+            } else {
+                System.out.println("No rows were updated for submission_id " + id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
