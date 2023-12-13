@@ -52,6 +52,7 @@ nav ul li a:hover {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    color: #EAEBED;
 }
 
 .contact-form h1, .contact-form p {
@@ -131,4 +132,42 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
     /* ... (Previous media query styles remain unchanged) */
+}
+
+/* Additions for Send Message button hover effect */
+.form-group button:hover {
+    background-color: #754287;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+/* Centering the top nav bar */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #14152A;
+    color: #EAEBED;
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #EAEBED;
+}
+
+nav ul li a:hover {
+    color: #c42eff;
+    text-decoration: underline;
 }
