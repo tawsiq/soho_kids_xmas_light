@@ -43,20 +43,22 @@ function fetchComments() {
 }
 function fetchLikes() {
     // Asynchronous request to get updated comments
-    const commentsContainer = document.getElementById("likeCount")
+    const likesContainer = document.getElementById("likeCount")
     //Obtaining endpoint defined by Thymeleaf in the container:
-    const commentsEndpoint = commentsContainer.getAttribute("data-commentsEndpoint")
-    fetch(commentsEndpoint)
+    const likesEndpoint = likesContainer.getAttribute("data-likesEndpoint")
+
+    fetch(likesEndpoint)
         .then(response => response.text())
         .then(data => {
             // Replaces the existing comments section with the updated comments HTML, defined in the controller with this endpoint.
-            commentsContainer.innerHTML = data;
+            likesContainer.innerHTML = data;
         })
         .catch(error => {
-            console.error('Error fetching comments:', error);
+            console.error('Error fetching likes:', error);
         });
 }
 
 // So that comments don't need to be directly passed by the controller the first time the URL is accessed.
 // Filtered rating code & fetching like counter in GetMapping controller no longer needs to be repeated (see where it was commented out)
-document.addEventListener('DOMContentLoaded', fetchCommentsAndLikes);
+document.addEventListener('DOMContentLoaded', fetchComments);
+document.addEventListener('DOMContentLoaded', fetchLikes);

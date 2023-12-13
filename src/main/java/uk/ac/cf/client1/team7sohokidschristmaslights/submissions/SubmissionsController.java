@@ -128,7 +128,8 @@ public class SubmissionsController {
         Integer likeCount = imageService.countLikes(id);
 
         htmlBuilder = new StringBuilder();
-        htmlBuilder.append("<div id=\"likeCount\">").append(likeCount).append("</div>");
+        // This will replace the innerHTML of the div containing the like count. Its id is "likeCount"
+        htmlBuilder.append(likeCount);
 
         return htmlBuilder.toString();
     }
