@@ -86,7 +86,7 @@ public class SubmissionsController {
             rating.setRaterName("Anonymous");
         }
 
-        if (ratingIsNotNull(rating)){
+        if (ratingIsNotEmpty(rating)){
             rating.setDateTime(imageService.logDateTime());
             rating.setSubmissionId(id);
             imageService.moderateRating(rating);
@@ -94,8 +94,8 @@ public class SubmissionsController {
         }
         return new ModelAndView("redirect:/home/submissions/" + id);
     }
-    private boolean ratingIsNotNull(RatingClass rating){
-        return !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
+    private boolean ratingIsNotEmpty(RatingClass rating){
+        return !Objects.equals(rating.getCommentText(), "");
     }
 
 
