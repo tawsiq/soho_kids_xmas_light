@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "name": "XMAS T-Shirt 001",
+    "price": 30,
+    "image": "../../images/marketplace-productlist/Products/IMG_6304-removebg-preview.png"
+  },
+
+  {
+    "id": 2,
+    "name": "XMAS T-Shirt 002",
+    "price": 30,
+    "image": "../../images/marketplace-productlist/Products/Antonio_mockup_black-removebg-preview.png"
+  },
+
+  {
+    "id": 3,
+    "name": "XMAS T-Shirt 003",
+    "price": 30,
+    "image": "../../images/marketplace-productlist/Products/Antonio_mockup_2-removebg-preview.png"
+  },
+
+  {
+    "id": 4,
+    "name": "Gingerbread Card",
+    "price": 30,
+    "image": "../../images/marketplace-productlist/Products/SKXL22 Gingerbread Greeting Card A5_05_HiRes.jpg"
+  },
+
+  {
+    "id": 5,
+    "name": "Wrapping Paper 2022",
+    "price": 30,
+    "image": "../../images/marketplace-productlist/Products/wrapping paper design 2022.jpg"
+  }
+]
