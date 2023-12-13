@@ -1,0 +1,119 @@
+/* ContactUs.css */
+
+/* Add styles from shared.css */
+/* ... (Paste all styles from shared.css here) */
+
+/* Additional styling for Contact Us page */
+
+body {
+    font-family: sans-serif;
+    background: #14152A;
+    color: #EAEBED;
+    font-size: 1rem;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #14152A;
+    color: #EAEBED;
+    padding: 10px 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #EAEBED;
+}
+
+nav ul li a:hover {
+    color: #c42eff;
+    text-decoration: underline;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.contact-form {
+    width: 70%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.contact-form h1, .contact-form p {
+    color: #EAEBED;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #c42eff;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #c42eff;
+    color: #EAEBED;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-details {
+    width: 25%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.contact-details h2, .contact-details p {
+    color: #EAEBED;
+}
+
+.detail {
+    margin-bottom: 15px;
+}
+
+.detail p {
+    margin-top: 5px;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #c42eff;
+}
+
+/* Styling for the animated footer */
+.animated-footer {
+    /* Add your footer styling here */
+}

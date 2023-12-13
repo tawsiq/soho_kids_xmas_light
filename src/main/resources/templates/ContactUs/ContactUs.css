@@ -12,7 +12,7 @@ header {
     justify-content: space-between;
     background-color: #EC4D1D;
     color: white;
-    padding: 0px;
+    padding: 0;
 }
 
 #logo1 {
@@ -22,9 +22,7 @@ header {
 
 nav {
     display: flex;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding: 0px;
+    padding: 0;
 }
 
 nav ul {
@@ -56,11 +54,11 @@ main {
 }
 
 #contact-form {
-    width: 75%;
+    width: calc(75% - 20px);
     max-width: 800px;
-    margin: 10px;
     border: 1px solid #ccc;
     padding: 25px;
+    margin-right: 20px;
 }
 
 #contact-form h1 {
@@ -89,6 +87,7 @@ main {
     padding: 10px;
     border: 1px solid #ccc;
     outline: none;
+    width: calc(100% - 20px); /* Make input fields wider */
 }
 
 .form-group input:focus,
@@ -130,8 +129,8 @@ main {
 
 .detail {
     display: flex;
-    flex-direction: column; /* Change this to column */
-    align-items: center; /* Change this to center */
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
     justify-content: center;
 }
@@ -139,7 +138,7 @@ main {
 .icon {
     width: 200px;
     height: auto;
-    margin-bottom: 10px; /* Add this line to create space between the image and the text */
+    margin-bottom: 10px;
 }
 
 
@@ -413,99 +412,6 @@ section {
     /* Define any specific hover styles for social icons here */
 }
 
-
-
-
-/* ALL CSS STYLING MADE & ADAPTED TO HAVE PARITY WITH REST OF THE SITE*/
-
-/*START OF CSS STYLING FOR MAIN ANIMATION PAGE, AND TEXT FOR NAV LINKS
-body {
-    margin: 0;
-    background: linear-gradient(darkslateblue, black);
-    font-family: "Euclid Circular A", "Poppins";
-    color: white;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-.background {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.socials {
-    gap: 20px;
-}
-
-.socials a {
-    font-size: 24px;
-}
-
-.links {
-    gap: 10px;
-}
-
-.legal {
-    font-size: 12px;
-    margin: 0;
-}
-
-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scaleY(3) scaleX(2.25);
-    transform-origin: bottom;
-    box-sizing: border-box;
-    display: block;
-    pointer-events: none;
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 12px;
-    display: flex;
-    width: 100%;
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 30px;
-    padding-bottom: 80px;
-    padding-left: 60px;
-    width: 100%;
-}
-
-@media (width > 420px) {
-    section {
-        align-items: center;
-        padding-left: 0;
-        gap: 20px;
-    }
-
-    .links {
-        gap: 20px;
-    }
-}
 
 /*START OF CSS FOR ADDING HOVER ANIMATION FOR TEXT*/
 
