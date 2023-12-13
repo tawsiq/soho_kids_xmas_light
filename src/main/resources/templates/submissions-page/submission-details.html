@@ -8,7 +8,9 @@
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/submission-details.css}">
+
     <script th:src="@{/js/auto-expand-input.js}" async></script>
+    <script th:src="@{/js/submissions-page/async-ratings.js}" async></script>
     <script th:src="@{/js/submissions-page/submission-details.js}"></script>
 
 </head>
@@ -61,7 +63,7 @@
 
     </form><br>
 
-    <ul class="comment-section">
+    <ul class="comment-section" th:data-commentsEndpoint="'/home/submissions/' + ${drawing.getId()} + '/getComments'">
         <li th:each="rating : ${ratingList}" class="user-comment">
             <p th:text="${rating.getRaterName()}" class="user-name"></p>
             <p th:text="${rating.getCommentText()}" class="user-comment-text"></p>

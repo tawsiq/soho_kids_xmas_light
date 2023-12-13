@@ -15,7 +15,7 @@ function sendRating(){
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             // Response is logged in the console
             console.log(xhttp.responseText);
-            // fetchComments(); complete this later
+            fetchComments();
         } else {
             // If response failed in any way, log the error into the console.
             console.error(xhttp.statusText);
@@ -25,4 +25,19 @@ function sendRating(){
     // + return false to intercept standard processing & prevent page reload.
     xhttp.send(params);
     return false;
+}
+function fetchComments() {
+    // Asynchronous request to get updated comments
+    const commentsContainer = document.querySelector('.comment-section');
+    //Obtaining endpoint defined by Thymeleaf in the container:
+    const commentsEndpoint = commentsContainer.getAttribute("data-commentsEndpoint")
+    fetch(commentsEndpoint)
+        .then(response => response.text())
+        .then(data => {
+            // Replaces the existing comments section with the updated comments HTML, defined in the controller with this endpoint.
+            commentsContainer.innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error fetching comments:', error);
+        });
 }
