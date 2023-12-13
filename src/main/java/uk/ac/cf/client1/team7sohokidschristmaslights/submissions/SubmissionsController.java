@@ -96,5 +96,5 @@ public class SubmissionsController {
     private boolean ratingIsNotNull(RatingClass rating){
         return rating.getLiked()!=null || !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
     }
-
+    
 }
