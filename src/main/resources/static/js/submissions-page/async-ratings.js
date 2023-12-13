@@ -82,7 +82,5 @@ function sendLikeUpdate(increment) {
         });
 }
 
-// So that comments don't need to be directly passed by the controller the first time the URL is accessed.
-// Filtered rating code & fetching like counter in GetMapping controller no longer needs to be repeated (see where it was commented out)
 
 
