@@ -68,7 +68,7 @@ public class SubmissionsController {
 //                .filter(obj -> !Objects.equals(obj.getCommentText(), ""))
 //                .toList();
         modelAndView.addObject("drawing", drawing);
-        modelAndView.addObject("likeCount", imageService.countLikes(id));
+//        modelAndView.addObject("likeCount", imageService.countLikes(id));
 //        modelAndView.addObject("ratingList", filteredList); // Also retrieve rating list from the database to play around with in the template.
         return modelAndView;
     }
@@ -94,7 +94,7 @@ public class SubmissionsController {
         return new ModelAndView("redirect:/home/submissions/" + id);
     }
     private boolean ratingIsNotNull(RatingClass rating){
-        return rating.getLiked()!=null || !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
+        return !Objects.equals(rating.getCommentText(), "") || !Objects.equals(rating.getRaterName(), "");
     }
 
     @GetMapping(value = "/home/submissions/{id}/getComments", produces = MediaType.TEXT_HTML_VALUE)
@@ -123,7 +123,7 @@ public class SubmissionsController {
     @ResponseBody
     public String getLikes(@PathVariable Long id) {
 
-        Integer likeCount = imageService.countLikes(id);
+        Integer likeCount = 0; // imageService.countLikes(id);
 
         htmlBuilder = new StringBuilder();
         // This will replace the innerHTML of the div containing the like count. Its id is "likeCount"

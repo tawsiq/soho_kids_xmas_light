@@ -37,7 +37,6 @@ public class ImageRepository_imp implements ImageRepository{
                 rs.getLong("submission_id"),
                 rs.getString("name"),
                 rs.getString("comment"),
-                rs.getBoolean("liked"),
                 rs.getString("date_time")
         );
     }
@@ -45,14 +44,13 @@ public class ImageRepository_imp implements ImageRepository{
     private void insert(RatingClass rating){
         String insertRatingSQL =
                 "INSERT INTO Ratings " +
-                "(`submission_id`, `name`, `comment`, `liked`, `date_time`)" +
-                "VALUES (?,?,?,?,?)";
+                "(`submission_id`, `name`, `comment`, `date_time`)" +
+                "VALUES (?,?,?,?)";
 
         jdbc.update(insertRatingSQL,
                 rating.getSubmissionId(), // This is set when the form is handed in by thymeleaf in template.
                 rating.getRaterName(),
                 rating.getCommentText(),
-                rating.getLiked(),
                 rating.getDateTime()
         );
     }
@@ -102,7 +100,7 @@ public class ImageRepository_imp implements ImageRepository{
             FROM\s
                 Lights l
             INNER JOIN\s
-                Drawings d ON l.drawing_id = d.id\s    
+                Drawings d ON l.drawing_id = d.id\s
             WHERE d.id = ?"""; // Addressed potential ambiguity in the case of repeated entries in both tables from unit testing.
 
         } else {
@@ -126,10 +124,10 @@ public class ImageRepository_imp implements ImageRepository{
         String sql = "SELECT * FROM Ratings WHERE submission_id = ?";
         return jdbc.query(sql, ratingItemMapper, submission_id);
     }
-    public Integer countLikes(Long id){
-        String sql = "SELECT COUNT(*) FROM Ratings WHERE liked=1 AND submission_id=?";
-        return jdbc.queryForObject(sql, Integer.class, id);
-    }
+//    public Integer countLikes(Long id){
+//        String sql = "SELECT COUNT(*) FROM Ratings WHERE liked=1 AND submission_id=?";
+//        return jdbc.queryForObject(sql, Integer.class, id);
+//    }
 
     public Boolean lightCounterpartPresent(Long id){
         String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";

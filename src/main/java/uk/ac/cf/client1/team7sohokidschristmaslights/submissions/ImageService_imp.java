@@ -38,9 +38,9 @@ public class ImageService_imp implements ImageService{
         return imageRepository.getRatingList(submission_id);
     }
 
-    public Integer countLikes(Long id){
-        return imageRepository.countLikes(id);
-    }
+//    public Integer countLikes(Long id){
+//        return imageRepository.countLikes(id);
+//    }
     // Retrieves image data based on the absolute file path stored in ImageClass
     public byte[] getImageData(ImageClass image) throws IOException {
 
