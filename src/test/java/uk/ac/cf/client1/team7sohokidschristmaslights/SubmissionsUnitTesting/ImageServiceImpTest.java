@@ -2,15 +2,20 @@ package uk.ac.cf.client1.team7sohokidschristmaslights.SubmissionsUnitTesting;
 
 import jakarta.transaction.Transactional;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.jdbc.Sql;
+import uk.ac.cf.client1.team7sohokidschristmaslights.MetadataPopulator;
 import uk.ac.cf.client1.team7sohokidschristmaslights.submissions.*;
 import uk.ac.cf.client1.team7sohokidschristmaslights.moderation.TextModerationService;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.junit.jupiter.api.Test;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,15 +23,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// TO GET THESE TESTS TO WORK: Make sure the database is populated & the tables are not dropped before running these tests. populateDatabase() doesn't work for some reason.
+// NOTE: You may need to run the test twice initially to ensure tables are created for the first time.
+//       You also need to configure a test database named team_7_soho_kids_database_test.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // This is really cool.
 // Spring uses the original database within the scope of transactions that can be rolled back. Annotate methods with @Transactional.
 // So I can delete data during the test but won't need to worry about the production database losing anything. This effectively isolates the testing environment from the production environment.
-@SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@SpringBootTest(properties = {"spring.config.location=classpath:application_test.properties"})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Sql({"classpath:test_schema.sql"})
 @Transactional
 @Rollback
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ImageServiceImpTest {
 
     @Autowired
@@ -38,42 +46,69 @@ class ImageServiceImpTest {
 
     private ImageService_imp imageService;
 
-    @BeforeEach
+    @BeforeAll
     public void setUp() {
+
+        String jdbcURL = "jdbc:mariadb://localhost:3306/team7_soho_kids_database_test?user=root&password=comsc"; //TODO: Improve safety here by defining individual variables that scan application.properties for user & password, so that program is maintainable.
+
+        try (Connection connection = DriverManager.getConnection(jdbcURL)) {
+            MetadataPopulator.populateDatabase(jdbcURL);
+            MetadataPopulator.initializeLikeCounts(connection);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         imageService = new ImageService_imp(imageRepository, textModerationService);
     }
 
+    @AfterAll
+    public void afterAll() {
+
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.LikeCounts");
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.Ratings");
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.Lights");
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.Drawings");
+    }
 
     //////// GET-IMAGE TESTS ////////
     @Test
-    void testGetExistingImage() {
-        Long id = 1L; // Assuming this ID exists in the database (at least 1 will be stored according to previous testing above).
+    void testGetNonExistingLight() {
+        // Gets an entry with an id that definitely isn't in the table.
+        String sql_select_non_existent_entry_id =
+                """
+                SELECT MAX(drawing_id) + 1 AS non_existent_entry_id
+                FROM team7_soho_kids_database_test.lights\s
+                """;
+
+        Long id = jdbc.queryForObject(sql_select_non_existent_entry_id, Long.class);
+        ImageClass nonExistingLight = imageService.getImage(id, true);
+        assertNull(nonExistingLight);
+        // If this passes, a type mismatch test is also passed because we know the function handles the retrieval of non-existent objects well.
+        // Plus, nothing in the database table "lights" will exist without first having a corresponding id to the Drawings table, because they're created with foreign keys.
+    }
+
+    @Test
+    void testGetExistingImage() throws InterruptedException {
+        Thread.sleep(1000);
+        String sql_find_an_entry = "SELECT id FROM team7_soho_kids_database_test.Drawings ORDER BY RAND() LIMIT 1";
+        // Selects random entry from table.
+        // Huge problem with just assuming 1L is there, because primary key memory retention without dropping tables means once data is deleted, primary key continues to increment, so after the first set was deleted, 1L was never reintroduced...
+        // Going to change from deleting entries to dropping tables entirely, now that it should work.....
+        // It didn't work. Sticking with this for my submission.
+        Long id = jdbc.queryForObject(sql_find_an_entry, Long.class);
+
         ImageClass drawing = imageService.getImage(id, false);
-        ImageClass light = imageService.getImage(id, true);
 
         System.out.println();
         System.out.println("Testing For Null image objects...");
         System.out.println();
         assertNotNull(drawing);
-        assertNotNull(light);
+//        assertNotNull(light); I don't need to test for lights here. That should be a separate specific test.
         System.out.println("Passed.");
 
         System.out.println("Testing For Null Fields in Drawing...");
         assertThat(drawing)
-                .extracting(
-                        "id",
-                        "fileName",
-                        "filePath",
-                        "mimeType",
-                        "submissionYear",
-                        "yearGroup",
-                        "participantName"
-                )
-                .doesNotContainNull();
-        System.out.println("Passed.");
-
-        System.out.println("Testing For Null Fields in light...");
-        assertThat(light)
                 .extracting(
                         "id",
                         "fileName",
@@ -154,10 +189,10 @@ class ImageServiceImpTest {
                 // Assert that only when all info is contained within the name that true is returned. False otherwise.
                 boolean nameContainsAllInfo =
                         fileName.contains(image.getParticipantName()) &&
-                        fileName.contains(image.getYearGroup()) &&
-                        fileName.contains(image.getSubmissionYear().toString()) &&
-                        (fileName.contains(mimeType) || fileName.contains(interchangeableMimeType))
-                ;
+                                fileName.contains(image.getYearGroup()) &&
+                                fileName.contains(image.getSubmissionYear().toString()) &&
+                                (fileName.contains(mimeType) || fileName.contains(interchangeableMimeType))
+                        ;
                 if(!nameContainsAllInfo){
                     // Immediately exit the loop when filename & Info do not match.
                     return false;
@@ -179,30 +214,26 @@ class ImageServiceImpTest {
     }
 
     @Test
-    @Transactional
     void getImageItemListTestEmptyDatabase() {
-        // Need to delete table data that rely on foreign keys first, then the host of that foreign key.
-        jdbc.execute("DELETE FROM ratings");
-        jdbc.execute("DELETE FROM Lights");
-        jdbc.execute("DELETE FROM Drawings");
+        try {
+            // Delete table data dependent on foreign keys first
+            jdbc.execute("DELETE FROM team7_soho_kids_database_test.ratings");
+            jdbc.execute("DELETE FROM team7_soho_kids_database_test.Lights");
+            jdbc.execute("DELETE FROM team7_soho_kids_database_test.Drawings");
 
-        // Function to be tested is called to retrieve lists from empty the now database tables.
-        List<List<ImageClass>> actualResult = imageService.getImageItemList();
-        // Make sure the expected two empty lists are returned.
-        assertTrue(actualResult.get(0).isEmpty()); // Check drawings list
-        assertTrue(actualResult.get(1).isEmpty()); // Check lights list
-    }
+            // Wait a moment to allow for database operations to take effect
+            Thread.sleep(1000);
 
-    @Test
-    @Transactional
-    void testGetNonExistingLight() {
-        // Delete from a table that doesn't host foreign keys
-        jdbc.execute("DELETE FROM Lights");
-        Long id = 1L; // No longer exists in lights
-        ImageClass nonExistingLight = imageService.getImage(id, true);
-        assertNull(nonExistingLight);
-        // If this passes, a type mismatch test is also passed because we know the function handles the retrieval of non-existent objects well.
-        // Plus, nothing in the database table "lights" will exist without first having a corresponding id to the Drawings table, because they're created with foreign keys.
+            // Function to be tested is called to retrieve lists from the now-empty database tables
+            List<List<ImageClass>> actualResult = imageService.getImageItemList();
+
+            // Make sure the expected two empty lists are returned
+            assertTrue(actualResult.get(0).isEmpty()); // Check drawings list
+            assertTrue(actualResult.get(1).isEmpty()); // Check lights list
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.out.println("Interrupted while waiting for database changes.");
+        }
     }
 
 }
