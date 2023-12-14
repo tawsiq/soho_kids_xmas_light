@@ -9,9 +9,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.jdbc.Sql;
+import uk.ac.cf.client1.team7sohokidschristmaslights.MetadataPopulator;
 import uk.ac.cf.client1.team7sohokidschristmaslights.submissions.*;
 import uk.ac.cf.client1.team7sohokidschristmaslights.moderation.TextModerationService;
-import uk.ac.cf.client1.team7sohokidschristmaslights.MetadataPopulator;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.junit.jupiter.api.Test;
 
@@ -25,16 +25,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// PSA: In order to get these to work, ensure no table in the schema is dropped. Ideally I would use a custom schema, but I don't have enough time to get that working :)
+// TO GET THESE TESTS TO WORK: Make sure the database is populated!!
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // This is really cool.
 // Spring uses the original database within the scope of transactions that can be rolled back. Annotate methods with @Transactional.
 // So I can delete data during the test but won't need to worry about the production database losing anything. This effectively isolates the testing environment from the production environment.
-@SpringBootTest
+@SpringBootTest(properties = {"spring.config.location=classpath:application_test.properties"})
 @Transactional
 @Rollback
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Sql({"test_schema.sql"})
+@Sql({"classpath:test_schema.sql"})
 class ImageServiceImpTest {
 
     @Autowired
@@ -46,12 +46,14 @@ class ImageServiceImpTest {
 
     private ImageService_imp imageService;
 
+    @BeforeEach
+    public void setUp() {
+        imageService = new ImageService_imp(imageRepository, textModerationService);
+    }
+
     @BeforeAll
-    @Transactional
     public static void before() {
-        // This structure is already in the main application method.
-        // It doesn't get run during the testing environment, so I've placed it here to avoid needing to ensure that the databases are populated.
-        String jdbcURL = "jdbc:mariadb://localhost:3306/team7_soho_kids_database?user=root&password=comsc"; //TODO: Improve safety here by defining individual variables that scan application.properties for user & password, so that program is maintainable.
+        String jdbcURL = "jdbc:mariadb://localhost:3306/team7_soho_kids_database_test?user=root&password=comsc"; //TODO: Improve safety here by defining individual variables that scan application.properties for user & password, so that program is maintainable.
 
         try (Connection connection = DriverManager.getConnection(jdbcURL)) {
             MetadataPopulator.populateDatabase(jdbcURL);
@@ -61,12 +63,6 @@ class ImageServiceImpTest {
             e.printStackTrace();
         }
     }
-
-    @BeforeEach
-    public void setUp() {
-        imageService = new ImageService_imp(imageRepository, textModerationService);
-    }
-
 
     //////// GET-IMAGE TESTS ////////
     @Test
@@ -163,12 +159,12 @@ class ImageServiceImpTest {
         for (List<ImageClass> imageList: listOfImageLists) {
             // Iterate through each image in the list of the current iteration.
             for (ImageClass image: imageList) {
-                // Find the name of the file to compare it to the info + the string after the slash in mime_type field
+                // Find the name of the file to compare it to the info + the string after the slash in mime_type field (should have just used png or jpeg)
                 String fileName = image.getFileName();
                 String mimeType = Objects.requireNonNull(getStringAfterSlash(image.getMimeType()));
                 String interchangeableMimeType = "";
 
-                // This caused a nasty mismatch bug that was failing tests when they shouldn't have. Should have stored image mimetype to be jpg as the standard & changed all JPEGs to JPGs
+                // This caused a nasty mismatch bug that was failing tests when it shouldn't have. Again, should have stored image mimetype to be jpg as the standard & changed all JPEGs to JPGs
                 if(mimeType.equals("jpg")){
                     interchangeableMimeType = "jpeg";
 
@@ -178,10 +174,10 @@ class ImageServiceImpTest {
                 // Assert that only when all info is contained within the name that true is returned. False otherwise.
                 boolean nameContainsAllInfo =
                         fileName.contains(image.getParticipantName()) &&
-                        fileName.contains(image.getYearGroup()) &&
-                        fileName.contains(image.getSubmissionYear().toString()) &&
-                        (fileName.contains(mimeType) || fileName.contains(interchangeableMimeType))
-                ;
+                                fileName.contains(image.getYearGroup()) &&
+                                fileName.contains(image.getSubmissionYear().toString()) &&
+                                (fileName.contains(mimeType) || fileName.contains(interchangeableMimeType))
+                        ;
                 if(!nameContainsAllInfo){
                     // Immediately exit the loop when filename & Info do not match.
                     return false;
@@ -190,9 +186,7 @@ class ImageServiceImpTest {
         }
         return true;
     }
-
     private String getStringAfterSlash(String slashedString){
-        // This is similar to the .endsWith() implementation in MetadataPopulator, but I needed a more flexible approach for testing.
         // Need to account for variable slashed string. Not all may be image/jpeg or image/png.
         int indexOfSlash = slashedString.indexOf('/');
         // Makes sure there's some sort of string after the slash index.
