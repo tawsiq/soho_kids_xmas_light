@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Marketplace</title>
-    <link rel="stylesheet" href="../../static/css/marketplace-productlist/style.css">
+    <link rel="stylesheet" th:href="@{/css/marketplace-productlist/style.css}">
 </head>
 
 <body class="showCart">
@@ -14,10 +14,10 @@
 
         <!-- Navigation Section -->
         <nav>
-            <a href="about-us.html">About Us</a>
-            <a href="media.html">Media</a>
-            <a href="shop.html">Shop</a>
-            <a href="contact-us.html">Contact Us</a>
+            <a href="aboutus2.html">About Us</a>
+            <a href="submissions.html">Media</a>
+            <a href="marketplace.html">Shop</a>
+            <a href="ContactUs.html">Contact Us</a>
         </nav>
 
         <!-- Cart Icon Section -->
@@ -30,10 +30,55 @@
     </header>
 </div>
 
+
+
 <!-- Product List Section -->
-<div class="listProduct">
-    <!-- Content will be dynamically added using JavaScript -->
+<!--<div class="listProduct"> -->
+    <!-- Use Thymeleaf to iterate over products -->
+<!--  <div th:each="product : ${products}" class="item">
+      <img th:src="${product.image}" alt="">
+      <h2 th:text="${product.name}"></h2>
+      <div class="price" th:text="'$' + ${product.price}"></div>
+      <button class="addCart">Add To Cart</button>
+  </div>
 </div>
+-->
+
+
+    <div class="listProduct">
+        <div class="item" data-id="1">
+            <img src="/images/marketplace-productlist/Products/IMG_6304-removebg-preview.png" alt="XMAS T-Shirt 001">
+            <h2>XMAS T-Shirt 001</h2>
+            <div class="price">£30</div>
+            <button class="addCart">Add To Cart</button>
+        </div>
+        <div class="item" data-id="2">
+            <img src="/images/marketplace-productlist/Products/Antonio_mockup_black-removebg-preview.png" alt="XMAS T-Shirt 002">
+            <h2>XMAS T-Shirt 002</h2>
+            <div class="price">£30</div>
+            <button class="addCart">Add To Cart</button>
+        </div>
+        <div class="item" data-id="3">
+            <img src="/images/marketplace-productlist/Products/Antonio_mockup_2-removebg-preview.png" alt="XMAS T-Shirt 003">
+            <h2>XMAS T-Shirt 003</h2>
+            <div class="price">£30</div>
+            <button class="addCart">Add To Cart</button>
+        </div>
+        <div class="item" data-id="4">
+            <img src="/images/marketplace-productlist/Products/SKXL22 Gingerbread Greeting Card A5_05_HiRes.jpg" alt="Gingerbread Card">
+            <h2>Gingerbread Card</h2>
+            <div class="price">£30</div>
+            <button class="addCart">Add To Cart</button>
+        </div>
+        <div class="item" data-id="5">
+            <img src="/images/marketplace-productlist/Products/wrapping paper design 2022.jpg" alt="Wrapping Paper 2022">
+            <h2>Wrapping Paper 2022</h2>
+            <div class="price">£30</div>
+            <button class="addCart">Add To Cart</button>
+        </div>
+    </div>
+
+
 
 <!-- Cart Tab Section -->
 <div class="cartTab">
@@ -48,8 +93,7 @@
 </body>
 
 <!-- JavaScript Section -->
-<script src="../../static/js/marketplace-productlist/app.js"></script>
-
+<script th:src="@{/js/marketplace-productlist/app.js}"></script>
 <!-- Footer Section -->
 <footer>
     Soho Kids Christmas Lights 2023 @Cardiff University
