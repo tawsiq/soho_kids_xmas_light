@@ -2,6 +2,7 @@ package uk.ac.cf.client1.team7sohokidschristmaslights.SubmissionsUnitTesting;
 
 import jakarta.transaction.Transactional;
 import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// TO GET THESE TESTS TO WORK: Make sure the database is populated!!
+// NOTE: You may need to run the test twice initially to ensure tables are created for the first time.
+//       You also need to configure a test database named team_7_soho_kids_database_test.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // This is really cool.
 // Spring uses the original database within the scope of transactions that can be rolled back. Annotate methods with @Transactional.
 // So I can delete data during the test but won't need to worry about the production database losing anything. This effectively isolates the testing environment from the production environment.
 @SpringBootTest(properties = {"spring.config.location=classpath:application_test.properties"})
 @Transactional
-@Rollback
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Sql({"classpath:test_schema.sql"})
 class ImageServiceImpTest {
@@ -223,6 +224,16 @@ class ImageServiceImpTest {
         assertNull(nonExistingLight);
         // If this passes, a type mismatch test is also passed because we know the function handles the retrieval of non-existent objects well.
         // Plus, nothing in the database table "lights" will exist without first having a corresponding id to the Drawings table, because they're created with foreign keys.
+    }
+    @Test
+    void clearTables() {
+        // This is a pseudo AfterAll method that executes once all tests are done.
+        // I did this because it was an indescribable pain in my everything to get jdbc autowiring to work with static fields and methods.
+        // So, I'm doing it this way. And it works for resetting the test database. If it ain't broke don't fix it.
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.LikeCounts");
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.ratings");
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.Lights");
+        jdbc.execute("DELETE FROM team7_soho_kids_database_test.Drawings");
     }
 
 }

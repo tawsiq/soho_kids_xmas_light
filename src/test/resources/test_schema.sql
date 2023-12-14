@@ -1,10 +1,3 @@
-# DROP TABLE IF EXISTS Ratings;
-#
-# DROP TABLE IF EXISTS LikeCounts;
-#
-# DROP TABLE IF EXISTS Lights;
-# DROP TABLE IF EXISTS Drawings;
-
 
 CREATE TABLE IF NOT EXISTS Drawings (
 
