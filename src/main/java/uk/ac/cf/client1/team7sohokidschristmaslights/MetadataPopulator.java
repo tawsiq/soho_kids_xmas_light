@@ -64,6 +64,7 @@ public class MetadataPopulator {
                 }
             }
         } catch (Exception e) {
+            System.out.println("---- POPULATOR FAILED: SOME DATABASE TABLES FOUND. PRINTING ERROR TO STACK TRACE \n-----");
             e.printStackTrace();
         }
     }
@@ -141,6 +142,7 @@ public class MetadataPopulator {
 
 
     private static String getMimeType(String fileName) {
+        // Could have used the .endsWith method here, but I thought for testing purposes I should use a more flexible approach and grab whatever it is that's after the slash.
         if (fileName.endsWith(".jpeg") || fileName.endsWith(".jpg")) {
             return "image/jpeg";
         } else if (fileName.endsWith(".png")) {
