@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS Lights (
   drawing_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   filename VARCHAR(128) NOT NULL,
   filepath VARCHAR(255) NOT NULL,
-  mime_type ENUM('image/jpeg', 'image/png', 'image/jpg') NOT NULL,
+  mime_type ENUM('image/jpeg', 'image/png', 'image/jpg') NOT NULL
 
-  FOREIGN KEY (drawing_id) REFERENCES Drawings(id)
+ -- FOREIGN KEY (drawing_id) REFERENCES Drawings(id)
 
 ) ENGINE=InnoDB;
 
