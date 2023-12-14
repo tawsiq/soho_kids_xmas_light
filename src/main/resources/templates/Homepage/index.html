@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:height="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../../static/css/shared.css">
-    <link rel="stylesheet" href="../../static/homepage/styles.css">
-    <script src="../../static/homepage/script.js"></script>
+    <link rel = "stylesheet" th:href="@{/css/submissions-page/navbar.css}">
+    <link rel = "stylesheet" th:href="@{/css/shared.css}">
+    <link rel = "stylesheet" th:href="@{/css/homepage/styles.css}">
+    <script th:src="@{/homepage/script.js}"></script>
     <title>Soho Kid's Project</title>
 </head>
 <body>
@@ -16,22 +17,21 @@
 
 <nav>
 
-    <ul>
-        <li>
-            <span class="logo-container">
-        <img src="../../static/homepage%20content/AFK_Logo_small.png" height="73" width="262" alt="Logo" class="logo"/>
-            </span>
-        </li>
+<ul>
+<li>
+<span class="logo-container">
+<img th:src="@{/homepage content/AFK_Logo_small.png}" height="73" width="262" alt="Logo" class="logo"/>
+</span>
+</li>
 
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+<li><a href="/home">Home</a></li>
+<li><a href="/home/aboutus">About Us</a></li>
 
-            <li><a href="#drawings">Drawings</a></li>
-            <li><a href="#marketplace">Marketplace</a></li>
-            <li><a href="http://localhost:63342/team-7-soho-kids-christmas-lights/team-7-soho-kids-christmas-lights.main/templates/ContactUs/ContactUs.html?_ijt=ktqnjnj4e0j0o1v938h0e09osi">Contact Us</a></li>
-    </ul>
-
-</nav>
+<li><a href="/home/submissions">Drawings</a></li>
+<li><a href="/home/marketplace">Marketplace</a></li>
+<li><a href="/home/contactus">Contact Us</a></li>
+</ul>
+</nav><br>
 
 
 
@@ -46,11 +46,6 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-    <div class = "header-underline" th:fragment="underline-circle">
-        <div class = "left-line"></div>
-        <div class = "circle"></div>
-        <div class = right-line></div>
-    </div>
 </header>
 
 
@@ -70,7 +65,7 @@
 <!-- Slideshow Indicator -->
     <div class="dot-container"> </div>
 
-    <script src="script.js"> </script>
+    <script th:src="@{/homepage/script.js}" > </script>
 
 
 
@@ -110,11 +105,7 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-    <div class = "header-underline" th:fragment="underline-circle">
-        <div class = "left-line"></div>
-        <div class = "circle"></div>
-        <div class = right-line></div>
-    </div>
+
 </header>
 
 <br>
@@ -136,7 +127,7 @@
 
     </form>
 
-    <script src="form.js"></script>
+    <script th:src="@{/homepage/form.js}"></script>
 
 
 
@@ -148,17 +139,13 @@
     <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
     <div th:replace="fragments/shaped-header-underlines :: underline-circle"></div>
     <!-- Edit fragment here for debugging (copy+paste from fragments html). Remember to remove this and update the fragment when done -->
-    <div class = "header-underline" th:fragment="underline-circle">
-        <div class = "left-line"></div>
-        <div class = "circle"></div>
-        <div class = right-line></div>
-    </div>
+
 </header>
 
 
 <div class="image-container">
     <button id="changeImageButton" onclick="changeImage()">Change Year</button>
-    <img id="displayedImage" src="default-image.jpg" alt="Displayed Image">
+    <img id="displayedImage" th:src="@{/homepage content/lights_pic_1.png}" alt="Displayed Image">
 </div>
 
 <br>
