@@ -12,7 +12,7 @@ header {
     justify-content: space-between;
     background-color: #EC4D1D;
     color: white;
-    padding: 0px;
+    padding: 0;
 }
 
 #logo1 {
@@ -22,9 +22,7 @@ header {
 
 nav {
     display: flex;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding: 0px;
+    padding: 0;
 }
 
 nav ul {
@@ -56,11 +54,11 @@ main {
 }
 
 #contact-form {
-    width: 60%;
+    width: calc(75% - 20px);
     max-width: 800px;
-    margin: 10px;
     border: 1px solid #ccc;
     padding: 25px;
+    margin-right: 20px;
 }
 
 #contact-form h1 {
@@ -89,6 +87,7 @@ main {
     padding: 10px;
     border: 1px solid #ccc;
     outline: none;
+    width: calc(100% - 20px); /* Make input fields wider */
 }
 
 .form-group input:focus,
@@ -111,8 +110,8 @@ main {
 }
 
 #contact-details {
-    width: 30%;
-    max-width: 400px;
+    width: 25%;
+    max-width: none;
     margin: 10px;
     border: 1px solid #ccc;
     padding: 20px;
@@ -130,8 +129,8 @@ main {
 
 .detail {
     display: flex;
-    flex-direction: column; /* Change this to column */
-    align-items: center; /* Change this to center */
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
     justify-content: center;
 }
@@ -139,8 +138,9 @@ main {
 .icon {
     width: 200px;
     height: auto;
-    margin-bottom: 10px; /* Add this line to create space between the image and the text */
+    margin-bottom: 10px;
 }
+
 
 /*footer {
     display: flex;
@@ -201,6 +201,94 @@ main {
         max-width: none;
     }
 }
+
+
+    * {
+        /* Css reset for more consistency across multiple platforms */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-weight: normal;
+        font-family: sans-serif;
+    }
+body{
+    background: #14152A;
+    color: #EAEBED;
+    font-size: 1rem;
+}
+/*** HEADER UNDERLINES ***/
+header{
+    display: flex;
+    flex-direction: column;
+    /*
+    - Header is a container for h3 & .header-underline.
+    - Column used to align them on top of one another.
+    */
+}
+header h2, h3, h4{
+    align-self: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.3em;
+}
+.header-underline {
+    /* Container for the left/right line + circle elements. */
+    display: flex;
+    /* flex-direction: row; is default. */
+    justify-content: center;
+    gap: 0.5em;
+}
+.left-line {
+    border: 0.05em solid #754287;
+    height: 0;
+    margin: 0.35em 0 0 20%; /* change percentage to change how much screen-space the line takes up */
+    flex: 1;
+}
+.circle {
+    box-sizing: border-box;
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    border: solid gold 0.13em;
+
+}
+.right-line {
+    border: 0.05em solid #754287;
+    height: 0;
+    margin: 0.35em 20% 0 0;
+    flex: 1;
+}
+/***************************************/
+
+
+/*
+- Optimise content for screens of width 600px or less
+- Put all Css you'd like to override for these screens here.
+*/
+@media (max-width: 450px) {
+    body{
+        font-size: 1.2rem;
+    }
+    header h2, h3, h4{
+        padding: 0.2em;
+    }
+    .header-underline{
+        gap: 0.3em; /* Fixed gap size */
+    }
+    .circle {
+        width: 0.6em;
+        height: 0.6em;
+    }
+    .right-line{
+        flex: 1;
+        margin: 0.35em 10% 0 0
+    }
+    .left-line{
+        flex: 1;
+        margin: 0.35em 0 0 10%;
+    }
+}
+
 
 
 /*----------------------------------------------------------------------*/
@@ -325,5 +413,25 @@ section {
 }
 
 
+/*START OF CSS FOR ADDING HOVER ANIMATION FOR TEXT*/
 
+.links a {
+    color: white;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
 
+.links a:hover {
+    color: lawngreen;
+    text-decoration: underline;
+}
+
+/* ADDITIONAL CSS FOR SOCIAL MEDIA ICONS */
+.socials a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: lawngreen; /* Change this color for the social media icons */
+    /* Define any specific hover styles for social icons here */
+}

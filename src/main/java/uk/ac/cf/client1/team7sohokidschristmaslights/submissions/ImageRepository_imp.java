@@ -37,27 +37,28 @@ public class ImageRepository_imp implements ImageRepository{
                 rs.getLong("submission_id"),
                 rs.getString("name"),
                 rs.getString("comment"),
-                rs.getBoolean("liked"),
                 rs.getString("date_time")
+                // Removed liked field from rating class & table & cascaded changes to inert() below.
         );
     }
 
-    private void insert(RatingClass rating){
+    private void insertRating(RatingClass rating){
         String insertRatingSQL =
                 "INSERT INTO Ratings " +
-                "(`submission_id`, `name`, `comment`, `liked`, `date_time`)" +
-                "VALUES (?,?,?,?,?)";
+                "(`submission_id`, `name`, `comment`, `date_time`)" +
+                "VALUES (?,?,?,?)";
 
         jdbc.update(insertRatingSQL,
                 rating.getSubmissionId(), // This is set when the form is handed in by thymeleaf in template.
                 rating.getRaterName(),
                 rating.getCommentText(),
-                rating.getLiked(),
                 rating.getDateTime()
         );
     }
 
     // ---------- PUBLIC METHODS ---------- //
+
+
     // --- RETRIEVERS --- //
     // Returns a list of lists. The first list, at element 0 of the return, will contain drawings. The second at element 1 will contain the lights.
     // Since these only contain the metadata, this shouldn't impact performance so much. The byte data is read separately when needed.
@@ -102,7 +103,7 @@ public class ImageRepository_imp implements ImageRepository{
             FROM\s
                 Lights l
             INNER JOIN\s
-                Drawings d ON l.drawing_id = d.id\s    
+                Drawings d ON l.drawing_id = d.id\s
             WHERE d.id = ?"""; // Addressed potential ambiguity in the case of repeated entries in both tables from unit testing.
 
         } else {
@@ -122,12 +123,12 @@ public class ImageRepository_imp implements ImageRepository{
     }
 
     public List<RatingClass> getRatingList(Long submission_id){
-
         String sql = "SELECT * FROM Ratings WHERE submission_id = ?";
         return jdbc.query(sql, ratingItemMapper, submission_id);
     }
-    public Integer countLikes(Long id){
-        String sql = "SELECT COUNT(*) FROM Ratings WHERE liked=1 AND submission_id=?";
+    public Integer getLikeCount(Long id){
+        String sql = "SELECT like_count FROM likecounts WHERE submission_id = ?";
+        // Now the likes are being selected from a new table specifically made to increment / decrement the like count for each submission.
         return jdbc.queryForObject(sql, Integer.class, id);
     }
 
@@ -135,11 +136,24 @@ public class ImageRepository_imp implements ImageRepository{
         String sql = "SELECT EXISTS (SELECT 1 FROM Lights WHERE drawing_id = ?)";
         return jdbc.queryForObject(sql, Boolean.class, id);
     }
-    // --- INSERTERS --- //
+    // --- INSERTERS & UPDATERS --- //
     public void storeRating(RatingClass rating) {
-        insert(rating);
+        insertRating(rating);
         System.out.printf("%n--- Adding review to submission ---%n");
     }
-
-    // Come back to https://www.notion.so/unequaled-moustache-536/Servers-2-73bc55350f0d4274b34ff8e9b67f8c50?pvs=4#1f1efe08fdab40f695a379ee5f30e56f if you want to start adding submissions through the app.
+    public void updateLikeCount(Long id, Short increment) {
+        String updateQuery = "UPDATE LikeCounts SET like_count = like_count + ? WHERE submission_id = ?";
+        // The increment will be hardcoded to either -1 or 1 during this function's call, depending on the state change of the like button.
+        try {
+            int rowsAffected = jdbc.update(updateQuery, increment, id);
+            if (rowsAffected > 0) {
+                // This check is an additional layer of safety in the case that the GPT-written table initializer (see MetadataPopulator) fails, although I've included a double check for empty tables in there as well.
+                System.out.println("Updated like count for submission_id " + id + " by " + increment);
+            } else {
+                System.out.println("No rows were updated for submission_id " + id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
