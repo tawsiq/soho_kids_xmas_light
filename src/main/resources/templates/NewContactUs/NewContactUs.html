@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="shared.css">
+<!--    <link rel = "stylesheet" th:href="@{/css/submissions-page/navbar.css}">-->
+    <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel="stylesheet" href="NewContactUs.css">
     <title>Contact Us</title>
 </head>
 <body>
 <header>
+
     <nav>
+
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Submissions</a></li>
-            <li><a href="#" class="full-border">Contact Us</a></li>
+            <li>
+            <span class="logo-container">
+        <img th:src="@{/homepage content/AFK_Logo_small.png}" height="73" width="262" alt="Logo" class="logo"/>
+            </span>
+            </li>
+
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home/aboutus">About Us</a></li>
+
+            <li><a href="/home/submissions">Drawings</a></li>
+            <li><a href="/home/marketplace">Marketplace</a></li>
+            <li><a href="/home/contactus">Contact Us</a></li>
         </ul>
-    </nav>
+
+    </nav><br>
+
 </header>
 <main class="main-container">
     <section class="header-underline contact-form">
