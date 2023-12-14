@@ -98,6 +98,10 @@ async function showSlides() {
     // Initialize the slideshow
 showSlides();
 
+
+
+                                                 // Map Function
+
 // Array of objects with year and image URL
 
     const imagesByYear = [
