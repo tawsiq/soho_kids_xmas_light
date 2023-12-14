@@ -1,0 +1,107 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+}
+
+.main-title {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/** Containers */
+
+.title-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logo-container {
+    position: absolute;
+    left: 7px;
+}
+
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+}
+
+.image-container {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.dot-container {
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/** NavBar */
+
+nav {
+    background-color: darkslateblue;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    height: 50px;
+    position: relative;
+}
+
+/** Navbar item styles */
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 2px solid gold;
+    background-color: black;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    margin-left: 8px;
+}
+
+nav a:last-child::after {
+    border: gold;
+}
+
+/** Logo */
+
+.logo {
+    max-width: 100px;
+    height: 100%;
+    margin-right: 20px;
+}

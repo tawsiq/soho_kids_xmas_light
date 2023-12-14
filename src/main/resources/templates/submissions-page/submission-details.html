@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Submission Details</title>
 
+    <link rel = "stylesheet" th:href="@{/css/submissions-page/navbar.css}">
     <link rel = "stylesheet" th:href="@{/css/shared.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/group-submissions.css}">
     <link rel = "stylesheet" th:href="@{/css/submissions-page/submission-details.css}">
@@ -15,6 +16,26 @@
 
 </head>
 <body>
+
+<nav>
+
+    <ul>
+        <li>
+            <span class="logo-container">
+        <img th:src="@{/homepage content/AFK_Logo_small.png}" height="73" width="262" alt="Logo" class="logo"/>
+            </span>
+        </li>
+
+        <li><a href="/home">Home</a></li>
+        <li><a href="/home/aboutus">About Us</a></li>
+
+        <li><a href="/home/submissions">Drawings</a></li>
+        <li><a href="/home/marketplace">Marketplace</a></li>
+        <li><a href="/home">Contact Us</a></li>
+    </ul>
+
+</nav><br>
+
 <header>
     <h2 th:inline="text">
         [[${drawing.getParticipantName()}]]'s Submission
