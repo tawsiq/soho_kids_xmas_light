@@ -168,13 +168,14 @@ button {
     background-color: #754287;
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth transition effect */
-    font-weight: bold; }
+    font-weight: bold;
+}
 
 /* Style the link on hover */
 &:hover {
      background-color: #634a7e; /* Change background color on hover */
  }
-}
+
 
 /* Sponsor Styling Logos */
 #sponsors {

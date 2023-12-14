@@ -14,10 +14,10 @@
 
         <!-- Navigation Section -->
         <nav>
-            <a href="aboutus2.html">About Us</a>
-            <a href="submissions.html">Media</a>
-            <a href="marketplace.html">Shop</a>
-            <a href="ContactUs.html">Contact Us</a>
+            <a th:href="@{/home/aboutus}">About Us</a>
+            <a th:href="@{/home/submissions}">Submissions</a>
+            <a th:href="@{/home/marketplace}">Marketplace</a>
+            <a th:href="@{/home/contactus}">Contact Us</a>
         </nav>
 
         <!-- Cart Icon Section -->
@@ -86,7 +86,9 @@
     <div class="listCart"></div>
     <div class="btn">
         <button class="close">CLOSE</button>
-        <button class="checkout">Check Out</button>
+        <!--<button class="checkout">Check Out</button> -->
+        <a th:href="@{/home/checkout}" class="checkout">Check Out</a>
+
     </div>
 </div>
 
