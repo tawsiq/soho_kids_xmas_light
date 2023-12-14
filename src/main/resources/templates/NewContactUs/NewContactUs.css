@@ -1,9 +1,7 @@
 /* Shared styles */
-
 /* ... (Paste all styles from shared.css here) */
 
 /* Additional styling for Contact Us page */
-
 body {
     font-family: sans-serif;
     background: #14152A;
@@ -12,6 +10,7 @@ body {
     margin: 0;
 }
 
+/* Header Styles */
 header {
     display: flex;
     align-items: center;
@@ -60,6 +59,7 @@ nav ul li a:last-child::after {
     border: gold;
 }
 
+/* Main Container Styles */
 .main-container {
     display: flex;
     justify-content: space-between;
@@ -67,149 +67,7 @@ nav ul li a:last-child::after {
     margin-top: 50px;
 }
 
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    margin-top: 50px;
-}
-
-/* Main Body */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    display: inline;
-    margin-right: 20px;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-section {
-    padding: 20px;
-}
-
-.logo-container {
-    position: absolute;
-    left: 7px;
-}
-
-.slideshow-container {
-    max-width: 800px;
-    position: relative;
-    margin: auto;
-}
-
-.image-container {
-    position: relative;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.dot-container {
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-nav {
-    background-color: darkslateblue;
-    padding: 10px 20px;
-    text-align: center;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 16px;
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    border: 2px solid gold;
-    background-color: black;
-    transform: translateX(-50%);
-    border-radius: 3px;
-    margin-left: 8px;
-}
-
-nav a:last-child::after {
-    border: gold;
-}
-
-.logo {
-    max-width: 100px;
-    height: 100%;
-    margin-right: 20px;
-}
-
-.mySlides {
-    display: none;
-    width: 100%;
-}
-
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #481e57;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active {
-    background-color: gold;
-}
-
-/* Additional Contact Us Styling */
-
+/* Form Section Styles */
 .contact-form form {
     max-width: 400px;
     margin: 20px auto;
@@ -223,7 +81,7 @@ nav a:last-child::after {
 .contact-form textarea,
 .contact-form button {
     display: block;
-    width: 100%;
+    width: calc(100% - 20px);
     margin-bottom: 16px;
     font-size: 16px;
     color: #EAEBED;
@@ -252,3 +110,41 @@ nav a:last-child::after {
     background-color: #45a049;
 }
 
+/* Our Details Section Styles */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #1f2140;
+    color: #EAEBED;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.contact-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: gold;
+}
+
+.contact-details p {
+    margin-bottom: 15px;
+}
+
+.detail {
+    margin-bottom: 20px;
+}
+
+.detail-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Footer Styles */
+footer {
+    /* Define your footer styles here */
+}
+/* ... (Any other styles for the footer) */
