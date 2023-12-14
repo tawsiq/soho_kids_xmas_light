@@ -2,13 +2,11 @@ package uk.ac.cf.client1.team7sohokidschristmaslights.SubmissionsUnitTesting;
 
 import jakarta.transaction.Transactional;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.jdbc.Sql;
 import uk.ac.cf.client1.team7sohokidschristmaslights.MetadataPopulator;
 import uk.ac.cf.client1.team7sohokidschristmaslights.submissions.*;
@@ -227,7 +225,7 @@ class ImageServiceImpTest {
     }
     @Test
     void clearTables() {
-        // This is a pseudo AfterAll method that executes once all tests are done.
+        // This is a pseudo "after all" method that executes once all tests are done.
         // I did this because it was an indescribable pain in my everything to get jdbc autowiring to work with static fields and methods.
         // So, I'm doing it this way. And it works for resetting the test database. If it ain't broke don't fix it.
         jdbc.execute("DELETE FROM team7_soho_kids_database_test.LikeCounts");
