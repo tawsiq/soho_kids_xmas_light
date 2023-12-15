@@ -49,3 +49,16 @@ CREATE TABLE IF NOT EXISTS LikeCounts (
    -- FOREIGN KEY (submission_id) REFERENCES Drawings(id)
 
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS MarketplaceProducts (
+
+   product_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+   filename VARCHAR(128) NOT NULL,
+   filepath VARCHAR(255) NOT NULL
+
+-- Every time a like is submitted, the entry corresponding to the submission id will be updated.
+-- No duplicates can be entered due to the way implementation will work.
+
+-- FOREIGN KEY (submission_id) REFERENCES Drawings(id)
+
+) ENGINE=InnoDB;
