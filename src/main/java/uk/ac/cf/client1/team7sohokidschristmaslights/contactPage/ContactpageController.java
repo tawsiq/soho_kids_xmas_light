@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ContactpageController {
 
-    // Declare a reference to the ContactService
+    // Declare a reference to the ContactService, this is a seperate file (made after this)
     ContactService contactService;
 
     // Constructor to inject the ContactService dependency
