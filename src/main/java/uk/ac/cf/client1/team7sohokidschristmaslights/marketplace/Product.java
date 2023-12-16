@@ -9,5 +9,5 @@ public class Product {
     private String filename;
     private String filepath;
 
-    // Getters and setters
+
 }
