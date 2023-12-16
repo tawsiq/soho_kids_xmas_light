@@ -7,6 +7,8 @@ public interface SponsorRepository {
 
     List<Sponsor> getAllSponsors();
 
+    Sponsor getSponsor(Integer id);
+
     void saveSponsor(Sponsor sponsor);
 
 }
