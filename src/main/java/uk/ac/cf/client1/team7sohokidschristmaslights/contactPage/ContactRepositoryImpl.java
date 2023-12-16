@@ -31,6 +31,7 @@ public class ContactRepositoryImpl implements ContactRepository {
                 rs.getString("name"),     // Map the "name" column to the Contact's name field
                 rs.getString("email"),    // Map the "email" column to the Contact's email field
                 rs.getString("subject"),  // Map the "subject" column to the Contact's subject field
+                rs.getString("message")   // Map the "message" column to the Contact's message field
         );
     }
 }
