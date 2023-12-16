@@ -47,7 +47,7 @@ public class SponsorController {
     }
 
     @GetMapping("home/aboutus/sponsor-details")
-    public ModelAndView hostAboutUs() {
+    public ModelAndView hostSponsorDetails() {
         ModelAndView modelAndView = new ModelAndView("about-us-page/sponsor-details");
 
         modelAndView.addObject("sponsorList", sponsorService.getAllSponsors());

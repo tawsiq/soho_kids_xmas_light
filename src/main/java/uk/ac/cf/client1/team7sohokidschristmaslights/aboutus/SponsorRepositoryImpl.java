@@ -32,7 +32,7 @@ public class SponsorRepositoryImpl implements SponsorRepository {
 
     public List<Sponsor> getAllSponsors() { return jdbcTemplate.query ("SELECT * FROM SponsorInfo", sponsorRowMapper);}
 
-    public Sponsor getSponser(Integer id) {
+    public Sponsor getSponsor(Integer id) {
         return jdbcTemplate.queryForObject("SELECT * FROM SponsorInfo WHERE sponsor_id = ?", sponsorRowMapper, id);
     }
 
