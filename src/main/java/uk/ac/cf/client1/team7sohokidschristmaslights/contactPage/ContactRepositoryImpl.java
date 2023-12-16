@@ -34,4 +34,14 @@ public class ContactRepositoryImpl implements ContactRepository {
                 rs.getString("message")   // Map the "message" column to the Contact's message field
         );
     }
+
+    // Method to retrieve a specific contact by ID
+    public Contact getContact(Integer id) {
+        return jdbcTemplate.queryForObject("SELECT * FROM ContactInfo WHERE id = ?", contactRowMapper, id);
+    }
+
+    // Method to retrieve a list of contacts
+    public List<Contact> getContactList() {
+        return jdbcTemplate.query("SELECT * FROM ContactInfo", contactRowMapper);
+    }
 }
