@@ -21,8 +21,11 @@ public class MarketRepositoryImpl implements MarketRepository {
         productMapper = (rs, i) -> new Product(
                 rs.getLong("product_id"),
                 rs.getString("filename"),
-                rs.getString("filepath")
+                rs.getString("filepath"),
+                rs.getString("product_name"),
+                rs.getInt("price")
         );
+
     }
 
     public Product getProduct(Integer id) {

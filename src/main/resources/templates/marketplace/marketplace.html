@@ -33,10 +33,10 @@
 <!-- Product List Section -->
 <div class="listProduct">
     <!-- Use Thymeleaf to iterate over products -->
-    <div th:each="product : ${productList}" class="item">
+    <div th:each="product : ${productList}" th:data-id="${product.product_id}" class="item">
         <img th:src="@{'/getProductImage/' + ${product.getProduct_id()} }" alt="">
-        <h2 th:text="${product.getFilename()}"></h2>
-        <div class="price" th:text="'$30'"></div>
+        <h2 th:text="${product.product_name}"></h2>
+        <div class="price" th:text="${'£'} + ${product.price}"></div>
         <button class="addCart">Add To Cart</button>
     </div>
 </div>
