@@ -1,39 +1,50 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.marketplace;
 
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.InputStream;
-import java.util.Scanner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import java.io.IOException;
 
 import java.util.List;
-import uk.ac.cf.client1.team7sohokidschristmaslights.marketplace.Product;
-import uk.ac.cf.client1.team7sohokidschristmaslights.marketplace.ProductService;
 
 
 @Controller
 public class MarketplaceController {
 
-    @Autowired
-    private ResourceLoader resourceLoader;
+    private final MarketService marketService;
+
+    public MarketplaceController(MarketService marketService){
+        this.marketService = marketService;
+    }
 
     @GetMapping("home/marketplace")
     public ModelAndView getMarketplace() {
         ModelAndView modelAndView = new ModelAndView("marketplace/marketplace");
-        List<Product> products = ProductService.getAllProducts();
-        modelAndView.addAttribute("products", products);
+
+        List<Product> productList = marketService.getProductList();
+        modelAndView.addObject("productList", productList);
 
         return modelAndView;
     }
 
+    @GetMapping("/getProductImage/{id}")
+    public ResponseEntity<byte[]> getImageDataForTemplate(@PathVariable Integer id) throws IOException {
+
+        Product product = marketService.getProduct(id);
+        // Get image data bytes from the service method
+        byte[] productImageData = marketService.getProductImageData(product);
+
+        if (product.getFilename().endsWith("jpg")){
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(productImageData);
+
+        } else {
+            // The only image types stored in the DB / file system are jpg & png
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(productImageData);
+        }
+    }
+
 }
-
-
-
