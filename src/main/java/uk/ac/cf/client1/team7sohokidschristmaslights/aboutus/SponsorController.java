@@ -14,34 +14,43 @@ import java.util.List;
 @Controller
 public class SponsorController {
 
-    private final SponsorRepository sponsorRepository;
+    private final SponsorService sponsorService;
 
-    public SponsorController(SponsorRepository sponsorRepository) {
-        this.sponsorRepository = sponsorRepository;
+    public SponsorController(SponsorService sponsorService) {
+        this.sponsorService = sponsorService;
     }
 
-    @GetMapping("/signup")
-    public String showSignUpForm(Model model) {
-        model.addAttribute("sponsor", new Sponsor());
-        return "sponsor-signup";
-    }
-
-    @PostMapping("/signup")
-    public String processSignUpForm(@ModelAttribute Sponsor sponsor, BindingResult bindingResult, Model model) {
-        // Validation logic (if needed)
-        // Save to the database
-        sponsorRepository.saveSponsor(sponsor);
-
-        // Display success message
-        model.addAttribute("message", "Thank you for signing up as a sponsor. A member of our team will be in contact shortly.");
-
-        // Redirect to the home page or another appropriate page
-        return "redirect:/";
-    }
+//    @GetMapping("/signup")
+//    public String showSignUpForm(Model model) {
+//        model.addAttribute("sponsor", new Sponsor());
+//        return "sponsor-signup";
+//    }
+//
+//    @PostMapping("/signup")
+//    public String processSignUpForm(@ModelAttribute Sponsor sponsor, BindingResult bindingResult, Model model) {
+//        // Validation logic (if needed)
+//        // Save to the database
+//        sponsorRepository.saveSponsor(sponsor);
+//
+//        // Display success message
+//        model.addAttribute("message", "Thank you for signing up as a sponsor. A member of our team will be in contact shortly.");
+//
+//        // Redirect to the home page or another appropriate page
+//        return "redirect:/";
+//    }
 
     @GetMapping("home/aboutus")
     public ModelAndView hostAboutUs() {
         ModelAndView modelAndView = new ModelAndView("about-us-page/aboutus2");
+
+        return modelAndView;
+    }
+
+    @GetMapping("home/aboutus/sponsor-details")
+    public ModelAndView hostAboutUs() {
+        ModelAndView modelAndView = new ModelAndView("about-us-page/sponsor-details");
+
+        modelAndView.addObject("sponsorList", sponsorService.getAllSponsors());
 
         return modelAndView;
     }
