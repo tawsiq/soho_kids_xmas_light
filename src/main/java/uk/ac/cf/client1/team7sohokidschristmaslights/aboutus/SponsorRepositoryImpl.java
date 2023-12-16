@@ -30,19 +30,12 @@ public class SponsorRepositoryImpl implements SponsorRepository {
         );
     }
 
-    @Override
-    public List<Sponsor> getAllSponsors() {
-        return jdbcTemplate.query("SELECT * FROM sponsors", new SponsorRowMapper());
+    public List<Sponsor> getAllSponsors() { return jdbcTemplate.query ("SELECT * FROM SponsorInfo", sponsorRowMapper);}
+
+    public Sponsor getSponser(Integer id) {
+        return jdbcTemplate.queryForObject("SELECT * FROM SponsorInfo WHERE sponsor_id = ?", sponsorRowMapper, id);
     }
 
-    @Override
-    public void saveSponsor(Sponsor sponsor) {
-        jdbcTemplate.update(
-                "INSERT INTO sponsors (company_name, contact_person, email) VALUES (?, ?, ?)",
-                sponsor.getCompanyName(),
-                sponsor.getContactPerson(),
-                sponsor.getEmail()
-        );
-    }
+    public void saveSponsor(Sponsor sponsor) {System.out.println("Sponsor saved");}
 }
 
