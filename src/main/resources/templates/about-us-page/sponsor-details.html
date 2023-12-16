@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sponsor Details Page</title>
+</head>
+<body>
+
+<div>
+    <ul>
+        <li th:each="sponsor : ${sponsorList}">
+            <p th:text="${sponsor.getCompanyName()}"></p>
+            <p th:text="${sponsor.getContactPerson()}"></p>
+            <p th:text="${sponsor.getEmail()}"></p>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
