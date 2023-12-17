@@ -25,4 +25,8 @@ public class ContactServiceImpl implements ContactService {
     public List<Contact> getContactList() {
         return contactRepository.getContactList();
     }
+
+    public void saveContact(Contact contact){
+        contactRepository.saveContactDetails(contact);
+    }
 }

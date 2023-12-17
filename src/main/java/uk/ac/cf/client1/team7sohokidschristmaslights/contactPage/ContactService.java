@@ -10,4 +10,6 @@ public interface ContactService {
 
     // Method to retrieve a specific contact by ID
     Contact getContact(Integer id);
+
+    void saveContact(Contact contact);
 }
