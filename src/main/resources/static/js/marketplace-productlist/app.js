@@ -86,10 +86,13 @@ const addCartToMemory = () => {
 const addCartToHTML = () => {
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
+    let totalCost = 0; // Variable to store total cost
+
 
     if (cart.length > 0) {
         cart.forEach(item => {
             totalQuantity += item.quantity;
+            totalCost += item.price * item.quantity; // Calculate total cost
 
             // Find the corresponding product element in the HTML
             let productElement = document.querySelector(`.item[data-id="${item.product_id}"]`);
@@ -116,7 +119,14 @@ const addCartToHTML = () => {
                 `;
                 listCartHTML.appendChild(newItem);
             }
+
+
         });
+        // New code to display total cost
+        let totalCostElement = document.createElement('div');
+        totalCostElement.classList.add('total-cost');
+        totalCostElement.innerHTML = `<strong>Total Cost:</strong> £${totalCost.toFixed(2)}`;
+        listCartHTML.appendChild(totalCostElement);
     }
     iconCartSpan.innerText = totalQuantity;
 };

@@ -15,7 +15,7 @@
     <h1>Checkout</h1>
 
     <!-- Checkout form -->
-    <form th:action="@{'/home/marketplace/checkout/' + '200'}" method="post">
+    <form th:action="@{'/home/marketplace/checkout/'}" method="post">
         <!-- Section for customer details -->
         <h2>Customer Details</h2>
         <label for="customerName">Full Name:</label>
@@ -39,10 +39,16 @@
          <!--    <label for="note">Special Notes:</label>
              <textarea id="note" name="note" placeholder="Add The Design choice for the t-shirt or any other notes as required"></textarea> -->
 
+
         <!-- Order Summary Section -->
         <div id="order-summary">
             <!-- Dynamically populate order summary -->
         </div>
+        <input type="hidden" id="itemNameInput" name="itemName" value="">
+        <input type="hidden" id="itemQuantityInput" name="itemQuantity" value="">
+        <input type="hidden" id="itemPriceInput" name="itemPrice" value="">
+        <input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
+
 
         <!-- Submit button for the form -->
         <button type="submit">Place Order</button>
@@ -50,5 +56,6 @@
 </div>
 <!-- JavaScript file for handling checkout logic -->
 <script src="path/to/your/checkout-script.js"></script>
+<script src="path/to/your/app.js"></script>
 </body>
 </html>
