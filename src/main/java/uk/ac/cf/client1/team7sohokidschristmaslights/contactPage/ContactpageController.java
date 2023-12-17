@@ -1,8 +1,10 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.contactPage;
 
+import jakarta.websocket.server.ServerEndpoint;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -32,5 +34,15 @@ public class ContactpageController {
         modelAndView.addObject("contactsList", contactService.getContactList());
         // Return the populated ModelAndView
         return modelAndView;
+    }
+
+    @GetMapping("/home/contactus/addContact")
+    public ModelAndView hostContactForm(){
+        return new ModelAndView("NewContactUs/NewContactUs");
+    }
+    @PostMapping("/home/contactus/addContact")
+    public ModelAndView processContactForm(Contact contact){
+        contactService.saveContact(contact);
+        return new ModelAndView("redirect:/home/contactus/contact-details");
     }
 }

@@ -10,4 +10,6 @@ public interface ContactRepository {
 
     // Method to retrieve a specific contact by ID
     Contact getContact(Integer id);
+
+    void saveContactDetails(Contact contact);
 }
