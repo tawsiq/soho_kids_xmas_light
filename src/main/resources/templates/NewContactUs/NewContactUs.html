@@ -6,6 +6,7 @@
     <!--    <link rel = "stylesheet" th:href="@{/css/submissions-page/navbar.css}">-->
     <!--<link rel="stylesheet" th:href="@{/css/shared.css}">-->
     <link rel="stylesheet" th:href="@{/css/NewContactUs/NewContactUs.css}">
+    <link rel="stylesheet" href="../../static/css/NewContactUs/NewContactUs.css">
     <title>Contact Us</title>
 </head>
 <body>
@@ -17,7 +18,8 @@
         <ul>
             <li>
                 <a href="#home" class="logo-container">
-                    <img src="AFK_Logo_small.png" height="73" width="262" alt="Logo" class="logo"/>
+                    <!--<img src="../../static/css/NewContactUs/AFK_Logo_small.png" height="73" width="262" alt="Logo" class="logo"/>-->
+                    <img th:src="@{/css/NewContactUs/AFK_Logo_small.png}">
                 </a>
             </li>
             <li><a href="#home">Home</a></li>
