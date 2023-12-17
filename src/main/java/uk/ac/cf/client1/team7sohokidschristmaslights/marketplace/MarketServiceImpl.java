@@ -8,24 +8,38 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-@Service
-public class MarketServiceImpl implements MarketService{
+@Service // Marks this class as a Spring Service component
+public class MarketServiceImpl implements MarketService {
 
-    private final MarketRepository marketRepository;
+    private final MarketRepository marketRepository; // Repository for accessing data layer
 
+    // Constructor for dependency injection of MarketRepository
     public MarketServiceImpl(MarketRepository marketRepository) {
         this.marketRepository = marketRepository;
     }
+
+    // Retrieves a product by its ID using the MarketRepository
+    @Override
     public Product getProduct(Integer id) {
         return marketRepository.getProduct(id);
     }
-    public byte[] getProductImageData(Product productImage) throws IOException {
 
+    // Retrieves the image data for a given product
+    @Override
+    public byte[] getProductImageData(Product productImage) throws IOException {
         Path pathToImage = Paths.get(productImage.getFilepath());
-        // Read the image data into a byte array
-        return Files.readAllBytes(pathToImage);
+        return Files.readAllBytes(pathToImage); // Reads image file into a byte array
     }
-    public List<Product> getProductList(){
+
+    // Retrieves a list of all products from the MarketRepository
+    @Override
+    public List<Product> getProductList() {
         return marketRepository.getProductList();
+    }
+
+    // Saves checkout information using the MarketRepository
+    @Override
+    public void saveCheckout(Checkout checkout) {
+        marketRepository.saveCheckout(checkout);
     }
 }
