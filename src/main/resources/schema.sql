@@ -59,3 +59,12 @@ CREATE TABLE IF NOT EXISTS MarketplaceProducts (
    product_name VARCHAR(255) NOT NULL,
    price DECIMAL(10, 2) NOT NULL
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS CheckoutInfo (
+    checkout_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    customer_name VARCHAR(128) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    delivery_address VARCHAR(255) NOT NULL,
+    total_price DECIMAL(10, 2) NOT NULL,
+    submission_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
