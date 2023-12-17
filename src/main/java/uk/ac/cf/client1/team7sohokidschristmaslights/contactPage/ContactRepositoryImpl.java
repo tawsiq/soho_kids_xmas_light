@@ -28,9 +28,13 @@ public class ContactRepositoryImpl implements ContactRepository {
         // Define the contactRowMapper using a lambda expression
         contactRowMapper = (rs, i) -> new Contact(
                 rs.getInt("id"),          // Map the "id" column from the result set to the Contact's id field
+
                 rs.getString("name"),     // Map the "name" column to the Contact's name field
+
                 rs.getString("email"),    // Map the "email" column to the Contact's email field
+
                 rs.getString("subject"),  // Map the "subject" column to the Contact's subject field
+
                 rs.getString("message")   // Map the "message" column to the Contact's message field
         );
     }
