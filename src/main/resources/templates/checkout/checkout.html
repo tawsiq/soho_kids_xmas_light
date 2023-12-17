@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Checkout</title>
+    <!-- Style Sheet Links -->
+    <!-- Main style sheet for the marketplace -->
     <link rel="stylesheet" th:href="@{/css/marketplace-productlist/style.css}">
+    <!-- Specific style sheet for the checkout page -->
     <link rel="stylesheet" th:href="@{/css/checkout-page/checkout.css}">
-    <!-- Update with your CSS file path -->
 </head>
 <body>
 <div class="container">
+    <!-- Page title -->
     <h1>Checkout</h1>
-    <form action="/submit-checkout" method="post">
+
+    <!-- Checkout form -->
+    <form th:action="@{'/home/marketplace/checkout/' + '200'}" method="post">
+        <!-- Section for customer details -->
         <h2>Customer Details</h2>
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        <label for="customerName">Full Name:</label>
+        <input type="text" id="customerName" name="customerName" placeholder="Enter your full name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        <label for="customerEmail">Email:</label>
+        <input type="email" id="customerEmail" name="customerEmail" placeholder="Enter your email address" required>
 
+        <!-- Section for delivery address -->
         <h2>Delivery Address</h2>
-        <label for="address-line1">Address Line 1:</label>
-        <input type="text" id="address-line1" name="address_line1" placeholder="First line of your address" required>
-
-        <label for="address-line2">Address Line 2 (optional):</label>
-        <input type="text" id="address-line2" name="address_line2" placeholder="Second line of your address (optional)">
-
-        <label for="postcode">Postcode:</label>
-        <input type="text" id="postcode" name="postcode" placeholder="Enter your postcode" required>
-
-        <label for="note">Special Notes:</label>
-        <textarea id="note" name="note" placeholder="Add The Design choice for the t-shirt or any other notes as required"></textarea>
+        <label for="deliveryAddress">Address Line 1:</label>
+        <input type="text" id="deliveryAddress" name="deliveryAddress" placeholder="First line of your address" required>
 
 
+        <!-- <label for="address-line2">Address Line 2 (optional):</label>
+             <input type="text" id="address-line2" name="address_line2" placeholder="Second line of your address (optional)">
+
+             <label for="postcode">Postcode:</label>
+             <input type="text" id="postcode" name="postcode" placeholder="Enter your postcode" required> -->
+     <!-- Notes for design choice and sizing or extra information -->
+         <!--    <label for="note">Special Notes:</label>
+             <textarea id="note" name="note" placeholder="Add The Design choice for the t-shirt or any other notes as required"></textarea> -->
+
+        <!-- Order Summary Section -->
         <div id="order-summary">
             <!-- Dynamically populate order summary -->
         </div>
 
+        <!-- Submit button for the form -->
         <button type="submit">Place Order</button>
-
-
     </form>
 </div>
-<script src="path/to/your/checkout-script.js"></script> <!-- If you have a JS file for checkout -->
+<!-- JavaScript file for handling checkout logic -->
+<script src="path/to/your/checkout-script.js"></script>
 </body>
 </html>
