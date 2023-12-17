@@ -1,0 +1,2 @@
+DELETE FROM ContactInfo;
+INSERT INTO ContactInfo (`name`, email, `subject`, message) VALUES ('Ozair', 'ozair@gmail.com', 'I like milk', 'Just wanted to get in contact with you to say that I really like milk... and speed typing.')
