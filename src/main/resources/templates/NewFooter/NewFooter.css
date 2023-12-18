@@ -182,7 +182,11 @@ svg {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scaleY(3) scaleX(2.25);
+<<<<<<< HEAD
+    transform: scaleY(5) scaleX(5);
+=======
+    transform: scaleY(5) scaleX(15);
+>>>>>>> 193cb437029eb9319c8aac036c097ac58557598a
     transform-origin: bottom;
     box-sizing: border-box;
     display: block;

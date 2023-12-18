@@ -12,3 +12,4 @@ function autoExpand(textarea) {
     // Set height to scrollHeight (the full height of the content, even if it's not visible)
     textarea.style.height = textarea.scrollHeight + 'px';
 }
+
