@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -16,10 +17,12 @@ import java.util.List;
 public class MarketplaceController {
 
     private final MarketService marketService; // Service for handling marketplace operations
+    private final CartDetailRepository cartDetailRepository ; // New repository for cart details
 
     // Constructor injection of MarketService
-    public MarketplaceController(MarketService marketService){
+    public MarketplaceController(MarketService marketService,CartDetailRepository cartDetailRepository){
         this.marketService = marketService;
+        this.cartDetailRepository = cartDetailRepository;
     }
 
 
@@ -68,6 +71,19 @@ public class MarketplaceController {
 
         return new ModelAndView("redirect:/home/marketplace/checkout"); // Redirect after successful checkout
     }
+    // New method to process cart data
+    @PostMapping("/processCart")
+    public ResponseEntity<?> processCart(@RequestBody List<CartDetail> cartDetails) {
+        for (CartDetail detail : cartDetails) {
+            cartDetailRepository.save(detail);
+        }
+        return ResponseEntity.ok().build();
+    }
+
+
+
+
+
 }
 
 

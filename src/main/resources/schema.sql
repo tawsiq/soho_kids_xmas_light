@@ -68,3 +68,13 @@ CREATE TABLE IF NOT EXISTS CheckoutInfo (
     total_price DECIMAL(10, 2) NOT NULL,
     submission_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
+
+CREATE TABLE CartDetails (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ productId BIGINT,
+ productName VARCHAR(255),
+ quantity INT,
+ price DECIMAL(10, 2),
+ total_price DECIMAL(10, 2) NOT NULL
+
+);
