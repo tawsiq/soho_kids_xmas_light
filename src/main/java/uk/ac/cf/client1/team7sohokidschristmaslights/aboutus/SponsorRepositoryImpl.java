@@ -36,6 +36,18 @@ public class SponsorRepositoryImpl implements SponsorRepository {
         return jdbcTemplate.queryForObject("SELECT * FROM SponsorInfo WHERE sponsor_id = ?", sponsorRowMapper, id);
     }
 
-    public void saveSponsor(Sponsor sponsor) {System.out.println("Sponsor saved");}
+    public void saveSponsor(Sponsor sponsor) {
+        String insertSponsorSQL =
+                "INSERT INTO SponsorInfo " +
+                        "(`sponsor_id`, `company_name`, `contact_person`, `email`)" +
+                        "VALUES (?,?,?,?)";
+
+        jdbcTemplate.update(insertSponsorSQL,
+                sponsor.getSponsorId(), // This is set when the form is handed in by thymeleaf in template.
+                sponsor.getCompanyName(),
+                sponsor.getContactPerson(),
+                sponsor.getEmail()
+        );
+    }
 }
 
