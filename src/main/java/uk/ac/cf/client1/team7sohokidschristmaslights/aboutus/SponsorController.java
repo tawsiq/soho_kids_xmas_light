@@ -20,25 +20,7 @@ public class SponsorController {
         this.sponsorService = sponsorService;
     }
 
-//    @GetMapping("/signup")
-//    public String showSignUpForm(Model model) {
-//        model.addAttribute("sponsor", new Sponsor());
-//        return "sponsor-signup";
-//    }
-//
-//    @PostMapping("/signup")
-//    public String processSignUpForm(@ModelAttribute Sponsor sponsor, BindingResult bindingResult, Model model) {
-//        // Validation logic (if needed)
-//        // Save to the database
-//        sponsorRepository.saveSponsor(sponsor);
-//
-//        // Display success message
-//        model.addAttribute("message", "Thank you for signing up as a sponsor. A member of our team will be in contact shortly.");
-//
-//        // Redirect to the home page or another appropriate page
-//        return "redirect:/";
-//    }
-
+    //Page Hosting Controllers
     @GetMapping("home/aboutus")
     public ModelAndView hostAboutUs() {
         ModelAndView modelAndView = new ModelAndView("about-us-page/aboutus2");
@@ -53,5 +35,20 @@ public class SponsorController {
         modelAndView.addObject("sponsorList", sponsorService.getAllSponsors());
 
         return modelAndView;
+    }
+
+    //Sponsor Form
+    @GetMapping("home/aboutus/signup")
+    public ModelAndView showSignUpForm() {return new ModelAndView("about-us-page/aboutus2");}
+    @PostMapping("home/aboutus/signup")
+    public String processSignUpForm(@ModelAttribute Sponsor sponsor, BindingResult bindingResult, Model model) {
+        //Save to the database
+        sponsorService.saveSponsor(sponsor);
+
+        //Display success message
+        model.addAttribute("message", "Thank you for signing up as a sponsor, a member of our team will be in contact shortly.");
+
+        //Redirect
+        return "redirect:/home/aboutus/sponsor-details";
     }
 }
