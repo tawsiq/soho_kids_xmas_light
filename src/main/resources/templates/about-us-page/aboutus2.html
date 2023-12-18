@@ -24,11 +24,11 @@ resources directory e.g. sponsor logos, shapes used for the headings-->
             </span>
     </li>
 
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="/home/submissions">Drawings</a></li>
-    <li><a href="#marketplace">Marketplace</a></li>
-    <li><a href="#contact">Contact Us</a></li>
+    <li><a th:href="@{/home}">Home</a></li>
+    <li><a th:href="@{/home/aboutus}">About Us</a></li>
+    <li><a th:href="@{/home/submissions}">Drawings</a></li>
+    <li><a th:href="@{/home/marketplace}">Marketplace</a></li>
+    <li><a th:href="@{/home/contactus}">Contact Us</a></li>
   </ul>
 </nav>
 
@@ -98,7 +98,7 @@ resources directory e.g. sponsor logos, shapes used for the headings-->
 <!--    </div>-->
 
     <!-- Sign-up form -->
-    <form th:action="@{/sponsor/signup}" method="post"  onsubmit="validateEmail()">
+    <form th:action="@{/home/aboutus/signup}" method="post"  onsubmit="validateEmail()">
       <h2>Sponsor Sign-Up</h2>
 <!--      th:object="${sponsor}"-->
       <!-- Company Name -->
@@ -146,25 +146,7 @@ resources directory e.g. sponsor logos, shapes used for the headings-->
   </ul>
 </header>
 
-<section id="home">
-  <!-- Home content here -->
-</section>
 
-<section id="about">
-  <!-- About Us content here -->
-</section>
-
-<section id="drawings">
-  <!-- Drawings -->
-</section>
-
-<section id="marketplace">
-  <!-- Marketplace -->
-</section>
-
-<section id="contact">
-  <!-- Contact Us content here -->
-</section>
 
 
 <br>
