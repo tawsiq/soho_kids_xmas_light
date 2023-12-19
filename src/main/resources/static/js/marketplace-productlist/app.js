@@ -182,34 +182,6 @@ const initApp = () => {
     }
 };
 
-// ... existing JavaScript code ...
-
-function populateOrderSummary() {
-    const orderSummaryDiv = document.getElementById('order-summary');
-    if (!orderSummaryDiv) return; // Exit if the order summary div is not found
-
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let orderSummaryHtml = '<h2>Order Summary</h2>';
-
-    cart.forEach(item => {
-        orderSummaryHtml += `
-            <div class="order-item">
-                <span>${item.name} (Quantity: ${item.quantity}) - £${(item.price * item.quantity).toFixed(2)}</span>
-            </div>
-        `;
-    });
-
-    orderSummaryDiv.innerHTML = orderSummaryHtml;
-}
-
-// When the DOM is fully loaded, populate the order summary
-document.addEventListener('DOMContentLoaded', () => {
-    populateOrderSummary();
-    // ... existing DOMContentLoaded code ...
-});
-
-
-
 
 
 initApp();

@@ -32,9 +32,22 @@
         <!--        <textarea id="note" name="note" placeholder="Add The Design choice for the t-shirt or any other notes as required"></textarea>-->
 
 
-        <div id="order-summary">
-            <!-- Dynamically populate order summary -->
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr th:each="item : ${cartItems}">
+                <td th:text="${item.name}">Product Name</td>
+                <td th:text="${item.quantity}">1</td>
+                <td th:text="${'£' + item.price}">£0.00</td>
+            </tr>
+        </table>
+        <div>
+            <strong>Total Cost:</strong> <span th:text="${'£' + totalCost}">£0.00</span>
         </div>
+
 
         <button type="submit">Place Order</button>
 
@@ -43,7 +56,7 @@
 </div>
 
 <!-- <script src="static/js/checkout-page/checkout.js"></script> -->
-<script th:src="@{/js/checkout-page/c.js}"></script>
-<script th:src="@{/js/marketplace-productlist/app.js}"></script>
+<script th:src="@{/js/checkout-page/checkout.js}"></script>
+<!--<script th:src="@{/js/marketplace-productlist/app.js}"></script> -->
 </body>
 </html>
