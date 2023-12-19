@@ -1,59 +1,20 @@
-// Triggering the Data Send
-document.addEventListener('DOMContentLoaded', function() {
-    let checkoutButton = document.getElementById('checkoutButton');
-    if (checkoutButton) {
-        checkoutButton.addEventListener('click', sendCartToCheckout);
-    }
-});
-
-
-
-function sendCartToCheckout() {
-    const cartData = getCartData();
-    if (cartData) {
-        // Example AJAX call to send data to the server
-        $.ajax({
-            url: '/path/to/your/endpoint', // Replace with your server endpoint
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(cartData),
-            success: function(response) {
-                // Handle successful response
-                console.log("Checkout data sent successfully:", response);
-            },
-            error: function(error) {
-                // Handle error
-                console.error("Error sending checkout data:", error);
-            }
-        });
-    }
-}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    populateCheckoutTable();
-
-    let checkoutButton = document.getElementById('checkoutButton');
-    if (checkoutButton) {
-        checkoutButton.addEventListener('click', sendCartToCheckout);
-    }
-});
-
 // Retrieve Cart Data from Local Storage
 function getCartData() {
-    return JSON.parse(localStorage.getItem('cart')); // Changed key to 'cart'
+    return JSON.parse(localStorage.getItem('cart'));
 }
 
-// Populate Checkout Table with Cart Data
 // Populate Checkout Table with Cart Data
 function populateCheckoutTable() {
     const cartData = getCartData();
-    const checkoutTable = document.getElementById('checkoutTable'); // Assuming you have a table with this ID
-    const totalCostElement = document.getElementById('totalCost'); // Add an ID to your total cost element in HTML
+    const checkoutTable = document.getElementById('checkoutTable');
+    const totalCostElement = document.getElementById('totalCost');
 
     if (cartData && checkoutTable) {
         let totalCost = 0;
+        // Clear existing rows and set up headers
         checkoutTable.innerHTML = '<tr><th>Product Name</th><th>Quantity</th><th>Price</th></tr>';
+
+        // Populate table with cart items
         cartData.forEach(item => {
             const row = checkoutTable.insertRow();
             row.innerHTML = `
@@ -72,15 +33,7 @@ function populateCheckoutTable() {
     }
 }
 
-
-// Triggering the Data Send and Populate Table
+// Event Listener for Page Load
 document.addEventListener('DOMContentLoaded', function() {
-    populateCheckoutTable(); // Populate table on page load
-
-    let checkoutButton = document.getElementById('checkoutButton');
-    if (checkoutButton) {
-        checkoutButton.addEventListener('click', sendCartToCheckout);
-    }
+    populateCheckoutTable();
 });
-
-

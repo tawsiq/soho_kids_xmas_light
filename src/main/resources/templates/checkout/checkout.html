@@ -5,12 +5,16 @@
     <title>Checkout</title>
     <link rel="stylesheet" th:href="@{/css/marketplace-productlist/style.css}">
     <link rel="stylesheet" th:href="@{/css/checkout-page/checkout.css}">
-    <!-- Update with your CSS file path -->
 </head>
+
 <body>
 <div class="container">
+    <!-- Header for the checkout page -->
     <h1>Checkout</h1>
+
+    <!-- Form for checkout details -->
     <form th:action="@{'/home/marketplace/checkout/' + '200'}" method="post">
+        <!-- Section for customer details -->
         <h2>Customer Details</h2>
         <label for="customerName">Full Name:</label>
         <input type="text" id="customerName" name="customerName" placeholder="Enter your full name" required>
@@ -18,6 +22,7 @@
         <label for="customerEmail">Email:</label>
         <input type="email" id="customerEmail" name="customerEmail" placeholder="Enter your email address" required>
 
+        <!-- Section for delivery address -->
         <h2>Delivery Address</h2>
         <label for="deliveryAddress">Address Line 1:</label>
         <input type="text" id="deliveryAddress" name="deliveryAddress" placeholder="First line of your address" required>
@@ -31,22 +36,25 @@
         <!--        <label for="note">Special Notes:</label>-->
         <!--        <textarea id="note" name="note" placeholder="Add The Design choice for the t-shirt or any other notes as required"></textarea>-->
 
-
+        <!-- Section for order summary -->
+        <h2>Order Summary</h2>
+        <!-- Table headers for product name, quantity, and price -->
         <table id="checkoutTable">
             <tr>
                 <th>Product Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
             </tr>
+            <!-- Table rows are dynamically added in checkout.js -->
 
         </table>
+        <!-- Display for total cost -->
         <div>
             <strong>Total Cost:</strong> <span id="totalCost">£0.00</span>
         </div>
 
-
+        <!-- Button to submit the form -->
         <button type="submit">Place Order</button>
-
 
     </form>
 </div>
