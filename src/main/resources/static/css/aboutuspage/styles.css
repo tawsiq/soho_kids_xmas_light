@@ -194,3 +194,7 @@ button {
     height: auto;
     margin: 10px;
 }
+/* Media Toggle Button */
+#media.hidden {
+    display: none;
+}
