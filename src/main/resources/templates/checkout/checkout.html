@@ -38,14 +38,10 @@
                 <th>Quantity</th>
                 <th>Price</th>
             </tr>
-            <tr th:each="item : ${cartItems}">
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.quantity}"></td>
-                <td th:text="${'£' + item.price}"></td>
-            </tr>
+
         </table>
         <div>
-            <strong>Total Cost:</strong> <span th:text="${'£' + totalCost}">£0.00</span>
+            <strong>Total Cost:</strong> <span id="totalCost">£0.00</span>
         </div>
 
 

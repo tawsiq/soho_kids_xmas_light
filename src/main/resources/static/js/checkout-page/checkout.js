@@ -45,11 +45,15 @@ function getCartData() {
 }
 
 // Populate Checkout Table with Cart Data
+// Populate Checkout Table with Cart Data
 function populateCheckoutTable() {
     const cartData = getCartData();
     const checkoutTable = document.getElementById('checkoutTable'); // Assuming you have a table with this ID
+    const totalCostElement = document.getElementById('totalCost'); // Add an ID to your total cost element in HTML
 
     if (cartData && checkoutTable) {
+        let totalCost = 0;
+        checkoutTable.innerHTML = '<tr><th>Product Name</th><th>Quantity</th><th>Price</th></tr>';
         cartData.forEach(item => {
             const row = checkoutTable.insertRow();
             row.innerHTML = `
@@ -58,9 +62,16 @@ function populateCheckoutTable() {
                 <td>£${item.price}</td>
                 <td>£${(item.price * item.quantity).toFixed(2)}</td>
             `;
+            totalCost += item.price * item.quantity;
         });
+
+        // Update the total cost display
+        if (totalCostElement) {
+            totalCostElement.innerText = `£${totalCost.toFixed(2)}`;
+        }
     }
 }
+
 
 // Triggering the Data Send and Populate Table
 document.addEventListener('DOMContentLoaded', function() {
