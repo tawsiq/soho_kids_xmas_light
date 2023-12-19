@@ -182,45 +182,40 @@ const initApp = () => {
     }
 };
 
+// ... existing JavaScript code ...
+
+function populateOrderSummary() {
+    const orderSummaryDiv = document.getElementById('order-summary');
+    if (!orderSummaryDiv) return; // Exit if the order summary div is not found
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let orderSummaryHtml = '<h2>Order Summary</h2>';
+
+    cart.forEach(item => {
+        orderSummaryHtml += `
+            <div class="order-item">
+                <span>${item.name} (Quantity: ${item.quantity}) - £${(item.price * item.quantity).toFixed(2)}</span>
+            </div>
+        `;
+    });
+
+    orderSummaryDiv.innerHTML = orderSummaryHtml;
+}
+
+// When the DOM is fully loaded, populate the order summary
+document.addEventListener('DOMContentLoaded', () => {
+    populateOrderSummary();
+    // ... existing DOMContentLoaded code ...
+});
+
+
+
+
 
 initApp();
 
-document.addEventListener('DOMContentLoaded', () => {
-    displayOrderSummary();
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    displayOrderSummary();
-});
 
-function displayOrderSummary() {
-    const orderSummaryElement = document.getElementById('order-summary');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    cart.forEach(item => {
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('item-summary');
-        itemElement.innerHTML = `
-            <div class="summary-product-name">${item.name}</div>
-            <div class="summary-product-price">£${parseFloat(item.price).toFixed(2)}</div>
-            <div class="summary-product-quantity">Quantity: ${item.quantity}</div>
-            <div class="summary-product-total">Total: £${(parseFloat(item.price) * item.quantity).toFixed(2)}</div>
-        `;
-        orderSummaryElement.appendChild(itemElement);
-    });
-
-    // Optionally, add total cost and total items summary
-    const totalCost = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-
-    const summaryTotalElement = document.createElement('div');
-    summaryTotalElement.classList.add('order-summary-total');
-    summaryTotalElement.innerHTML = `
-        <div>Total Items: ${totalItems}</div>
-        <div>Total Cost: £${totalCost.toFixed(2)}</div>
-    `;
-    orderSummaryElement.appendChild(summaryTotalElement);
-}
 
 
 

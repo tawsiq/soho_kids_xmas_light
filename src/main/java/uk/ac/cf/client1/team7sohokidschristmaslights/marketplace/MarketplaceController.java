@@ -17,13 +17,13 @@ import java.util.List;
 public class MarketplaceController {
 
     private final MarketService marketService; // Service for handling marketplace operations
-    private final CartDetailRepository cartDetailRepository ; // New repository for cart details
+   // private final CartDetailRepository cartDetailRepository ; // New repository for cart details
 
     // Constructor injection of MarketService
-    public MarketplaceController(MarketService marketService,CartDetailRepository cartDetailRepository){
+  public MarketplaceController(MarketService marketService){
         this.marketService = marketService;
-        this.cartDetailRepository = cartDetailRepository;
-    }
+  //      this.cartDetailRepository = cartDetailRepository;
+  }
 
 
     // Handles requests to the marketplace page, displaying products
@@ -72,17 +72,13 @@ public class MarketplaceController {
         return new ModelAndView("redirect:/home/marketplace/checkout"); // Redirect after successful checkout
     }
     // New method to process cart data
-    @PostMapping("/processCart")
-    public ResponseEntity<?> processCart(@RequestBody List<CartDetail> cartDetails) {
-        for (CartDetail detail : cartDetails) {
-            cartDetailRepository.save(detail);
-        }
-        return ResponseEntity.ok().build();
-    }
-
-
-
-
+   // @PostMapping("/processCart")
+    //public ResponseEntity<?> processCart(@RequestBody List<CartDetail> cartDetails) {
+    //    for (CartDetail detail : cartDetails) {
+     //       cartDetailRepository.save(detail);
+     //   }
+      //  return ResponseEntity.ok().build();
+  //  }
 
 }
 
