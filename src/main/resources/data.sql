@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-#DELETE FROM SponsorInfo;
-#INSERT INTO SponsorInfo (company_name, contact_person, email)
-#VALUES ('RashidInc','Tuhin','Tuhin@gmail.com');
-=======
-/*Have commented this out as was testing SQL before so using this as dummy test, but is no longer needed*/
-
 /*DELETE FROM ContactInfo;
-INSERT INTO ContactInfo (`name`, email, `subject`, message) VALUES ('Ozair', 'ozair@gmail.com', 'I like milk', 'Just wanted to get in contact with you to say that I really like milk... and speed typing.')*/
->>>>>>> 193cb437029eb9319c8aac036c097ac58557598a
+INSERT INTO ContactInfo (`name`, email, `subject`, message)
+VALUES ('Ozair', 'ozair@gmail.com', 'I like milk', 'Just wanted to get in contact with you to say that I really like milk... and speed typing.')
+
+Have commented all of this out as no longer needed, just leaving here for evidence of dummy testing
+Originally had some conflicts when trying to bootRun after pulling using 'git pull origin main'*/
+

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Drawings (
     year_group VARCHAR(50) NOT NULL,
     `name` VARCHAR(128)
 
-) ENGINE=InnoDB;
+    ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Lights (
 
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Lights (
 
     FOREIGN KEY (drawing_id) REFERENCES Drawings(id)
 
-) ENGINE=InnoDB;
+    ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Ratings (
 
@@ -37,27 +37,19 @@ CREATE TABLE IF NOT EXISTS Ratings (
     -- COME BACK HERE IF YOU FACE ISSUES. THIS WAS COMMENTED OUT FOR SOME REASON
     -- FOREIGN KEY (submission_id) REFERENCES Drawings(id)
 
-) ENGINE=InnoDB;
+    ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS LikeCounts (
 
-   submission_id BIGINT PRIMARY KEY NOT NULL,
-   like_count BIGINT NOT NULL
-   -- Every time a like is submitted, the entry corresponding to the submission id will be updated.
-   -- No duplicates can be entered due to the way implementation will work.
+    submission_id BIGINT PRIMARY KEY NOT NULL,
+    like_count BIGINT NOT NULL
+    -- Every time a like is submitted, the entry corresponding to the submission id will be updated.
+    -- No duplicates can be entered due to the way implementation will work.
 
-   -- FOREIGN KEY (submission_id) REFERENCES Drawings(id)
+    -- FOREIGN KEY (submission_id) REFERENCES Drawings(id)
 
 ) ENGINE=InnoDB;
 
-<<<<<<< HEAD
-CREATE TABLE IF NOT EXISTS SponsorInfo (
-
-    sponsor_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    company_name VARCHAR(255) NOT NULL,
-    contact_person VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL
-=======
 CREATE TABLE IF NOT EXISTS ContactInfo (
 
     id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -65,6 +57,5 @@ CREATE TABLE IF NOT EXISTS ContactInfo (
     email VARCHAR(255) NOT NULL,
     `subject` VARCHAR(255) NOT NULL,
     `message` VARCHAR(10000) NOT NULL
->>>>>>> 193cb437029eb9319c8aac036c097ac58557598a
 
     ) ENGINE=InnoDB;
