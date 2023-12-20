@@ -3,39 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel = "stylesheet" th:href="@{/css/submissions-page/navbar.css}">-->
-    <link rel = "stylesheet" th:href="@{/css/shared.css}">
-    <link rel="stylesheet" href="NewContactUs.css">
+    <!--    <link rel = "stylesheet" th:href="@{/css/submissions-page/navbar.css}">-->
+    <!--<link rel="stylesheet" th:href="@{/css/shared.css}">-->
+    <link rel="stylesheet" th:href="@{/css/NewContactUs/NewContactUs.css}">
+    <link rel="stylesheet" href="../../static/css/NewContactUs/NewContactUs.css">
     <title>Contact Us</title>
 </head>
 <body>
 <header>
 
+
     <nav>
 
         <ul>
             <li>
-            <span class="logo-container">
+                <a href="#home" class="logo-container">
+                    <!--<img src="../../static/css/NewContactUs/AFK_Logo_small.png" height="73" width="262" alt="Logo" class="logo"/>-->
+                    <img th:src="@{/css/NewContactUs/AFK_Logo_small.png}">
+                </a>
+            </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="/home/submissions">Drawings</a></li>
+            <li><a href="#marketplace">Marketplace</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+
+    <span class="logo-container">
         <img th:src="@{/homepage content/AFK_Logo_small.png}" height="73" width="262" alt="Logo" class="logo"/>
             </span>
-            </li>
+    </li>
 
-            <li><a href="/home">Home</a></li>
-            <li><a href="/home/aboutus">About Us</a></li>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/home/aboutus">About Us</a></li>
 
-            <li><a href="/home/submissions">Drawings</a></li>
-            <li><a href="/home/marketplace">Marketplace</a></li>
-            <li><a href="/home/contactus">Contact Us</a></li>
-        </ul>
+    <li><a href="/home/submissions">Drawings</a></li>
+    <li><a href="/home/marketplace">Marketplace</a></li>
+    <li><a href="/home/contactus">Contact Us</a></li>
+    </ul>
 
     </nav><br>
 
 </header>
+
+
 <main class="main-container">
     <section class="header-underline contact-form">
         <h2>Contact Us</h2>
         <p>Please fill out the form below, and we will get back to you as soon as possible :D</p>
-        <form id="contactForm" action="#" method="POST">
+        <form id="contactForm" th:action="@{/home/contactus/addContact}" method="POST"> <!-- Change the action -->
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -50,11 +68,12 @@
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Enter your message (max 2500 characters)" rows="5" required></textarea>
+                <textarea id="message" name="message" placeholder="Enter your message (max 2500 characters)" rows="5"
+                          required></textarea>
                 <p id="charCount">0 / 2500 characters</p>
             </div>
             <div class="form-group">
-                <button type="button" id="submit">Send Message</button>
+                <button type="submit" id="submit">Send Message</button>
             </div>
         </form>
     </section>
@@ -71,11 +90,25 @@
         </div>
     </aside>
 </main>
+
+
 <!-- Space for animated footer -->
 <footer class="animated-footer">
     <!-- Footer content here -->
+    <!-- NOTE: Footer in another file, as had merging issues.-->
 </footer>
 
-<script src="NewContactUs.js"></script> <!-- Ensure correct JavaScript file -->
+<!--NOTE THE BELOW IS NO LONGER NEEDED, SO HAVE COMMENTED OUT, BUT LEAVING IN HERE JUST TO SPEAK ABOUT IN FURTHER COURSEWORK-->
+
+<!--<script src="resources/templates/NewContactUs/NewContactUs.js"></script> &lt;!&ndash; Ensure correct JavaScript file &ndash;&gt;-->
+
+<!--<script
+        th:src="@{resources/templates/NewContactUs/NewContactUs.js}">
+</script>-->
+
+<script
+        th:src="@{/js/NewContactUs/NewContactUs.js}">
+</script>
+
 </body>
 </html>

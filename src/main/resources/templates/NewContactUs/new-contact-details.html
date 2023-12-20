@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>new-contact-details</title>
+</head>
+<body>
+<ul>
+  <li th:each="contact : ${contactsList}">
+    <p th:text="${contact.getName()}"></p>
+    <p th:text="${contact.getEmail()}"></p>
+    <p th:text="${contact.getSubject()}"></p>
+    <p th:text="${contact.getMessage()}"></p>
+    <div class = "divider-line"></div>
+  </li>
+</ul>
+</body>
+</html>
