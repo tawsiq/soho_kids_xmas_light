@@ -31,7 +31,11 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
+<<<<<<< HEAD
     width: 96%;
+=======
+    width:96%;
+>>>>>>> 3bf56d9d8940c9459a65ea6e3cb6dd28fffb1475
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
