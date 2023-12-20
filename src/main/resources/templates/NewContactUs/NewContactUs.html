@@ -95,20 +95,62 @@
 <!-- Space for animated footer -->
 <footer class="animated-footer">
     <!-- Footer content here -->
-    <!-- NOTE: Footer in another file, as had merging issues.-->
+    <!-- NOTE: Footer in seperate file, as had merging issues.-->
 </footer>
 
-<!--NOTE THE BELOW IS NO LONGER NEEDED, SO HAVE COMMENTED OUT, BUT LEAVING IN HERE JUST TO SPEAK ABOUT IN FURTHER COURSEWORK-->
+<script src="NewContactUs.js" type="text/javascript"></script>
+<script th:src="@{/NewContactUs/NewContactUs.js}"></script>
 
-<!--<script src="resources/templates/NewContactUs/NewContactUs.js"></script> &lt;!&ndash; Ensure correct JavaScript file &ndash;&gt;-->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("contactForm");
+        const nameField = document.getElementById("name");
+        const emailField = document.getElementById("email");
+        const subjectField = document.getElementById("subject");
+        const messageField = document.getElementById("message");
+        const charCount = document.getElementById("charCount");
 
-<!--<script
-        th:src="@{resources/templates/NewContactUs/NewContactUs.js}">
-</script>-->
+        form.addEventListener("submit", function(event) {
+            const name = nameField.value;
+            const email = emailField.value;
+            const subject = subjectField.value;
+            const message = messageField.value;
 
-<script
-        th:src="@{/js/NewContactUs/NewContactUs.js}">
+            const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            if (!name.match(/^[a-zA-Z]+$/)) {
+                alert("Name should only contain alphabetic characters!");
+                event.preventDefault();
+                return;
+            }
+
+            if (!email.match(emailFormat)) {
+                alert("Please enter a valid email address!");
+                event.preventDefault();
+                return;
+            }
+
+            if (subject.length < 5 || subject.length > 50) {
+                alert("Subject should be between 5 and 50 characters!");
+                event.preventDefault();
+                return;
+            }
+
+            if (message.length > 2500) {
+                alert("Message exceeds the character limit of 2500!");
+                event.preventDefault();
+                return;
+            }
+        });
+
+        // Character counter functionality
+        messageField.addEventListener("input", function() {
+            const messageLength = messageField.value.length;
+            charCount.textContent = `${messageLength} / 2500 characters`;
+            console.log(`Message length: ${messageLength}`);
+        });
+    });
+
 </script>
-
 </body>
 </html>

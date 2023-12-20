@@ -5,63 +5,42 @@
     <title>Checkout</title>
     <link rel="stylesheet" th:href="@{/css/marketplace-productlist/style.css}">
     <link rel="stylesheet" th:href="@{/css/checkout-page/checkout.css}">
+    <!-- Update with your CSS file path -->
 </head>
-
 <body>
 <div class="container">
-    <!-- Header for the checkout page -->
     <h1>Checkout</h1>
-
-    <!-- Form for checkout details -->
-    <form th:action="@{'/home/marketplace/checkout/' + '200'}" method="post">
-        <!-- Section for customer details -->
+    <form action="/submit-checkout" method="post">
         <h2>Customer Details</h2>
-        <label for="customerName">Full Name:</label>
-        <input type="text" id="customerName" name="customerName" placeholder="Enter your full name" required>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-        <label for="customerEmail">Email:</label>
-        <input type="email" id="customerEmail" name="customerEmail" placeholder="Enter your email address" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
 
-        <!-- Section for delivery address -->
         <h2>Delivery Address</h2>
-        <label for="deliveryAddress">Address:</label>
-        <input type="text" id="deliveryAddress" name="deliveryAddress" placeholder="First line of your address" required>
+        <label for="address-line1">Address Line 1:</label>
+        <input type="text" id="address-line1" name="address_line1" placeholder="First line of your address" required>
 
-        <!-- Other optional fields currently taken out in order to keep simplicity in the form as they can just be in the address field -->
-        <!--        <label for="address-line2">Address Line 2 (optional):</label>-->
-        <!--        <input type="text" id="address-line2" name="address_line2" placeholder="Second line of your address (optional)">-->
+        <label for="address-line2">Address Line 2 (optional):</label>
+        <input type="text" id="address-line2" name="address_line2" placeholder="Second line of your address (optional)">
 
-        <!--        <label for="postcode">Postcode:</label>-->
-        <!--        <input type="text" id="postcode" name="postcode" placeholder="Enter your postcode" required>-->
+        <label for="postcode">Postcode:</label>
+        <input type="text" id="postcode" name="postcode" placeholder="Enter your postcode" required>
 
-        <!-- Notes field for the user to specify the order's needs like the size of the t-shirt, design or any other notes needed -->
         <label for="note">Special Notes:</label>
         <textarea id="note" name="note" placeholder="Add The Design choice for the t-shirt or any other notes as required"></textarea>
 
-        <!-- Section for order summary -->
-        <h2>Order Summary</h2>
-        <!-- Table headers for product name, quantity, and price -->
-        <table id="checkoutTable">
-            <tr>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-            <!-- Table rows are dynamically added in checkout.js -->
 
-        </table>
-        <!-- Display for total cost -->
-        <div>
-            <strong>Total Cost:</strong> <span id="totalCost">£0.00</span>
+        <div id="order-summary">
+            <!-- Dynamically populate order summary -->
         </div>
 
-        <!-- Button to submit the form -->
         <button type="submit">Place Order</button>
+
+
     </form>
 </div>
-
-<!-- JavaScript link -->
-<script th:src="@{/js/checkout-page/checkout.js}"></script>
-
+<script src="path/to/your/checkout-script.js"></script> <!-- If you have a JS file for checkout -->
 </body>
 </html>
