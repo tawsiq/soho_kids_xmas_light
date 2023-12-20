@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Sponsor {
 
+    private Integer sponsorId;
     private String companyName;
     private String contactPerson;
     private String email;

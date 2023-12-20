@@ -1,0 +1,166 @@
+/* Shared styles */
+/* ... (Paste all styles from shared.css here) */
+
+/* Additional styling for Contact Us page */
+body {
+    font-family: sans-serif;
+    background: #14152A;
+    color: #EAEBED;
+    font-size: 1rem;
+    margin: 0;
+}
+
+nav {
+    background-color: darkslateblue;
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    max-width: 150px; /* Increased logo size */
+    height: auto;
+    margin-right: 20px;
+    vertical-align: middle; /* Aligns the logo vertically */
+}
+
+/* End of Merged Navbar styles */
+
+/* Remaining styles from NewContactUs.css */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #14152A;
+    color: #EAEBED;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    margin-top: 50px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    width: 40%;
+    padding: 20px;
+    border-radius: 30px;
+    margin-top: 0px;
+    background-color: #1f2140;
+    color: #EAEBED;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    max-width: 150px;
+    height: auto;
+}
+
+.contact-form form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #1f2140;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    display: block;
+    width: calc(100% - 20px);
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #EAEBED;
+    border: none;
+    background-color: #2c2f5a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form textarea {
+    height: 100px;
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+.contact-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center; /* Center the heading text */
+}
+
+.contact-details p {
+    margin-bottom: 15px;
+    text-align: center; /* Center the paragraph text */
+}
+
+.detail {
+    margin-bottom: 20px;
+}
+
+.detail-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Add your additional styles below as needed */
+
