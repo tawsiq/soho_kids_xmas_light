@@ -32,15 +32,16 @@ public class MarketRepositoryImpl implements MarketRepository {
     // Saves checkout information to the database
     public void saveCheckout(Checkout checkout) {
         String sql = "INSERT INTO CheckoutInfo " +
-                "(`customer_name`, `customer_email`, `delivery_address`, `total_price`)" +
-                "VALUES (?,?,?,?)";
+                "(`customer_name`, `customer_email`, `delivery_address`, `total_price`, `note`)" +
+                "VALUES (?,?,?,?,?)";
 
         // Execute the update with checkout details
         jdbc.update(sql,
                 checkout.getCustomerName(),
                 checkout.getCustomerEmail(),
                 checkout.getDeliveryAddress(),
-                checkout.getTotalPrice()
+                checkout.getTotalPrice(),
+                checkout.getNote()
         );
     }
     // Retrieves a single product by ID from the database

@@ -17,7 +17,7 @@ import java.util.List;
 public class MarketplaceController {
 
     private final MarketService marketService; // Service for handling marketplace operations
-   // private final CartDetailRepository cartDetailRepository ; // New repository for cart details
+
 
     // Constructor injection of MarketService
   public MarketplaceController(MarketService marketService){

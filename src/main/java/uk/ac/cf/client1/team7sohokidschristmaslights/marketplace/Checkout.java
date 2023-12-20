@@ -15,5 +15,6 @@ public class Checkout {
     private String customerEmail; // Customer's email address
     private String deliveryAddress; // Delivery address for the order
     private Float totalPrice; // Total price of the order
+    private String note;
     private String submissionTime; // Time of form submission
 }
