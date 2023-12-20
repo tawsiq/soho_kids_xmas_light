@@ -50,6 +50,17 @@ CREATE TABLE IF NOT EXISTS LikeCounts (
 
 ) ENGINE=InnoDB;
 
+
+DROP TABLE IF EXISTS MarketplaceProducts;
+
+CREATE TABLE IF NOT EXISTS MarketplaceProducts (
+   product_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+   filename VARCHAR(128) NOT NULL,
+   filepath VARCHAR(255) NOT NULL,
+   product_name VARCHAR(255) NOT NULL,
+   price DECIMAL(10, 2) NOT NULL
+) ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS SponsorInfo (
 
     sponsor_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -66,3 +77,4 @@ CREATE TABLE IF NOT EXISTS ContactInfo (
     `subject` VARCHAR(255) NOT NULL,
     `message` VARCHAR(10000) NOT NULL
 ) ENGINE=InnoDB;
+

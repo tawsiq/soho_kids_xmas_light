@@ -3,30 +3,30 @@
     "id": 1,
     "name": "XMAS T-Shirt 001",
     "price": 30,
-    "image": "C:\\Projects\\Soho_kids_project_softeng\\team-7-soho-kids-christmas-lights\\src\\main\\resources\\static\\images\\marketplace-productlist\\Products\\IMG_6304-removebg-preview.png"
+    "image": "C:\\Projects\\Soho_kids_project_softeng\\team-7-soho-kids-christmas-lights\\src\\main\\resources\\static\\images\\marketplace-productlist\\Products\\Black-Tshirt-Arm-Logo.png"
   },
   {
     "id": 2,
     "name": "XMAS T-Shirt 002",
     "price": 30,
-    "image": "../../static/images/marketplace-productlist/Products/Antonio_mockup_black-removebg-preview.png"
+    "image": "../../static/images/marketplace-productlist/Products/Black-T-Shirt.png"
   },
   {
     "id": 3,
     "name": "XMAS T-Shirt 003",
     "price": 30,
-    "image": "../../static/images/marketplace-productlist/Products/Antonio_mockup_2-removebg-preview.png"
+    "image": "../../static/images/marketplace-productlist/Products/White-T-Shirt.png"
   },
   {
     "id": 4,
     "name": "Gingerbread Card",
     "price": 30,
-    "image": "../../static/images/marketplace-productlist/Products/SKXL22 Gingerbread Greeting Card A5_05_HiRes.jpg"
+    "image": "../../static/images/marketplace-productlist/Products/Gingerbread-Greeting-Card.jpg"
   },
   {
     "id": 5,
     "name": "Wrapping Paper 2022",
     "price": 30,
-    "image": "../../static/images/marketplace-productlist/Products/wrapping paper design 2022.jpg"
+    "image": "../../static/images/marketplace-productlist/Products/Wrapping-Paper.jpg"
   }
 ]
