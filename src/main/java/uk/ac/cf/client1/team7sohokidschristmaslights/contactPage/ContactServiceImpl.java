@@ -1,5 +1,12 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.contactPage;
 
+// Adding new imports for email automation:
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
