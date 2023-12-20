@@ -121,7 +121,7 @@ resources directory e.g. sponsor logos, shapes used for the headings-->
 </header>
 
 <!-- Media links section -->
-<header id="media">
+<header>
   <h3>Media</h3>
   <!-- Default fragment location in resources/templates/ so reference is written with that in mind.-->
   <div th:replace="~{fragments/shaped-header-underlines :: underline-circle}"></div>
@@ -132,11 +132,13 @@ resources directory e.g. sponsor logos, shapes used for the headings-->
 <!--    <div class = right-line></div>-->
 <!--  </div>-->
 
+  <button id="toggleMedia">Toggle Media</button>
+
   <br>
   <br>
   <br>
 
-
+  <div id="media">
   <ul class="media-links">
     <li><a href="https://southlondon.co.uk/news/soho-kids-christmas-lights-returns-for-the-third-year/" target="_blank" rel="noopener noreferrer">South London - Soho kids Christmas lights returns for the third year</a></li>
     <li><a href="https://secretldn.com/soho-christmas-lights/" target="_blank" rel="noopener noreferrer">Secret London - These Heartwarming Soho Christmas Lights Were Designed By Schoolchildren</a></li>
@@ -144,6 +146,7 @@ resources directory e.g. sponsor logos, shapes used for the headings-->
     <li><a href="https://theglasshouse.org.uk/co-design-collaboration/soho-kids-xmas-lights-bringing-together-architecture-children-and-communities/" target="_blank" rel="noopener noreferrer">The Glass House - Soho Kids Xmas Lights: Bringing together architecture, children and community</a></li>
     <li><a href="https://www.thelia.org.uk/news/659782/Soho-unveils-Soho-Kids-Xmas-Lights.htm" target="_blank" rel="noopener noreferrer">theLIA - Soho unveils Soho Kids Xmas Lights</a></li>
   </ul>
+  </div>
 </header>
 
 
