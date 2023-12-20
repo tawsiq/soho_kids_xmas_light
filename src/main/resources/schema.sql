@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS LikeCounts (
 
 DROP TABLE IF EXISTS MarketplaceProducts;
 DROP TABLE IF EXISTS CheckoutInfo;
+DROP TABLE IF EXISTS CartDetails;
 
 CREATE TABLE IF NOT EXISTS MarketplaceProducts (
    product_id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -70,14 +71,3 @@ CREATE TABLE IF NOT EXISTS CheckoutInfo (
     note VARCHAR(255) NOT NULL,
     submission_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
-
--- DROP TABLE IF EXISTS CartDetails;
--- CREATE TABLE CartDetails (
- -- id BIGINT AUTO_INCREMENT PRIMARY KEY,
- -- productId BIGINT,
---  productName VARCHAR(255),
--- quantity INT,
--- price DECIMAL(10, 2),
- -- total_price DECIMAL(10, 2) NOT NULL
-
--- );

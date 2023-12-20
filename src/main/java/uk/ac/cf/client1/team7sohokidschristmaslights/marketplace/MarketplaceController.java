@@ -71,14 +71,6 @@ public class MarketplaceController {
 
         return new ModelAndView("redirect:/home/marketplace/checkout"); // Redirect after successful checkout
     }
-    // New method to process cart data
-   // @PostMapping("/processCart")
-    //public ResponseEntity<?> processCart(@RequestBody List<CartDetail> cartDetails) {
-    //    for (CartDetail detail : cartDetails) {
-     //       cartDetailRepository.save(detail);
-     //   }
-      //  return ResponseEntity.ok().build();
-  //  }
 
 }
 

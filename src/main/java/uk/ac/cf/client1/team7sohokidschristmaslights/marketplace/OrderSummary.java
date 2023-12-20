@@ -20,5 +20,4 @@ public class OrderSummary {
         private Integer quantity;  // Additional field, specific to OrderSummary
     }
 
-    // Additional fields and methods as required
 }

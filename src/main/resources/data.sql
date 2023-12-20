@@ -14,4 +14,3 @@ VALUES (4, 'Gingerbread-Greeting-Card.jpg', 'C:\\Projects\\Soho_kids_project_sof
 
 INSERT INTO MarketplaceProducts (product_id, filename, filepath, product_name, price)
 VALUES (5, 'Wrapping-Paper.jpg', 'C:\\Projects\\Soho_kids_project_softeng\\team-7-soho-kids-christmas-lights\\src\\main\\resources\\static\\images\\marketplace-productlist\\Products\\Wrapping-Paper.jpg', 'Wrapping Paper 2022', 10.00);
---Delete product ID

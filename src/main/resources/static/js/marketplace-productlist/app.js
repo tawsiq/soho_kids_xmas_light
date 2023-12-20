@@ -1,4 +1,3 @@
-// Selecting necessary DOM elements for cart functionality
 let listProductHTML = document.querySelector('.listProduct');
 let listCartHTML = document.querySelector('.listCart');
 let iconCart = document.querySelector('.icon-cart');

@@ -32,7 +32,6 @@
 
 <!-- Product List Section -->
 <div class="listProduct">
-    <!-- Use Thymeleaf to iterate over products -->
     <div th:each="product : ${productList}" th:data-id="${product.product_id}" class="item">
         <img th:src="@{'/getProductImage/' + ${product.getProduct_id()} }" alt="">
         <h2 th:text="${product.product_name}"></h2>
@@ -47,12 +46,7 @@
     <div class="listCart"></div>
     <div class="btn">
         <button class="close">CLOSE</button>
-        <!--<button class="checkout">Check Out</button> -->
         <a id="checkoutButton" class="checkoutButton checkout" th:href="@{/home/checkout}">Check Out</a>
-
-
-
-
     </div>
 </div>
 
