@@ -1,15 +1,17 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.contactPage;
 
-// Adding new imports for email automation:
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+
+// Adding necessary imports for the Email Automation System
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 // Mark the class as a service component using the @Service annotation
 @Service
@@ -35,5 +37,66 @@ public class ContactServiceImpl implements ContactService {
 
     public void saveContact(Contact contact){
         contactRepository.saveContactDetails(contact);
+        sendEmail(contact); // Send email after saving contact details
+                            // This is part of the additional code in order to get automated emails to send
+    }
+
+
+    // Adding function in order to be able to send emails using JavaMail
+
+    // This function sets up the SMTP server properties, email credentials, and email content.
+
+    // It creates a Session object with authentication.
+
+    // Then, it creates a MimeMessage, sets message details, and sends the message using Transport.send().
+
+    public void sendEmail(Contact contact) {
+        // SMTP server properties
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        // Email credentials
+        String username = "dammahumdahs@gmail.com";
+        String password = "Bertholdt123!";
+
+        // Email content
+        String toEmail = "shadmo@cardiff.ac.uk";
+        String subject = "New Contact Form Submission";
+        String messageContent = "Name: " + contact.getName() + "\n" +
+                "Email: " + contact.getEmail() + "\n" +
+                "Subject: " + contact.getSubject() + "\n" +
+                "Message: " + contact.getMessage();
+
+        // Create a Session object with authentication
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            // Create a MimeMessage object
+            Message message = new MimeMessage(session);
+
+            // Set message details
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+            message.setSubject(subject);
+            message.setText(messageContent);
+
+            // Send the message
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace(); // Handle exceptions (log or alert user)
+        }
     }
 }
+
+
+
+
+
+

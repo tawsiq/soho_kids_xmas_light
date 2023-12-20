@@ -38,6 +38,17 @@ dependencies {
 
 	implementation 'javax.persistence:javax.persistence-api:2.2'
 
+	// Adding this in order to try and allow for email automation
+	implementation files('libs/javax.mail.jar')
+
+	// Dependancies for email automation
+	implementation 'javax.activation:javax.activation-api:1.2.0'
+
+	implementation group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0'
+	implementation group: 'com.sun.activation', name: 'jakarta.activation', version: '1.2.2'
+
+	
+
 
 
 }
