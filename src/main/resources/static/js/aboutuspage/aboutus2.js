@@ -11,3 +11,16 @@ function validateEmail() {
 
     return true;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Toggle visibility of the media section
+    var toggleMediaButton = document.getElementById('toggleMedia');
+    var mediaSection = document.getElementById('media');
+
+    if (toggleMediaButton && mediaSection) {
+        toggleMediaButton.addEventListener('click', function () {
+            mediaSection.classList.toggle('hidden');
+        });
+    }
+
+});
