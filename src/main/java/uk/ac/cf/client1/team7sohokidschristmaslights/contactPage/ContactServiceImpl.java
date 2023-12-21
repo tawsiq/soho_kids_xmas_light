@@ -37,8 +37,15 @@ public class ContactServiceImpl implements ContactService {
 
     public void saveContact(Contact contact){
         contactRepository.saveContactDetails(contact);
-        sendEmail(contact); // Send email after saving contact details
+        // sendEmail(contact); // Send email after saving contact details
                             // This is part of the additional code in order to get automated emails to send
+                            // NOTE I HAVE DISABLED THE EMAIL AUTOMATION DUE TO NOT BEING ABLE TO CONFIGURE MY
+                            // GMAIL PROPERLY:
+
+    // Google has tightened security for Gmail accounts.
+    // By default, it doesn’t allow “less secure apps”
+    // (such as THE Java application) to access the account.
+
     }
 
 
@@ -53,14 +60,14 @@ public class ContactServiceImpl implements ContactService {
     public void sendEmail(Contact contact) {
         // SMTP server properties
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.host", "smtp.office365.com");
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
 
         // Email credentials
-        String username = "dammahumdahs@gmail.com";
-        String password = "Bertholdt123!";
+        String username = "shadmo@cardiff.ac.uk";
+        String password = "Password";
 
         // Email content
         String toEmail = "shadmo@cardiff.ac.uk";
