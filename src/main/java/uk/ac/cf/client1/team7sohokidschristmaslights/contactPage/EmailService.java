@@ -17,7 +17,7 @@ public class EmailService {
     public void sendEmail(Contact contact) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setTo("dammahumdahs@gmail.com"); // Replace with your specified email
+        helper.setTo("newcontactus123@gmail.com"); // Replace with your specified email
         helper.setSubject("New Contact Form Submission");
         String emailContent = "Name: " + contact.getName() + "\n" +
                 "Email: " + contact.getEmail() + "\n" +
