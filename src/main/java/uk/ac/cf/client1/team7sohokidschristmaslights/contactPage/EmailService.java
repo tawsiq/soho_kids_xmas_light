@@ -1,7 +1,6 @@
 package uk.ac.cf.client1.team7sohokidschristmaslights.contactPage;
 
 import jakarta.mail.internet.MimeMessage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -11,8 +10,11 @@ import jakarta.mail.MessagingException;
 @Service
 public class EmailService {
 
-    @Autowired
-    private JavaMailSender javaMailSender;
+    private final JavaMailSender javaMailSender;
+
+    public EmailService(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
 
     public void sendEmail(Contact contact) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
