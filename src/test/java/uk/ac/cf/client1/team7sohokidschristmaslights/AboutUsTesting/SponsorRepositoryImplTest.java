@@ -50,7 +50,7 @@ public class SponsorRepositoryImplTest {
 
     @Test
     public void testGetSponsor() {
-        Integer sponsorId = 1; // Assuming this ID exists in your test data
+        Integer sponsorId = 1; // Assuming this ID exists in test data
         Sponsor sponsor = sponsorRepository.getSponsor(sponsorId);
         assertNotNull(sponsor);
         assertEquals(sponsorId, sponsor.getSponsorId());
@@ -58,7 +58,7 @@ public class SponsorRepositoryImplTest {
 
     @Test
     public void testSaveSponsor() {
-        // Assuming you have a sponsor object to save
+        // Assuming there is a sponsor object to save
         Sponsor newSponsor = new Sponsor(null, "New Company", "New Contact", "new@example.com");
         // Save the sponsor
         sponsorRepository.saveSponsor(newSponsor);
