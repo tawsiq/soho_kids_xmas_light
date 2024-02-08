@@ -1,64 +1,10 @@
-/* Checkout Button styles - similar to the Close button but in green */
-.checkout {
-    text-decoration: none; /* Remove underline from link */
-    display: inline-block; /* Display as a block with inline properties */
-    background-color: #39b458;
-    border: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    color: #eee;
-    text-align: center;
-    padding-top: 5px;
-}
-
-/* Apply hover effect for the Checkout button */
-.checkout:hover {
-    background-color: #2e8440; /* Slightly darker green on hover */
-}
-
-
-/* Navigation styles */
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #39b458;
-}
-
-/* Footer styles */
-footer {
-    background-color: #054c9f;
-    color: #eee;
-    padding: 20px;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-
 /* Body styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 20px;
-}
-
-/* Container styles */
-.container {
-    width: 900px;
-    max-width: 90vw;
-    margin: auto;
-    text-align: center;
-    padding-top: 10px;
+    box-sizing: border-box;
+    background-color: #14152A;
+    color: #EAEBED;
 }
 
 /* SVG styles */
@@ -71,8 +17,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
     position: relative;
+    width: 100%; /* Ensures header spans the full width */
+}
+
+/* Cart Icon Styles in Header */
+header .icon-cart  {
+    cursor: pointer;
 }
 
 header .icon-cart span {
@@ -87,28 +38,99 @@ header .icon-cart span {
     position: absolute;
     top: 50%;
     right: -20px;
-    transform: translate(50%, -50%);
+    transform: translate(50%, -50%); /* Centering adjustment */
+    cursor: pointer;
 }
 
-/* Product List styles */
+/* Footer Styles */
+footer {
+    color: #eee;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Container styles */
+.container {
+    width: 900px;
+    max-width: 90vw;
+    margin: auto;
+    text-align: center;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    height: 50px;
+}
+/* Link Styles within Navigation */
+nav a {
+    text-decoration: none;
+    color: #eee;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+/* Hover Effect for Navigation Links */
+nav a:hover {
+    color: gold;
+}
+
+/* Checkout Button styles */
+.checkout {
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    color: #eee;
+    text-align: center;
+    padding-top: 5px;
+
+}
+
+/* Product List Styles */
+.listProduct .item{
+    background-color: #eeeee6;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Individual Product Item Image Styles */
 .listProduct .item img {
     width: 200px;
     filter: drop-shadow(0 50px 20px #0009);
 }
 
+/* Product Display styling */
 .listProduct {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     position: relative;
+    padding: 20px
 }
 
-body.showCart .container {
-    transform: translateX(-250px);
+/* Product Name */
+.listProduct .item h2 {
+    color: #282727; /* Light text color */
+    margin-bottom: 5px;
+    text-align: center;
 }
 
+/* Product Price */
+.listProduct .item .price {
+    margin-bottom: 10px;
+    color: #39b458;
+}
+
+/* Button Styles in Product List */
 .listProduct .item button {
-    background-color: #353432;
+    background-color: #754287;
     color: #eee;
     padding: 5px 10px;
     margin-top: 10px;
@@ -117,53 +139,75 @@ body.showCart .container {
     cursor: pointer;
 }
 
+.listProduct .item button:hover {
+    background-color: #634a7e;
+}
+
+/* Adjusts the product list in responsive view */
+body.showCart .container {
+    transform: translateX(-250px);
+}
+
 /* CartTab styles */
 .cartTab {
     width: 400px;
-    background-color: #054c9f;
+    background-color: #282c41; /* Dark background for cart */
     color: #eee;
     position: fixed;
-    inset: 0 -400px 0 auto;
+    inset: 0 -600px 0 auto;
     display: grid;
     grid-template-rows: 70px 1fr 70px;
     transition: transform .5s;
     z-index: 1000;
+    padding: 15px;
 }
 
+/*  Cart Tab Positions */
 body.showCart .cartTab {
     inset: 0 0 0 auto;
 }
 
+/*  Cart Tab Header*/
 .cartTab h1 {
     padding: 20px;
     margin: 0;
     font-weight: 300;
 }
 
+/* CartTab Display Layout */
 .cartTab .btn {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
+/* Button Styles in Cart Tab */
 .cartTab .btn .checkout {
-    background-color: #39b458;
-    border: none;
+    background-color:#754287; /* Purple background for buttons */
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
     cursor: pointer;
     color: #eee;
+
 }
 
+/* Button Styles in Cart Tab */
 .cartTab .btn .close {
-    background-color: #eee;
+    background-color: #9c2fec;
     font-family: 'Poppins', sans-serif;
-    color: #726e6e;
+    color: #eee;
+    cursor: pointer;
 }
 
+/* Button Styles in Cart Tab */
+.cartTab .btn a:hover, .cartTab .btn button:hover {
+    background-color: #634a7e;
+}
+
+/* Full width for images */
 .cartTab .listCart .item img {
     width: 100%;
 }
 
+/* Full width for images */
 .cartTab .listCart .item {
     display: grid;
     grid-template-columns: 70px 150px 50px 50px;
@@ -172,7 +216,7 @@ body.showCart .cartTab {
     align-items: center;
 }
 
-/* Quantity styles */
+/* layout for cart items */
 .listCart .quantity {
     display: flex;
     flex-direction: row;
@@ -180,6 +224,7 @@ body.showCart .cartTab {
     align-items: center;
 }
 
+/* Quantity Styles in Cart */
 .listCart .quantity span {
     display: inline-block;
     width: 25px;
@@ -198,7 +243,7 @@ body.showCart .cartTab {
 /* Alternating item styles */
 .listCart .item:nth-child(even) {
     background-color: transparent;
-    color: #eee;
+    color: gold;
 }
 
 /* Scrollbar styles */
@@ -206,6 +251,7 @@ body.showCart .cartTab {
     overflow: auto;
 }
 
+/* Hides the scrollbar for a cleaner look */
 .listCart::-webkit-scrollbar {
     width: 0;
 }

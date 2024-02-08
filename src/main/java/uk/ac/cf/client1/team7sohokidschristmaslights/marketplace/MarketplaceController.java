@@ -5,22 +5,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 import java.util.List;
 
-
 @Controller
 public class MarketplaceController {
 
-    private final MarketService marketService;
+    private final MarketService marketService; // Service for handling marketplace operations
 
-    public MarketplaceController(MarketService marketService){
+
+    // Constructor injection of MarketService
+  public MarketplaceController(MarketService marketService){
         this.marketService = marketService;
-    }
+  //      this.cartDetailRepository = cartDetailRepository;
+  }
 
+
+    // Handles requests to the marketplace page, displaying products
     @GetMapping("home/marketplace")
     public ModelAndView getMarketplace() {
         ModelAndView modelAndView = new ModelAndView("marketplace/marketplace");
@@ -31,6 +37,8 @@ public class MarketplaceController {
         return modelAndView;
     }
 
+
+    // Handles requests for product images based on product ID
     @GetMapping("/getProductImage/{id}")
     public ResponseEntity<byte[]> getImageDataForTemplate(@PathVariable Integer id) throws IOException {
 
@@ -47,4 +55,26 @@ public class MarketplaceController {
         }
     }
 
+    // Handles GET requests for the checkout page
+    @GetMapping("home/marketplace/checkout")
+    public ModelAndView hostCheckout(){
+        return new ModelAndView("checkout/checkout");
+    }
+
+    // Handles POST requests for processing the checkout with the total price and checkout details
+    @PostMapping("home/marketplace/checkout/{total_price}")
+    public ModelAndView processCheckout(@PathVariable Float total_price, Checkout checkout){
+
+        checkout.setTotalPrice(total_price); // Set the total price of the checkout
+        marketService.saveCheckout(checkout); // Save the checkout details
+
+
+        return new ModelAndView("redirect:/home/marketplace/checkout"); // Redirect after successful checkout
+    }
+
 }
+
+
+
+
+
