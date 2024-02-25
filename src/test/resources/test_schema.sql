@@ -44,3 +44,22 @@ CREATE TABLE IF NOT EXISTS LikeCounts (
     -- FOREIGN KEY (submission_id) REFERENCES Drawings(id)
 
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS SponsorInfo (
+
+    sponsor_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    company_name VARCHAR(255) NOT NULL,
+    contact_person VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+
+
+
+
+) ENGINE=InnoDB;
+
+-- Insert test data
+INSERT INTO SponsorInfo (sponsor_id, company_name, contact_person, email)
+VALUES
+    (1, 'ABC Company', 'John Doe', 'john.doe@example.com'),
+    (2, 'XYZ Corp', 'Jane Smith', 'jane.smith@example.com'),
+    (3, 'Company', 'Janice Smith', 'janice.smith@example.com');
