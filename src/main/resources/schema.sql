@@ -1,4 +1,4 @@
-CREATE DATABASE team7_soho_kids_database;
+CREATE DATABASE IF NOT EXISTS team7_soho_kids_database;
 USE team7_soho_kids_database;
 
 DROP TABLE IF EXISTS Lights;
