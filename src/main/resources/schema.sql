@@ -1,3 +1,4 @@
+USE team7_soho_kids_database;
 
 DROP TABLE IF EXISTS Lights;
 DROP TABLE IF EXISTS Drawings;
