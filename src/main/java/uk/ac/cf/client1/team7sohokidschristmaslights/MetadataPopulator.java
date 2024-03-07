@@ -5,6 +5,7 @@ import java.io.File;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.nio.file.Paths;
 // Pair programmed with ChatGPT.
 public class MetadataPopulator {
 
@@ -14,7 +15,7 @@ public class MetadataPopulator {
         String currentDirectory = System.getProperty("user.dir");
         System.out.println("MetadataPopulator located here: " + currentDirectory);
 
-        String directoryPath = currentDirectory + "\\src\\main\\resources\\static\\submission_storage_directory";
+        String directoryPath = Paths.get(currentDirectory, "src", "main", "resources", "static", "submission_storage_directory").toString();
 
         try (Connection connection = DriverManager.getConnection(jdbcURL)) {
             File mainDirectory = new File(directoryPath);
