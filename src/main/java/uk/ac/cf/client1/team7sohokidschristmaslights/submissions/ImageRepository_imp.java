@@ -127,7 +127,7 @@ public class ImageRepository_imp implements ImageRepository{
         return jdbc.query(sql, ratingItemMapper, submission_id);
     }
     public Integer getLikeCount(Long id){
-        String sql = "SELECT like_count FROM likecounts WHERE submission_id = ?";
+        String sql = "SELECT like_count FROM LikeCounts WHERE submission_id = ?";
         // Now the likes are being selected from a new table specifically made to increment / decrement the like count for each submission.
         return jdbc.queryForObject(sql, Integer.class, id);
     }
