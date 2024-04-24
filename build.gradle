@@ -39,10 +39,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
 
 jacocoTestReport {
     reports {
@@ -59,6 +55,7 @@ test {
     useJUnitPlatform()
     reports {
         junitXml.enabled = true
-        html.enabled = true 
+        html.enabled = true
+    } 
     finalizedBy jacocoTestReport
 }
