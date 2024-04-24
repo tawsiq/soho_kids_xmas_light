@@ -32,6 +32,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'junit:junit:4.13.2'
 	implementation('org.springframework.boot:spring-boot-starter-mail') {
 		exclude group: 'javax.mail', module: 'javax.mail-api'
 	}
@@ -51,10 +52,3 @@ jacocoTestReport {
     }
 }
 
-test {
-    useJUnitPlatform()
-    reports {
-        junitXml.enabled(true)
-        html.enabled(true) 
-    }
-}
