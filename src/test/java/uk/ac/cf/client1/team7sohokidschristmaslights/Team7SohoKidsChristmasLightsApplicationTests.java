@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
-//@SpringBootTest
-//class Team7SohoKidsChristmasLightsApplicationTests {
+@SpringBootTest
+class Team7SohoKidsChristmasLightsApplicationTests {
 
-//	@Test
-//	void contextLoads() {
+	@Test
+	void contextLoads() {
 
-//	}
+	}
 
-//}
+}
