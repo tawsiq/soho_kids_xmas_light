@@ -54,8 +54,7 @@ jacocoTestReport {
 test {
     useJUnitPlatform()
     reports {
-        junitXml.enabled = true
-        html.enabled = true
-    } 
-    finalizedBy jacocoTestReport
+        junitXml.enabled(true)
+        html.enabled(true) 
+    }
 }
