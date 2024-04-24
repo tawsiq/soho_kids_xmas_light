@@ -43,16 +43,15 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-jacoco {
-    reportsDir = file("$buildDir/jacoco")
-}
 
 jacocoTestReport {
-    dependsOn test 
     reports {
         xml.required = true
         html.required = true
         csv.required = false
+        xml.outputLocation = file("$buildDir/customJacocoReportDir/xml")
+        html.outputLocation = file("$buildDir/customJacocoReportDir/html")
+        csv.outputLocation = file("$buildDir/customJacocoReportDir/csv")
     }
 }
 
