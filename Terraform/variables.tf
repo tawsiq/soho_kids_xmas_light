@@ -8,4 +8,4 @@ variable "network" { default = "openStack_project_network" }   # you need to cha
 variable "pool" { default = "cscloud_private_floating" }
 variable "server1_script" { default = "./server1.sh" }
 variable "security_description" { default = "Terraform security group" }
-variable "security_name" { default = "tf_securityMat" }
+variable "security_name" { default = "tf_securityMat1" }
