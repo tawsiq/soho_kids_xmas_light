@@ -1,4 +1,4 @@
-variable "flavor" { default = "m1.large" }
+variable "flavor" { default = "m1.medium" }
 variable "image" { default = "Debian Buster 10.11.1 20211029" }
 variable "name1" { default = "DebbySoho" }
 
