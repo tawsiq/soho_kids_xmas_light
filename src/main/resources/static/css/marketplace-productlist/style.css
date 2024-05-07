@@ -125,12 +125,12 @@ nav a:hover {
 /* Product Price */
 .listProduct .item .price {
     margin-bottom: 10px;
-    color: #9c2fec;
+    color: #39b458;
 }
 
 /* Button Styles in Product List */
 .listProduct .item button {
-    background-color: #da1515;
+    background-color: #754287;
     color: #eee;
     padding: 5px 10px;
     margin-top: 10px;
@@ -191,7 +191,7 @@ body.showCart .cartTab {
 
 /* Button Styles in Cart Tab */
 .cartTab .btn .close {
-    background-color: #9c2fec;
+    background-color: #da1515;
     font-family: 'Poppins', sans-serif;
     color: #eee;
     cursor: pointer;
