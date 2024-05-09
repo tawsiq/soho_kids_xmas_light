@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository // Indicates that this class is a Spring repository component
 public class MarketRepositoryImpl implements MarketRepository {
@@ -48,6 +49,11 @@ public class MarketRepositoryImpl implements MarketRepository {
     public Product getProduct(Integer id) {
         String sql = "SELECT * FROM MarketplaceProducts WHERE product_id = ?";
         return jdbc.queryForObject(sql, productMapper, id);
+    }
+
+    @Override
+    public Optional<Product> findById(Long id) {
+        return Optional.empty();
     }
 
     // Retrieves a list of all products from the database
